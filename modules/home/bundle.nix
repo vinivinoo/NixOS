@@ -12,6 +12,7 @@
     ./lazygit.nix
     ./rofi.nix
     ./starship.nix
+    ./swaylock.nix
     ./waybar.nix
     ./yazi.nix
     ./zsh.nix

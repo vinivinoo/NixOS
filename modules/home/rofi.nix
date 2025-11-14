@@ -6,11 +6,11 @@ in
 {
   programs.rofi = {
     enable = true;
-    font = "FiraCode Nerd Font";
+    font = "Iosevka 12";
 
     # Theme expressed as an attribute-set using rasi mkLiteral values
     theme = {
-      "@import" = "catppuccin-mocha";
+      
 
       "*" = {
         rosewater = mk "#f5e0dc";
@@ -39,6 +39,32 @@ in
         base      = mk "#1e1e2e";
         mantle    = mk "#181825";
         crust     = mk "#11111b";
+
+        # Extended Catppuccin-style variables (from your original theme)
+        background                  = mk "@base";
+        foreground                  = mk "@text";
+        lightfg                     = mk "@text";
+        lightbg                     = mk "@mantle";
+        separatorcolor              = mk "@foreground";
+        urgent-foreground           = mk "@red";
+        alternate-urgent-background = mk "@lightbg";
+        border-color                = mk "@foreground";
+        normal-background           = mk "@background";
+        selected-urgent-background  = mk "@red";
+        alternate-active-background = mk "@lightbg";
+        spacing                     = mk "2";
+        alternate-normal-foreground = mk "@foreground";
+        urgent-background           = mk "@background";
+        selected-normal-foreground  = mk "@lightbg";
+        active-foreground           = mk "@blue";
+        selected-active-background  = mk "@blue";
+        active-background           = mk "@background";
+        selected-normal-background  = mk "@lightfg";
+        alternate-normal-background = mk "@lightbg";
+        selected-urgent-foreground  = mk "@background";
+        normal-foreground           = mk "@foreground";
+        alternate-urgent-foreground = mk "@red";
+        alternate-active-foreground = mk "@blue";
       };
 
       # Basic element styling
@@ -149,4 +175,5 @@ in
     };
   };
 }
+
 
