@@ -4,8 +4,9 @@
     ./firefox.nix
     ./bat.nix
     ./git.nix
-    ./helix.nix
-    ./hyprland.nix
+    # ./helix.nix
+    # ./hyprland.nix
+    # ./kitty.nix
     ./lazygit.nix
     ./rofi.nix
     ./starship.nix
