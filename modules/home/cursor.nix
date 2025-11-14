@@ -1,4 +1,4 @@
-{ pkgs : ... }:
+{ pkgs , ... }:
 {
   pointerCursor = {
     package = pkgs.bibata-cursors;

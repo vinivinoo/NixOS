@@ -7,7 +7,7 @@
     catppuccin.homeModules.catppuccin
   ];
 
-  
+
 
   home = {
     username = "vini";
@@ -21,6 +21,12 @@
   };
 
   programs.home-manager.enable = true;
+
+  catppucin = {
+    enable = true;
+    flavor = "mocha";
+    accen = "lavendar";
+  };
 
   home.file = {
     ".config/hypr".source = ./../../config/hypr;

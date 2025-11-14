@@ -3,7 +3,8 @@
     ./packages.nix
     ./btop.nix
     ./bat.nix
-    ./catppuccin.nix
+    # ./catppuccin.nix
+    ./cursor.nix
     ./firefox.nix
     ./fonts.nix
     ./git.nix
