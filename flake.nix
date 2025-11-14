@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
-    catppuccin.url = "github:acatppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = { nixpkgs, home-manager, catppuccin, ... }@inputs: {
