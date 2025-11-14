@@ -7,18 +7,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # catppuccin.url = "github:catppuccin/nix";
-    stylix.url = "github:danth/stylix";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, catppuccin, ... }@inputs: {
     nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./hosts/laptop/configuration.nix
         home-manager.nixosModules.home-manager
-        inputs.stylix.nixosModules.stylix
-        # catppuccin.nixosModules.catppuccin
+        catppuccin.nixosModules.catppuccin
 	      {
 	        home-manager = {
 	          useGlobalPkgs = true;
