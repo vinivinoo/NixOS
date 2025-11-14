@@ -1,10 +1,11 @@
 {
   imports = [
     ./packages.nix
+    ./btop.nix
+    ./bat.nix
+    ./catppuccin.nix
     ./firefox.nix
     ./fonts.nix
-    ./bat.nix
-    ./btop.nix
     ./git.nix
     ./helix.nix
     # ./hyprland.nix
