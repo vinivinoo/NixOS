@@ -1,10 +1,10 @@
-{ pkgs, catppuccin, ... }:
+{ pkgs, inputs, ... }:
 
 {
 
   imports = [
     ./../../modules/home/bundle.nix
-    catppuccin.homeModules.catppuccin
+    # inputs.catppuccin.homeModules.catppuccin
   ];
 
 
@@ -22,7 +22,7 @@
 
   programs.home-manager.enable = true;
 
-  # catppucin = {
+  # home.catppucin = {
   #   enable = true;
   #   flavor = "mocha";
   #   accent = "lavendar";
