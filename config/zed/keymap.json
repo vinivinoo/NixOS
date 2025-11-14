@@ -1,0 +1,14 @@
+[
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "space": null
+    }
+  },
+  {
+    "context": "(vim_mode == normal || vim_mode== select) && !menu",
+    "bindings": {
+      "space f": "file_finder::Toggle"
+    }
+  }
+]
