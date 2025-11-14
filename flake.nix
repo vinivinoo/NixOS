@@ -21,7 +21,8 @@
 	        home-manager = {
 	          useGlobalPkgs = true;
 	          useUserPackages = true;
-	          users.vini = import ./hosts/laptop/home.nix;
+	          users.vini = ./hosts/laptop/home.nix;
+	          extraSpecialArgs = { inherit inputs; };
 	          backupFileExtension = "backup";
 	        };
         }

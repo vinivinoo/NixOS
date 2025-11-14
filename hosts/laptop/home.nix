@@ -4,7 +4,7 @@
 
   imports = [
     ./../../modules/home/bundle.nix
-    # inputs.catppuccin.homeModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
   ];
 
 
@@ -22,11 +22,11 @@
 
   programs.home-manager.enable = true;
 
-  # home.catppucin = {
-  #   enable = true;
-  #   flavor = "mocha";
-  #   accent = "lavendar";
-  # };
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    accent = "lavender";
+  };
 
   home.file = {
     ".config/hypr".source = ./../../config/hypr;

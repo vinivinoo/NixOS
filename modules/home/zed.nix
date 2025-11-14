@@ -1,6 +1,6 @@
 {
   programs.zed-editor = {
-    enable = true;
+    enable = false;
     extensions = [ "Catppuccin" "Catppuccin Icons" "Nix" ];
     userKeymaps = [
       {
