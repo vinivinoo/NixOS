@@ -7,8 +7,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
     catppuccin.url = "github:catppuccin/nix";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { nixpkgs, home-manager, catppuccin, ... }@inputs: {
@@ -18,7 +18,7 @@
         ./hosts/laptop/configuration.nix
         home-manager.nixosModules.home-manager
         inputs.stylix.nixosModules.stylix
-        catppuccin.homeModules.catppuccin
+        catppuccin.nixosModules.catppuccin
 	      {
 	        home-manager = {
 	          useGlobalPkgs = true;

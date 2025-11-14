@@ -2,24 +2,22 @@
   programs.zed-editor = {
     enable = true;
     extension = [ "Catppuccin" "Catppuccin Icons" "Nix" ];
-    userKeymaps = {
-      [
-        {
-          context = "(VimControll && !menu)";
-          bindings = {
-            space = null;
-          };
+    userKeymaps = [
+      {
+        context = "(VimControll && !menu)";
+        bindings = {
+          space = null;
         };
-        {
-          context = "(vim_mode == normal || vim_mode == select) && !menu";
-          bindings = {
-            "space f" = "file_finder::Toggle"; 
-          };
+      }
+      {
+        context = "(vim_mode == normal || vim_mode == select) && !menu";
+        bindings = {
+          "space f" = "file_finder::Toggle"; 
         };
-      ]
-    };
+      }
+    ];    
     userSettings = {
-      base_keymap = "VSCode",
+      base_keymap = "VSCode";
       always_treat_brackets_as_autoclosed = "true";
       relative_line_numbers = true;
       disable_ai = true;
@@ -35,6 +33,5 @@
         dark = "Catppuccin Mocha";
       };
     };
-    
   };
 }

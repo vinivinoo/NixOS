@@ -1,9 +1,10 @@
-{ pkgs, nvf, ... }:
+{ pkgs, catppuccin , ... }:
 
 {
 
   imports = [
     ./../../modules/home/bundle.nix
+    catppuccin.homeModules.catppuccin
   ];
 
   
