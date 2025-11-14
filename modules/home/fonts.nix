@@ -1,7 +1,7 @@
 {
   fonts.fontconfig = {
     enable = true;
-    deufaultFonts = {
+    defaultFonts = {
       monospace = [ "FiraMono Nerd Font" ];
       sansSerif = [ "DejaVu Sans" ];
       serif = [ "FiraCode Nerd Font" ];
