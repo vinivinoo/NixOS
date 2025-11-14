@@ -29,7 +29,6 @@
     zsh
 
     # desktop
-    foot
     hyprland
     hyprshot
     kitty

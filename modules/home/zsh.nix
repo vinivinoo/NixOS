@@ -20,6 +20,7 @@
         cat = "bat";
         ls = "eza";
         la = "eza -lA";
+        
       };
 
     history.size = 5000;
@@ -29,6 +30,10 @@
       if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
          exec hyprland
       fi
+
+      man() {
+        command man "$@" | bat -l man -p
+      }
                 
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh --cmd cd)"
