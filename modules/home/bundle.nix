@@ -15,6 +15,7 @@
     ./swaylock.nix
     ./waybar.nix
     ./yazi.nix
+    ./zed.nix
     ./zsh.nix
   ];
 }
