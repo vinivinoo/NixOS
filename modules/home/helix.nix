@@ -2,6 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
+    theme = "catppuccin_mocha";
       editor = {
         line-number = "relative";
         color-modes = true;
@@ -22,7 +23,7 @@
           render = true;
         };
         soft-wrap = {
-          enabler = true;
+          enable = true;
         };
       };
     };

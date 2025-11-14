@@ -10,7 +10,8 @@
         flakeDir = "/home/vini/nixos";
       in {
         rb = "sudo nixos-rebuild switch --flake ${flakeDir}#vini";
-        upd = "nix flake update ${flakeDir}#vini";
+        rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#vini --no-reexec";
+        upd = "nix flake update ${flakeDir}";
         upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
 
         conf = "hx ${flakeDir}";

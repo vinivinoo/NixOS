@@ -29,6 +29,7 @@
     zsh
 
     # desktop
+    foot
     hyprland
     hyprshot
     kitty
@@ -45,6 +46,12 @@
     vesktop
     spotify
     firefox
+
+    # fonts
+    nerd-fonts.fira-mono
+    nerd-fonts.fira-code
+    dejavu_fonts
+    noto-fonts-color-emoji
 
     # programming
     curl
