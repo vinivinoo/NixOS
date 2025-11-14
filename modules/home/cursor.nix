@@ -1,8 +1,9 @@
-{ pkgs , ... }:
+{ pkgs, ... }:
 {
-  pointerCursor = {
+  home.pointerCursor = {
+    enable = true;
     package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
+    name = "Bibata-bodern-Ice";
     size = 24;
     gtk.enable = true;
   };

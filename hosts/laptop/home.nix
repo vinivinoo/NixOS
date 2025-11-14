@@ -1,10 +1,10 @@
-{ pkgs, catppuccin , ... }:
+{ pkgs, ... }:
 
 {
 
   imports = [
     ./../../modules/home/bundle.nix
-    catppuccin.homeModules.catppuccin
+    # catppuccin.homeModules.catppuccin
   ];
 
 
@@ -22,11 +22,11 @@
 
   programs.home-manager.enable = true;
 
-  catppucin = {
-    enable = true;
-    flavor = "mocha";
-    accen = "lavendar";
-  };
+  # catppucin = {
+  #   enable = true;
+  #   flavor = "mocha";
+  #   accent = "lavendar";
+  # };
 
   home.file = {
     ".config/hypr".source = ./../../config/hypr;

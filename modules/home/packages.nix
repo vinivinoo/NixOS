@@ -52,6 +52,9 @@
     dejavu_fonts
     noto-fonts-color-emoji
 
+    # cursor
+    bibata-cursors
+
     # programming
     curl
     jdk

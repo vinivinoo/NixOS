@@ -1,8 +1,8 @@
-{ config, pkgs, lib, ... }:
+# { config, pkgs, lib, ... }:
 
-let
-  mk = config.lib.formats.rasi.mkLiteral;
-in
+# let
+#   mk = config.lib.formats.rasi.mkLiteral;
+# in
 {
   programs.rofi = {
     enable = true;
@@ -10,7 +10,7 @@ in
 
     # # Theme expressed as an attribute-set using rasi mkLiteral values
     # theme = {
-      
+
 
     #   "*" = {
     #     rosewater = mk "#f5e0dc";
@@ -175,5 +175,3 @@ in
     # };
   };
 }
-
-
