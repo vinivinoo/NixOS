@@ -1,7 +1,7 @@
 {
   programs.zed-editor = {
-    enable = false;
-    extensions = [ "Catppuccin" "Catppuccin Icons" "Nix" ];
+    enable = true;
+    extensions = [ "Nix" ];
     userKeymaps = [
       {
         context = "(VimControll && !menu)";
@@ -18,20 +18,14 @@
     ];
     userSettings = {
       base_keymap = "VSCode";
-      always_treat_brackets_as_autoclosed = "true";
+      always_treat_brackets_as_autoclosed = true;
       relative_line_numbers = true;
       disable_ai = true;
       tab_size = 2;
       buffer_font_family = "FiraMono Nerd Font";
       vim_mode = true;
-      icon_theme = "Zed (Default)";
       ui_font_size = 16;
       buffer_font_size = 15;
-      theme = {
-        mode = "dark";
-        light = "Catppuccin Frappé";
-        dark = "Catppuccin Mocha";
-      };
     };
   };
 }
