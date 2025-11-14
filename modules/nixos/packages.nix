@@ -2,7 +2,10 @@
 
 let
   systemUtils = with pkgs; [
+    brightnessctl
     openssh
+    pavucontrol
+    pipewire
     unzip
     wget
     wl-clipboard

@@ -12,6 +12,11 @@
     username = "vini";
     homeDirectory = "/home/vini";
     stateVersion = "25.11";
+    sessionVariables = {
+      BROWSER = "firefox";
+      EDITOR = "helix";
+      TERMINAL = "kitty";
+    };
   };
 
   programs.home-manager.enable = true;
