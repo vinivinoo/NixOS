@@ -90,7 +90,7 @@
     };
 
     settings = {
-      color_theme = "catppuccin_mocha";
+      color_theme = "/home/vini/.config/btop/themes/catppuccin_mocha.theme";
       vim_keys = true;
     };
   };
