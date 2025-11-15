@@ -4,24 +4,49 @@
 
     settings = {
       mainBar = {
+        layer = "top";
         position = "top";
-
-        modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ ];
-        modules-right = [
-          "tray"
-          "bluetooth"
-          "wireplumber"
-          "network"
-          "battery"
+        spacing = 0;
+        modules-left = [
+          "hyprland/workspaces"
+          "ext/workspaces"
+        ];
+        modules-center = [
           "clock"
         ];
-      
+        modules-right = [
+          "custome/pomodoro"
+          "bluetooth"
+          "network"
+          "wireplumber"
+          "backlight"
+          "battery"
+        ];
+
+        "hyprland/workspaces" = {
+          format = "{name}: {icon}";
+          format-icons = {
+            active = "";
+            default = "";
+          };
+        };
+
+        bluetooth = {
+          format = "󰂲";
+          format-on = "{icon}";
+          format-off = "{icon}";
+          format-connected = "{icon}";
+          format-icons = {
+            on = "󰂯";
+            off = "󰂲";
+            connected = "󰂱";
+            };
+          on-click = "blueman-manager";
+          tooltip-format-connected = "{device_enumerate}";
+        };
 
         clock = {
-          format = "{:%H:%M}";
-          format-alt = "{:%a %d %H:%M}";
-          locale = "de_DE.UTF-8";
+          timezone = "Europe/Berlin";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
             mode = "month";
@@ -33,48 +58,14 @@
               weeks = "<span color='#b4befe'><b>{}</b></span>";
             };
           };
-        };
-
-        battery = {
-          states = {
-            warning = 30;
-            critical = 15;
-          };
-          format = "{icon}";
-          format-warning = "{icon}";
-          format-critical = "{icon}";
-          format-charging = "";
-          format-plugged = "";
-          format-full = "";
-          format-icons = [ "" "" "" "" "" ];
-          tooltip-format = "{capacity}%";
-        };
-
-        wireplumber = {
-          format = "{icon}";
-          format-muted = "";
-          tooltip-format = "{volume}%";
-          format-icons.default = [
-            ""
-            ""
-            ""
-          ];
-          on-click = "pavucontrol";
-        };
-
-        bluetooth = {
-          format = "";
-          format-connected = "";
-          tooltip-format-connected = "{device_alias}";
+          format = "{:%H:%M - %d, %B}";
+          interval = 1;
         };
 
         network = {
           format-wifi = "{icon}";
-          format-ethernet = "󰲝";
-          format-disconnected = "";
-          tooltip-format-wifi = "{essid}";
-          tooltip-format-ethernet = "{ifname}";
-          tooltip-format-disconnected = "Disconnected";
+          format-ethernet = "󰈀 ";
+          format-disconnected = "󰤠 ";
           format-icons = [
             "󰤯"
             "󰤟"
@@ -82,117 +73,276 @@
             "󰤥"
             "󰤨"
           ];
+          interval = 5,
+          tooltip-format = "{essid} ({signalStrength}%)";
+          on-click = "nm-connection-editor";
         };
 
-        tray = {
-          spacing = 15;
-          icons = { };
+        backlight = {
+          format = "{icon}  {percent}%";
+          format-icons = ["" "󰃜" "󰃛" "󰃞" "󰃝" "󰃟" "󰃠"];
+          tooltip = false;
+        };
+
+        wireplumber = {
+          format = "{icon}  {volume}%";
+          fomat-muted = "";
+          format-icons = {
+            default = [ "" "" " "]; 
+          };
+          on-click = "pavucontrol";
+        };
+
+        battery = {
+          interval = 2;
+          states = {
+            warning = 30;
+            critical = 15;
+        };
+          format = "{icon}  {capacity}%";
+          format-full = "{icon}  {capacity}%";
+          format-charging = " {capacity}%";
+          format-plugged = " {capacity}%";
+          format-alt = "{icon} {time}";
+          format-icons = ["" "" "" "" ""];
+        };
+
+        "custom/pomodoro" = {
+          format = "{}";
+          return-type = "json";
+          exec = "waybar-module-pomodoro --no-work-icosn";
+          on-click = "waybar-module-pomodoro toggle";
+          on-click-right = "waybar-module-pomodoro reset";
         };
       };
     };
     style = ''
-
+      /* --- Global Styles --- */
       * {
         font-family: "";
-        font-size: 16px;
-        font-weight: bold;
+        font-size: 13px;
+        min-height: 0;
+        padding-right: 0px;
+        padding-left: 0px;
+        padding-bottom: 0px;
       }
-
-      window#waybar {
-        background-color: @crust;
-        color: @text;
-        transition-property: background-color;
-        transition-duration: 0.5s;
-        border-bottom: 1px solid @overlay1;
+      
+      /* --- Waybar Container --- */
+      #waybar {
+        background: transparent;
+        color: #c6d0f5;
+        margin: 0px;
+        font-weight: 500;
       }
-
-      button {
-        box-shadow: inset 0 -3px transparent;
+      
+      /* --- Left Modules (Individual, Fully Rounded Blocks - With Horizontal Spacing & Simple Hover) --- */
+      #workspaces,
+      #custom-uptime,
+      #cpu {
+        background-color: #1a1b26;
+        padding: 0.3rem 0.7rem;
+        margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
+        border-radius: 6px; /* These modules are always rounded */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        min-width: 0;
         border: none;
-        border-radius: 0;
+        /* Transition for background-color and color only */
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
       }
-
-      #workspaces button:hover {
-        color: @blue;
-        box-shadow: inherit;
-        text-shadow: inherit;
-        background: @crust;
-        border: @crust;
-      }
-
-      #workspaces button {
-        padding: 0 5px;
-        color: @surface2;
-        margin: 4px 0 4px 6px;
-        transition: color 200ms ease-in-out;
-      }
-
-      #workspaces button.selected {
-        color: @blue;
-      }
-
-      #workspaces button.active {
-        color: @mauve;
-      }
-
-      #workspaces button.urgent {
-        color: @red;
-      }
-
+      
       #workspaces {
-        margin: 0 4px;
+        padding: 2px;
+        margin-left: 7px; /* Margin from the far left edge */
+        margin-right: 5px; /* Spacing after the workspaces module */
       }
-
+      
+      #custom-uptime {
+        margin-right: 5px; /* Spacing after the uptime module */
+      }
+      
+      /* Simple Hover effects for individual left modules - BRIGHTER COLOR */
+      #custom-uptime:hover,
+      #cpu:hover {
+        background-color: rgb(41, 42, 53); /* Brighter highlight */
+      }
+      
+      #workspaces button {
+        color: #babbf1;
+        border-radius: 5px; /* Workspaces buttons are always rounded */
+        padding: 0.3rem 0.6rem;
+        background: transparent;
+        transition: all 0.2s ease-in-out;
+        border: none;
+        outline: none;
+      }
+      
+      #workspaces button.active {
+        color: #99d1db;
+        background-color: rgba(153, 209, 219, 0.1);
+        box-shadow: inset 0 0 0 1px rgba(153, 209, 219, 0.2);
+      }
+      
+      #workspaces button:hover {
+        background: rgb(41, 42, 53); /* Reference bright hover color */
+        color: #c6d0f5;
+      }
+      
+      /* --- Center Module (Individual, Fully Rounded Block - With Simple Hover) --- */
       #clock {
-        color: @maroon;
-        margin-left: 10px;
-        margin-right: 10px;
+        background-color: #1a1b26;
+        padding: 0.3rem 0.7rem;
+        margin: 5px 0px;
+        border-radius: 6px; /* This module is always rounded */
+        box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);
+        min-width: 0;
+        border: none;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
       }
-
+      
+      /* Simple Hover effect for clock module - BRIGHTER COLOR */
+      #clock:hover {
+        background-color: rgba(153, 209, 219, 0.1); /* Brighter highlight */
+      }
+      
+      #custom-pomodoro {
+          background-color: #1a1b26; /* Consistent dark background */
+          padding: 0.3rem 0.7rem; /* Consistent padding with other modules (e.g., cpu, uptime) */
+          margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
+          border-radius: 6px; /* Consistent rounded corners with other individual modules */
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Consistent shadow */
+          min-width: 0;
+          border: none;
+          outline: none; /* Ensure no default outline */
+          /* Transition for background-color, color, outline, and box-shadow for smooth effect */
+          transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, outline 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+          color: #babbf1; /* A calm color, consistent with custom-uptime */
+          font-weight: 600; /* Slightly bolder for the timer, consistent with clock */
+      }
+      
+      /* Positioning and spacing for the custom-pomodoro module */
+      #custom-pomodoro {
+          margin-left: 5px; /* Spacing from the previous module (e.g., clock) */
+          margin-right: 5px; /* Spacing before the seamless right bar starts (e.g., bluetooth) */
+      }
+      
+      /* Hover effect for the new pomodoro module (consistent with others + rectangular outline) */
+      #custom-pomodoro:hover {
+          background-color: rgb(41, 42, 53); /* Brighter highlight, consistent with other individual modules */
+          color: #c6d0f5; /* Text color change on hover, consistent with other individual modules */
+          outline: 1px solid rgba(255, 255, 255, 0.1); /* Rectangular outline on hover */
+          outline-offset: -1px;
+      }
+      
+      /* --- Highlighted state for Pomodoro module when running (work or break) --- */
+      #custom-pomodoro.work,
+      #custom-pomodoro.break {
+        color: #99d1db; /* Text color consistent with active workspaces button */
+        background-color: rgba(153, 209, 219, 0.1); /* Background color consistent with active workspaces button */
+        box-shadow: inset 0 0 0 1px rgba(153, 209, 219, 0.2); /* Inner shadow for outline effect */
+        outline: none;
+      }
+      
+      /* --- Right Modules (Single, Seamless Bar ) --- */
+      #bluetooth,
+      #pulseaudio,
+      #backlight,
+      #network,
+      #custom-lock,
       #battery {
-        color: @green;
-        margin-left: 10px;
-        margin-right: 10px;
+        background-color: #1a1b26;
+        padding: 0.3rem 0.7rem;
+        margin: 5px 0px; 
+        border-radius: 0;
+        box-shadow: none;
+        min-width: 0;
+        border: none;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
       }
-
-      #battery.warning:not(.charging) {
-        color: @red;
-        margin-left: 10px;
-        margin-right: 10px;
+      
+      #bluetooth:hover,
+      #pulseaudio:hover,
+      #backlight:hover,
+      #network:hover,
+      #custom-lock:hover,
+      #battery:hover {
+        background-color: rgb(41, 42, 53);
       }
-
-      @keyframes blink {
-        to {
-          color: #000000;
-        }
-      }
-
-      #battery.critical:not(.charging) {
-        color: @red;
-        animation-name: blink;
-        animation-duration: 0.7s;
-        animation-timing-function: steps(12);
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-      }
-
-      #wireplumber {
-        color: @mauve;
-        margin-left: 10px;
-        margin-right: 5px;
-      }
-
-      #network {
-        color: @blue;
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-
+      
       #bluetooth {
-        color: @peach;
-        margin-left: 10px;
-        margin-right: 5px;
+        margin-left: 0px; 
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
       }
+      
+      #battery {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        margin-right: 7px;
+      }
+      
+      #custom-uptime {
+        color: #babbf1;
+      }
+      #cpu {
+        color: #c6d0f5;
+      }
+      
+      #clock {
+        color: #99d1db;
+        font-weight: 500;
+      }
+      
+      #pulseaudio {
+        color: #c6d0f5;
+      }
+      #backlight {
+        color: #c6d0f5;
+      }
+      
+      #network {
+        color: #c6d0f5;
+      }
+      
+      #network.disconnected {
+        color: #e78284;
+      }
+      
+      #custom-lock {
+        color: #babbf1;
+      }
+      #bluetooth {
+        color: #888888;
+        font-size: 16px;
+      }
+      #bluetooth.on {
+        color: #2196f3;
+      }
+      #bluetooth.connected {
+        color: #99d1db;
+      }
+      #battery {
+        color: #99d1db;;
+      }
+      #battery.charging {
+        color: #a6d189;
+      }
+      #battery.warning:not(.charging) {
+        color: #e78284;
+      }
+      
+      /* --- Tooltip Styles --- */
+      tooltip {
+        background-color: #1a1b26;
+        color: #dddddd;
+        padding: 5px 12px;
+        margin: 5px 0px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        font-size: 12px;
+      }
+
+
     '';
   };
 }
