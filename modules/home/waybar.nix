@@ -93,7 +93,7 @@
     style = ''
 
       * {
-        font-family: "FiraCode Nerd Font Mono";
+        font-family: "";
         font-size: 16px;
         font-weight: bold;
       }

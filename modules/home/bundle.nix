@@ -14,6 +14,7 @@
     ./rofi.nix
     ./starship.nix
     ./swaylock.nix
+    ./tmux.nix
     ./waybar.nix
     ./yazi.nix
     ./zed.nix

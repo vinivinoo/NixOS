@@ -32,8 +32,5 @@
     ".config/hypr".source = ./../../config/hypr;
     "Bilder/Backgrounds".source = ./../../config/makko-background;
     # ".config/swaylock".source= ./../../config/swaylock;
-    ".config/tmux".source= ./../../config/tmux;
-    # ".config/waybar".source = ./../../config/waybar;
-    # ".config/zed".source = ./../../config/zed;
   };
 }
