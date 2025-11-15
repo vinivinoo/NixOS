@@ -18,6 +18,8 @@
       BROWSER = "firefox";
       EDITOR = "helix";
       TERMINAL = "kitty";
+      XCURSOR_THEME = "Bibata-bodern-Ice";
+      XCURSOR_SIZE = "24";
     };
   };
 
@@ -30,8 +32,7 @@
   };
 
   home.file = {
-    ".config/hypr".source = ./../../config/hypr;
+    # ".config/hypr".source = ./../../config/hypr;
     "Bilder/Backgrounds".source = ./../../config/makko-background;
-    # ".config/swaylock".source= ./../../config/swaylock;
   };
 }

@@ -8,9 +8,10 @@
     ./fonts.nix
     ./git.nix
     ./helix.nix
-    # ./hyprland.nix
+    ./hyprland.nix
     ./kitty.nix
     ./lazygit.nix
+    ./nvf.nix
     ./rofi.nix
     ./starship.nix
     ./swaylock.nix

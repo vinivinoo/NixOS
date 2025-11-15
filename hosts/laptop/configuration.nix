@@ -22,6 +22,11 @@
     xwayland.enable = true;
   };
   programs.zsh.enable = true;
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    accent = "lavender";
+  };
  
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

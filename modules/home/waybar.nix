@@ -8,8 +8,8 @@
         position = "top";
         spacing = 0;
         modules-left = [
-          "hyprland/workspaces"
-          # "ext/workspaces"
+          # "hyprland/workspaces"
+          "ext/workspaces"
         ];
         modules-center = [
           "clock"
@@ -67,11 +67,11 @@
           format-ethernet = "󰈀 ";
           format-disconnected = "󰤠 ";
           format-icons = [
-            "󰤯"
-            "󰤟"
-            "󰤢"
-            "󰤥"
-            "󰤨"
+            "󰤯 "
+            "󰤟 "
+            "󰤢 "
+            "󰤥 "
+            "󰤨 "
           ];
           interval = 5;
           tooltip-format = "{essid} ({signalStrength}%)";
@@ -79,16 +79,16 @@
         };
 
         backlight = {
-          format = "{icon}   {percent}%";
-          format-icons = ["" "󰃜" "󰃛" "󰃞" "󰃝" "󰃟" "󰃠"];
+          format = "{icon}  {percent}%";
+          format-icons = [" " "󰃜 " "󰃛 " "󰃞 " "󰃝 " "󰃟 " "󰃠 "];
           tooltip = false;
         };
 
         wireplumber = {
-          format = "{icon}   {volume}%";
+          format = "{icon}  {volume}%";
           fomat-muted = "";
           format-icons = {
-            default = [ "" "" " "]; 
+            default = [ " " " " " "]; 
           };
           on-click = "pavucontrol";
         };
@@ -99,12 +99,12 @@
             warning = 30;
             critical = 15;
         };
-          format = "{icon}   {capacity}%";
+          format = "{icon}  {capacity}%";
           format-full = "{icon}  {capacity}%";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
           format-alt = "{icon}  {time}";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [" " " " " " " " " "];
         };
 
         "custome/pomodoro" = {
