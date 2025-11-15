@@ -14,4 +14,6 @@
       enable = true;
     };
   };
+
+  hardware.bluetooth.enable = true;
 }

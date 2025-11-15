@@ -51,6 +51,9 @@
     nerd-fonts.fira-code
     dejavu_fonts
     noto-fonts-color-emoji
+    nerd-fonts.jetbrains-mono
+    inter
+    nerd-fonts.symbols-only
 
     # cursor
     bibata-cursors

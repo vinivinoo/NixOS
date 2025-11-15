@@ -9,7 +9,7 @@
         spacing = 0;
         modules-left = [
           "hyprland/workspaces"
-          "ext/workspaces"
+          # "ext/workspaces"
         ];
         modules-center = [
           "clock"
@@ -23,13 +23,13 @@
           "battery"
         ];
 
-        "hyprland/workspaces" = {
-          format = "{name}: {icon}";
-          format-icons = {
-            active = "";
-            default = "";
-          };
-        };
+        # "hyprland/workspaces" = {
+        #   format = "{name}: {icon}";
+        #   format-icons = {
+        #     active = "";
+        #     default = "";
+        #   };
+        # };
 
         bluetooth = {
           format = "󰂲";
@@ -73,19 +73,19 @@
             "󰤥"
             "󰤨"
           ];
-          interval = 5,
+          interval = 5;
           tooltip-format = "{essid} ({signalStrength}%)";
           on-click = "nm-connection-editor";
         };
 
         backlight = {
-          format = "{icon}  {percent}%";
+          format = "{icon}   {percent}%";
           format-icons = ["" "󰃜" "󰃛" "󰃞" "󰃝" "󰃟" "󰃠"];
           tooltip = false;
         };
 
         wireplumber = {
-          format = "{icon}  {volume}%";
+          format = "{icon}   {volume}%";
           fomat-muted = "";
           format-icons = {
             default = [ "" "" " "]; 
@@ -99,18 +99,18 @@
             warning = 30;
             critical = 15;
         };
-          format = "{icon}  {capacity}%";
+          format = "{icon}   {capacity}%";
           format-full = "{icon}  {capacity}%";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
-          format-alt = "{icon} {time}";
+          format-alt = "{icon}  {time}";
           format-icons = ["" "" "" "" ""];
         };
 
-        "custom/pomodoro" = {
+        "custome/pomodoro" = {
           format = "{}";
           return-type = "json";
-          exec = "waybar-module-pomodoro --no-work-icosn";
+          exec = "waybar-module-pomodoro --no-work-icons";
           on-click = "waybar-module-pomodoro toggle";
           on-click-right = "waybar-module-pomodoro reset";
         };
@@ -119,7 +119,7 @@
     style = ''
       /* --- Global Styles --- */
       * {
-        font-family: "";
+        font-family: "Inter", "Nerd Font Symbols";
         font-size: 13px;
         min-height: 0;
         padding-right: 0px;
@@ -147,7 +147,7 @@
         min-width: 0;
         border: none;
         /* Transition for background-color and color only */
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
       }
       
       #workspaces {
@@ -167,24 +167,24 @@
       }
       
       #workspaces button {
-        color: #babbf1;
+        color: #cdd6f4;
         border-radius: 5px; /* Workspaces buttons are always rounded */
         padding: 0.3rem 0.6rem;
         background: transparent;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.1s ease-in-out;
         border: none;
         outline: none;
       }
       
       #workspaces button.active {
-        color: #99d1db;
-        background-color: rgba(153, 209, 219, 0.1);
-        box-shadow: inset 0 0 0 1px rgba(153, 209, 219, 0.2);
+        color: #b4befe;
+        background-color: rgba(180, 190, 254, 0.15);
+        box-shadow: inset 0 0 0 1px rgba(180, 190, 254, 025);
       }
       
       #workspaces button:hover {
-        background: rgb(41, 42, 53); /* Reference bright hover color */
-        color: #c6d0f5;
+        background: rgba(205, 214, 244, 0.1); /* Reference bright hover color */
+        color: #cdd6f4;
       }
       
       /* --- Center Module (Individual, Fully Rounded Block - With Simple Hover) --- */
@@ -196,7 +196,7 @@
         box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);
         min-width: 0;
         border: none;
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
       }
       
       /* Simple Hover effect for clock module - BRIGHTER COLOR */
@@ -214,7 +214,7 @@
           border: none;
           outline: none; /* Ensure no default outline */
           /* Transition for background-color, color, outline, and box-shadow for smooth effect */
-          transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, outline 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+          transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, outline 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
           color: #babbf1; /* A calm color, consistent with custom-uptime */
           font-weight: 600; /* Slightly bolder for the timer, consistent with clock */
       }
@@ -244,7 +244,7 @@
       
       /* --- Right Modules (Single, Seamless Bar ) --- */
       #bluetooth,
-      #pulseaudio,
+      #wireplumber,
       #backlight,
       #network,
       #custom-lock,
@@ -256,11 +256,11 @@
         box-shadow: none;
         min-width: 0;
         border: none;
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
       }
       
       #bluetooth:hover,
-      #pulseaudio:hover,
+      #wireplumber:hover,
       #backlight:hover,
       #network:hover,
       #custom-lock:hover,
@@ -288,46 +288,46 @@
       }
       
       #clock {
-        color: #99d1db;
+        color: #cdd6f4;
         font-weight: 500;
       }
       
-      #pulseaudio {
-        color: #c6d0f5;
+      #wireplubmer {
+        color: #cdd6f4;
       }
       #backlight {
-        color: #c6d0f5;
+        color: #cdd6f4;
       }
       
       #network {
-        color: #c6d0f5;
+        color: #cdd6f4;
       }
       
       #network.disconnected {
-        color: #e78284;
+        color: #cdd6f4;
       }
       
       #custom-lock {
-        color: #babbf1;
+        color: #cdd6f4;
       }
       #bluetooth {
-        color: #888888;
+        color: #cdd6f4;
         font-size: 16px;
       }
       #bluetooth.on {
-        color: #2196f3;
+        color: #cdd6f4;
       }
       #bluetooth.connected {
-        color: #99d1db;
+        color: #cff6f4;
       }
       #battery {
-        color: #99d1db;;
+        color: #cdd6f4;
       }
       #battery.charging {
-        color: #a6d189;
+        color: #a6e3a1;
       }
       #battery.warning:not(.charging) {
-        color: #e78284;
+        color: #f38ba8;
       }
       
       /* --- Tooltip Styles --- */
@@ -341,8 +341,6 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         font-size: 12px;
       }
-
-
     '';
   };
 }

@@ -5,6 +5,7 @@
   imports = [
     ./../../modules/home/bundle.nix
     inputs.catppuccin.homeModules.catppuccin
+    inputs.nvf.homeManagerModules.default
   ];
 
 

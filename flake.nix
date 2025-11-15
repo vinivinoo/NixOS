@@ -8,9 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, catppuccin, nvf, ... }@inputs: {
     nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
