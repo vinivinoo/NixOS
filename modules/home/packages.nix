@@ -33,6 +33,7 @@
     hyprland
     hyprshot
     kitty
+    libnotify
     nwg-look
     rofi
     slurp
@@ -44,9 +45,9 @@
     xdg-desktop-portal-hyprland
 
     # media
-    vesktop
-    spotify
+    discord
     firefox
+    spotify
 
     # fonts
     nerd-fonts.fira-mono

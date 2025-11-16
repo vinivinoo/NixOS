@@ -21,6 +21,9 @@
     enable = true;
     xwayland.enable = true;
   };
+
+  programs.mango.enable = true;
+  
   programs.zsh.enable = true;
   catppuccin = {
     enable = true;

@@ -78,7 +78,7 @@
         "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
         "$mainMod, V, togglefloating,"
-        "$mainMod, space, exec, $MENU"
+        "$mainMod, space, exec, rofi -show drun"
         "$mainMod, P, pseudo,"
         "$SUPER_SHIFT, R, exec, hyprctl reload; notify-send 'Hyprland Reloaded!'"
         "$mainMod, F, fullscreen,"
@@ -86,9 +86,9 @@
         
         "$SUPER_SHIFT, O, exec, swaylock"
         
-        ", PRINT, exec, ~/bin/screenshot.sh"
+        ", PRINT, exec, /home/vini/bin/screenshot.sh"
         
-        "$mainMod, PRINT, exec, ~/bin/screenshot.sh select"
+        "$mainMod, PRINT, exec, /home/vini/bin/screenshot.sh select"
         
         "$mainMod, H, movefocus, l"
         "$mainMod, L, movefocus, r"
