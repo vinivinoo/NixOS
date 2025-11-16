@@ -64,14 +64,14 @@
 
         network = {
           format-wifi = "{icon}";
-          format-ethernet = "󰈀 ";
-          format-disconnected = "󰤠 ";
+          format-ethernet = "󰈀";
+          format-disconnected = "󰤠";
           format-icons = [
-            "󰤯 "
-            "󰤟 "
-            "󰤢 "
-            "󰤥 "
-            "󰤨 "
+            "󰤯"
+            "󰤟"
+            "󰤢"
+            "󰤥"
+            "󰤨"
           ];
           interval = 5;
           tooltip-format = "{essid} ({signalStrength}%)";
@@ -80,7 +80,7 @@
 
         backlight = {
           format = "{icon}  {percent}%";
-          format-icons = [" " "󰃜 " "󰃛 " "󰃞 " "󰃝 " "󰃟 " "󰃠 "];
+          format-icons = ["" "󰃜" "󰃛" "󰃞" "󰃝" "󰃟" "󰃠"];
           tooltip = false;
         };
 
@@ -88,7 +88,7 @@
           format = "{icon}  {volume}%";
           fomat-muted = "";
           format-icons = {
-            default = [ " " " " " "]; 
+            default = [ "" "" ""]; 
           };
           on-click = "pavucontrol";
         };
@@ -99,12 +99,12 @@
             warning = 30;
             critical = 15;
         };
-          format = "{icon}  {capacity}%";
+          format = "{icon}   {capacity}%";
           format-full = "{icon}  {capacity}%";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
           format-alt = "{icon}  {time}";
-          format-icons = [" " " " " " " " " "];
+          format-icons = ["" "" "" "" ""];
         };
 
         "custome/pomodoro" = {
@@ -119,7 +119,7 @@
     style = ''
       /* --- Global Styles --- */
       * {
-        font-family: "Inter", "Nerd Font Symbols";
+        font-family: "FiraCode Mono Nerd Font", "Nerd Font Symbols";
         font-size: 13px;
         min-height: 0;
         padding-right: 0px;
@@ -201,7 +201,7 @@
       
       /* Simple Hover effect for clock module - BRIGHTER COLOR */
       #clock:hover {
-        background-color: rgba(153, 209, 219, 0.1); /* Brighter highlight */
+        background-color: rgba(205, 214, 244, 0.1); /* Brighter highlight */
       }
       
       #custom-pomodoro {

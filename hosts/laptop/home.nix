@@ -32,7 +32,6 @@
   };
 
   home.file = {
-    # ".config/hypr".source = ./../../config/hypr;
     "Bilder/Backgrounds".source = ./../../config/makko-background;
   };
 }

@@ -7,9 +7,9 @@
 
       exec-once = [
         "waybar & swaync"
-        "sww-daemon"
+        "swww-daemon"
         "swayidle -w timeout 1800 'swaylock -f' timeout 1830 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'"
-        "sww img ~/Bilder/Backgrounds/makko-background.png"
+        "swww img /home/vini/Bilder/Backgrounds/makko-background.png"
       ];
 
       general = {
@@ -86,11 +86,9 @@
         
         "$SUPER_SHIFT, O, exec, swaylock"
         
-        "$mainMod, PRINT, exec, hyprshot -m window -o ~/Bilder/Screenshots/"
+        ", PRINT, exec, ~/bin/screenshot.sh"
         
-        ", PRINT, exec, hyprshot -m output -o ~/Bilder/Screenshots/"
-        
-        "$shiftMod, PRINT, exec, hyprshot -m region -o ~/Bilder/Screenshots/"
+        "$mainMod, PRINT, exec, ~/bin/screenshot.sh select"
         
         "$mainMod, H, movefocus, l"
         "$mainMod, L, movefocus, r"

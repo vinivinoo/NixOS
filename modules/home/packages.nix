@@ -29,11 +29,13 @@
     zsh
 
     # desktop
+    grim
     hyprland
     hyprshot
     kitty
     nwg-look
     rofi
+    slurp
     swayidle
     swaylock-effects
     swaynotificationcenter
