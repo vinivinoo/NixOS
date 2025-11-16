@@ -33,5 +33,6 @@
 
   home.file = {
     "Bilder/Backgrounds".source = ./../../config/makko-background;
+    "bin/screenshot.sh".source = ./../../config/bash-scripts/screenshot.sh;
   };
 }

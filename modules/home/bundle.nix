@@ -13,7 +13,6 @@
     ./lazygit.nix
     ./nvf.nix
     ./rofi.nix
-    ./screenshot.nix
     ./starship.nix
     ./swaylock.nix
     ./tmux.nix
