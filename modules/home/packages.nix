@@ -18,6 +18,7 @@
     eza
     fastfetch
     fd
+    foot
     fzf
     lazygit
     ripgrep
@@ -50,7 +51,7 @@
     spotify
 
     # fonts
-    nerd-fonts.fira-mono
+    fira-sans
     nerd-fonts.fira-code
     dejavu_fonts
     noto-fonts-color-emoji
@@ -67,5 +68,6 @@
     python3
     gcc
     graphviz
+    tree-sitter
   ];
 }

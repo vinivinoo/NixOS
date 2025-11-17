@@ -79,13 +79,13 @@
         };
 
         backlight = {
-          format = "{icon}  {percent}%";
+          format = "{icon} {percent}%";
           format-icons = ["" "󰃜" "󰃛" "󰃞" "󰃝" "󰃟" "󰃠"];
           tooltip = false;
         };
 
         wireplumber = {
-          format = "{icon}  {volume}%";
+          format = "{icon} {volume}%";
           fomat-muted = "";
           format-icons = {
             default = [ "" "" ""]; 
@@ -99,7 +99,7 @@
             warning = 30;
             critical = 15;
         };
-          format = "{icon}   {capacity}%";
+          format = "{icon} {capacity}%";
           format-full = "{icon}  {capacity}%";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
@@ -119,7 +119,7 @@
     style = ''
       /* --- Global Styles --- */
       * {
-        font-family: "FiraCode Mono Nerd Font", "Nerd Font Symbols";
+        font-family:  "Fira Sans", "FiraCode Nerd Font Propo";
         font-size: 13px;
         min-height: 0;
         padding-right: 0px;

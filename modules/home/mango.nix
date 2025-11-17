@@ -33,8 +33,8 @@
       # tag_animation_direction: 0-horizontal,1-vertical
       animations=1
       layer_animations=1
-      animation_type_open=slide
-      animation_type_close=slide
+      animation_type_open=fade
+      animation_type_close=fade
       animation_fade_in=1
       animation_fade_out=1
       tag_animation_direction=1
@@ -42,10 +42,10 @@
       zoom_end_ratio=0.8
       fadein_begin_opacity=0.5
       fadeout_begin_opacity=0.8
-      animation_duration_move=500
-      animation_duration_open=400
-      animation_duration_tag=350
-      animation_duration_close=800
+      animation_duration_move=200
+      animation_duration_open=200
+      animation_duration_tag=200
+      animation_duration_close=200
       animation_duration_focus=0
       animation_curve_open=0.46,1.0,0.29,1
       animation_curve_move=0.46,1.0,0.29,1
@@ -93,7 +93,7 @@
       repeat_rate=25
       repeat_delay=600
       numlockon=0
-      xkb_rules_layout=us
+      xkb_rules_layout=de
       
       # Trackpad
       # need relogin to make it apply
@@ -101,7 +101,7 @@
       tap_to_click=1
       tap_and_drag=1
       drag_lock=1
-      trackpad_natural_scrolling=0
+      trackpad_natural_scrolling=1
       disable_while_typing=1
       left_handed=0
       middle_button_emulation=0
@@ -120,8 +120,8 @@
       scratchpad_height_ratio=0.9
       borderpx=4
       rootcolor=0x201b14ff
-      bordercolor=0x444444ff
-      focuscolor=0xc9b890ff
+      bordercolor=0x1e1e2eff
+      focuscolor=0xb4befeff
       maximizescreencolor=0x89aa61ff
       urgentcolor=0xad401fff
       scratchpadcolor=0x516c93ff
@@ -152,8 +152,8 @@
       bind=SUPER,Return,spawn,kitty
       
       # exit
-      bind=SUPER,q,quit
-      bind=SUPER,m,killclient,
+      bind=SUPER,q,killclient
+      bind=SUPER,m,quit
 
       # screenshots
       bind=Print,spawn,/home/vini/bin/screenshot.sh
@@ -199,28 +199,28 @@
       bind=CTRL+SUPER,Left,tagtoleft,0
       bind=CTRL+SUPER,Right,tagtoright,0
       
-      bind=Ctrl,1,view,1,0
-      bind=Ctrl,2,view,2,0
-      bind=Ctrl,3,view,3,0
-      bind=Ctrl,4,view,4,0
-      bind=Ctrl,5,view,5,0
-      bind=Ctrl,6,view,6,0
-      bind=Ctrl,7,view,7,0
-      bind=Ctrl,8,view,8,0
-      bind=Ctrl,9,view,9,0
+      bind=SUPER,1,view,1,0
+      bind=SUPER,2,view,2,0
+      bind=SUPER,3,view,3,0
+      bind=SUPER,4,view,4,0
+      bind=SUPER,5,view,5,0
+      bind=SUPER,6,view,6,0
+      bind=SUPER,7,view,7,0
+      bind=SUPER,8,view,8,0
+      bind=SUPER,9,view,9,0
       
       # tag: move client to the tag and focus it
       # tagsilent: move client to the tag and not focus it
       # bind=Alt,1,tagsilent,1
-      bind=Alt,1,tag,1,0
-      bind=Alt,2,tag,2,0
-      bind=Alt,3,tag,3,0
-      bind=Alt,4,tag,4,0
-      bind=Alt,5,tag,5,0
-      bind=Alt,6,tag,6,0
-      bind=Alt,7,tag,7,0
-      bind=Alt,8,tag,8,0
-      bind=Alt,9,tag,9,0
+      bind=SUPER+Shift,1,tag,1,0
+      bind=SUPER+Shift,2,tag,2,0
+      bind=SUPER+Shift,3,tag,3,0
+      bind=SUPER+Shift,4,tag,4,0
+      bind=SUPER+Shift,5,tag,5,0
+      bind=SUPER+Shift,6,tag,6,0
+      bind=SUPER+Shift,7,tag,7,0
+      bind=SUPER+Shift,8,tag,8,0
+      bind=SUPER+Shift,9,tag,9,0
       
       # monitor switch
       bind=alt+shift,Left,focusmon,left
@@ -264,6 +264,7 @@
     '';
     autostart_sh = ''
       waybar > /dev/null 2>&1 &
+      swww-daemon > /dev/null 2>&1 &
       swww img /home/vini/Bilder/Backgrounds/makko-background.png > /dev/null 2>&1 &
     '';
   };
