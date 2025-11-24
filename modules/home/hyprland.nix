@@ -86,9 +86,9 @@
         
         "$SUPER_SHIFT, O, exec, swaylock"
         
-        ", PRINT, exec, /home/vini/bin/screenshot.sh"
+        "$mainMod, S, exec, /home/vini/bin/screenshot.sh"
         
-        "$mainMod, PRINT, exec, /home/vini/bin/screenshot.sh select"
+        "$SUPER_SHIFT, S, exec, /home/vini/bin/screenshot.sh select"
         
         "$mainMod, H, movefocus, l"
         "$mainMod, L, movefocus, r"

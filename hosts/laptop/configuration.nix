@@ -25,6 +25,7 @@
   programs.mango.enable = true;
   
   programs.zsh.enable = true;
+
   catppuccin = {
     enable = true;
     flavor = "mocha";

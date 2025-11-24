@@ -6,9 +6,6 @@
     terminal = "tmux-256color";
 
     extraConfig = ''
-      set -g default-terminal "tmux-256color"
-      set -ag terminal-overrides ",xterm-256color:RGB"
-
       set -g prefix C-s
       set -g mouse on
 
@@ -37,13 +34,6 @@
       vim-tmux-navigator
       tmux-which-key
       tmux-fzf
-      {
-        plugin = catppuccin;
-        extraConfig = ''
-          set -g @catppuccin_flavor "mocha"
-          set -g @catppuccin_window_status_style "rounded"
-        '';
-  }
     ];
   };
 

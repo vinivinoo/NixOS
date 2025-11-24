@@ -16,9 +16,9 @@
     stateVersion = "25.11";
     sessionVariables = {
       BROWSER = "firefox";
-      EDITOR = "helix";
+      EDITOR = "nvim";
       TERMINAL = "kitty";
-      XCURSOR_THEME = "Bibata-bodern-Ice";
+      XCURSOR_THEME = "Bibata-Modern-Ice";
       XCURSOR_SIZE = "24";
     };
   };

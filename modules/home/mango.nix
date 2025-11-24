@@ -139,6 +139,11 @@
       tagrule=id:7,layout_name:tile
       tagrule=id:8,layout_name:tile
       tagrule=id:9,layout_name:tile
+
+      # autostart 
+      exec-once = waybar
+      exec-once = swww-daemon
+      exec-once = swww img /home/vini/Bilder/Backgrounds/makko-background.png
       
       # Key Bindings
       # key name refer to `xev` or `wev` command output,
@@ -150,14 +155,16 @@
       # menu and terminal
       bind=SUPER,space,spawn,rofi -show drun
       bind=SUPER,Return,spawn,kitty
+      bind=SUPER,b,spawn,firefox
+      bind=SUPER+SHIFT,o,spawn,swaylock
       
       # exit
       bind=SUPER,q,killclient
       bind=SUPER,m,quit
 
       # screenshots
-      bind=Print,spawn,/home/vini/bin/screenshot.sh
-      bind=SUPER+Print,spawn,/home/vini/bin/screenshot.sh select
+      bind=SUPER,s,spawn,/home/vini/bin/screenshot.sh
+      bind=SUPER+SHIFT,s,spawn,/home/vini/bin/screenshot.sh select
       
       # switch window focus
       bind=SUPER,Tab,focusstack,next
@@ -174,30 +181,34 @@
       
       # switch window status
       bind=SUPER,g,toggleglobal,
-      bind=ALT,Tab,toggleoverview,
-      bind=ALT,backslash,togglefloating,
-      bind=ALT,a,togglemaximizescreen,
-      bind=ALT,f,togglefullscreen,
-      bind=ALT+SHIFT,f,togglefakefullscreen,
+      bind=SUPER,Tab,toggleoverview,
+      # bind=SUPER,f,togglefloating,
+      bind=SUPER,f,togglemaximizescreen,
+      bind=SUPER+SHIFT,f,togglefullscreen,
+      # bind=ALT+SHIFT,f,togglefakefullscreen,
       bind=SUPER,i,minimized,
-      bind=SUPER,o,toggleoverlay,
+      # bind=SUPER,o,toggleoverlay,
       bind=SUPER+SHIFT,I,restore_minimized
-      bind=ALT,z,toggle_scratchpad
+      # bind=ALT,z,toggle_scratchpad
       
       # scroller layout
-      bind=ALT,e,set_proportion,1.0
-      bind=ALT,x,switch_proportion_preset,
+      # bind=ALT,e,set_proportion,1.0
+      # bind=ALT,x,switch_proportion_preset,
       
       # switch layout
+      bind=SUPER,t,setlayout, tile
+      bind=SUPER,v,setlayout, vertical_grid
+      bind=SUPER,c,setlayout, vertical_spiral
+      bind=SUPER,x,setlayout, scroller
       bind=SUPER,n,switch_layout
       
       # tag switch
-      bind=SUPER,Left,viewtoleft,0
-      bind=CTRL,Left,viewtoleft_have_client,0
-      bind=SUPER,Right,viewtoright,0
-      bind=CTRL,Right,viewtoright_have_client,0
-      bind=CTRL+SUPER,Left,tagtoleft,0
-      bind=CTRL+SUPER,Right,tagtoright,0
+      # bind=SUPER,Left,viewtoleft,0
+      # bind=CTRL,Left,viewtoleft_have_client,0
+      # bind=SUPER,Right,viewtoright,0
+      # bind=CTRL,Right,viewtoright_have_client,0
+      # bind=CTRL+SUPER,Left,tagtoleft,0
+      # bind=CTRL+SUPER,Right,tagtoright,0
       
       bind=SUPER,1,view,1,0
       bind=SUPER,2,view,2,0
@@ -223,49 +234,57 @@
       bind=SUPER+Shift,9,tag,9,0
       
       # monitor switch
-      bind=alt+shift,Left,focusmon,left
-      bind=alt+shift,Right,focusmon,right
-      bind=SUPER+Alt,Left,tagmon,left
-      bind=SUPER+Alt,Right,tagmon,right
+      # bind=alt+shift,Left,focusmon,left
+      # bind=alt+shift,Right,focusmon,right
+      # bind=SUPER+Alt,Left,tagmon,left
+      # bind=SUPER+Alt,Right,tagmon,right
       
       # gaps
-      bind=ALT+SHIFT,X,incgaps,1
-      bind=ALT+SHIFT,Z,incgaps,-1
-      bind=ALT+SHIFT,R,togglegaps
+      # bind=ALT+SHIFT,X,incgaps,1
+      # bind=ALT+SHIFT,Z,incgaps,-1
+      # bind=ALT+SHIFT,R,togglegaps
       
       # movewin
-      bind=CTRL+SHIFT,Up,movewin,+0,-50
-      bind=CTRL+SHIFT,Down,movewin,+0,+50
-      bind=CTRL+SHIFT,Left,movewin,-50,+0
-      bind=CTRL+SHIFT,Right,movewin,+50,+0
+      # bind=CTRL+SHIFT,Up,movewin,+0,-50
+      # bind=CTRL+SHIFT,Down,movewin,+0,+50
+      # bind=CTRL+SHIFT,Left,movewin,-50,+0
+      # bind=CTRL+SHIFT,Right,movewin,+50,+0
       
       # resizewin
       bind=CTRL+ALT,Up,resizewin,+0,-50
       bind=CTRL+ALT,Down,resizewin,+0,+50
       bind=CTRL+ALT,Left,resizewin,-50,+0
       bind=CTRL+ALT,Right,resizewin,+50,+0
+
+      #laptop multimedia keys for volume and LCD birghtness
+      bind=NONE,XF86AudioRaiseVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+      bind=NONE,XF86AudioLowerVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+      bind=NONE,XF86AudioMute,spawn,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      bind=NONE,XF86AudioMicMute,spawn,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+      bind=NONE,XF86MonBrightnessUp,spawn,brightnessctl s 10%+
+      bind=NONE,XF86MonBrightnessDown,spawn,brightnessctl s 10%-
       
       # Mouse Button Bindings
       # NONE mode key only work in ov mode
-      mousebind=SUPER,btn_left,moveresize,curmove
-      mousebind=NONE,btn_middle,togglemaximizescreen,0
-      mousebind=SUPER,btn_right,moveresize,curresize
-      mousebind=NONE,btn_left,toggleoverview,1
-      mousebind=NONE,btn_right,killclient,0
+      # mousebind=SUPER,btn_left,moveresize,curmove
+      # mousebind=NONE,btn_middle,togglemaximizescreen,0
+      # mousebind=SUPER,btn_right,moveresize,curresize
+      # mousebind=NONE,btn_left,toggleoverview,1
+      # mousebind=NONE,btn_right,killclient,0
       
       # Axis Bindings
-      axisbind=SUPER,UP,viewtoleft_have_client
-      axisbind=SUPER,DOWN,viewtoright_have_client
+      # axisbind=SUPER,UP,viewtoleft_have_client
+      # axisbind=SUPER,DOWN,viewtoright_have_client
       
       
       # layer rule
       layerrule=animation_type_open:zoom,layer_name:rofi
       layerrule=animation_type_close:zoom,layer_name:rofi  
     '';
-    autostart_sh = ''
-      waybar > /dev/null 2>&1 &
-      swww-daemon > /dev/null 2>&1 &
-      swww img /home/vini/Bilder/Backgrounds/makko-background.png > /dev/null 2>&1 &
-    '';
+    # autostart_sh = ''
+    #   waybar > /dev/null 2>&1 &
+    #   swww-daemon > /dev/null 2>&1 &
+    #   swww img /home/vini/Bilder/Backgrounds/makko-background.png > /dev/null 2>&1 &
+    # '';
   };
 }

@@ -5,6 +5,7 @@
     # devTools
     git
     helix
+    jetbrains.idea-community
     neovim
     obsidian
     vim
@@ -32,7 +33,6 @@
     # desktop
     grim
     hyprland
-    hyprshot
     kitty
     libnotify
     nwg-look
@@ -63,10 +63,13 @@
     bibata-cursors
 
     # programming
+    clang-tools
     curl
     jdk
     python3
     gcc
+    gnumake
+    gradle
     graphviz
     tree-sitter
   ];

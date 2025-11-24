@@ -16,6 +16,7 @@
         ];
         modules-right = [
           "custome/pomodoro"
+          # "tray"
           "bluetooth"
           "network"
           "wireplumber"
@@ -58,7 +59,7 @@
               weeks = "<span color='#b4befe'><b>{}</b></span>";
             };
           };
-          format = "{:%H:%M - %d, %B}";
+          format = "{:%H:%M - %d. %B}";
           interval = 1;
         };
 
@@ -185,6 +186,10 @@
       #workspaces button:hover {
         background: rgba(205, 214, 244, 0.1); /* Reference bright hover color */
         color: #cdd6f4;
+      }
+
+      #workspaces button.urgent {
+        color: #f38ba8;
       }
       
       /* --- Center Module (Individual, Fully Rounded Block - With Simple Hover) --- */
@@ -327,6 +332,14 @@
         color: #a6e3a1;
       }
       #battery.warning:not(.charging) {
+        color: #f38ba8;
+      }
+      @keyframes blink {
+        to {
+          color: #000000;
+        }
+      }
+      #battery.critical:not(.charging) {
         color: #f38ba8;
       }
       
