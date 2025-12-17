@@ -11,16 +11,15 @@
       in {
         rb = "sudo nixos-rebuild switch --flake ${flakeDir}#vini";
         rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#vini --no-reexec";
-        upd = "nix flake update ${flakeDir}";
+        upd = "nix flake update --flake ${flakeDir}";
         upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
 
         conf = "hx ${flakeDir}";
 
         c = "clear";
-        cat = "bat";
+        # cat = "bat";
         ls = "eza";
         la = "eza -lA";
-        
       };
 
     history.size = 5000;
@@ -34,6 +33,10 @@
       man() {
         command man "$@" | bat -l man -p
       }
+      
+      bindkey '^f' autosuggest-accept
+      bindkey '^p' history-search-backward
+      bindkey '^n' history-search-forward
                 
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh --cmd cd)"

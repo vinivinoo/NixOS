@@ -19,7 +19,6 @@
     eza
     fastfetch
     fd
-    foot
     fzf
     lazygit
     ripgrep

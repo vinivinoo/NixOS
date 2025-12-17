@@ -142,6 +142,7 @@
 
       # autostart 
       exec-once = waybar
+      exec-once = swaync
       exec-once = swww-daemon
       exec-once = swww img /home/vini/Bilder/Backgrounds/makko-background.png
       
@@ -151,6 +152,7 @@
       
       # reload config
       bind=SUPER+SHIFT,r,reload_config
+      bind=SUPER+SHIFT,r,spawn,notify-send Mango Reloaded!
       
       # menu and terminal
       bind=SUPER,space,spawn,rofi -show drun

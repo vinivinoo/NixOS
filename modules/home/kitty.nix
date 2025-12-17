@@ -11,7 +11,7 @@
 
       background_opacity = 0.9;
       
-      cursor_trail = 1;
+      # cursor_trail = 1;
     };
   };
 }
