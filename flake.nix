@@ -15,9 +15,13 @@
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, catppuccin, nix-ld, ... }@inputs: {
     nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -25,6 +29,8 @@
         home-manager.nixosModules.home-manager
         catppuccin.nixosModules.catppuccin
         inputs.mango.nixosModules.mango
+        nix-ld.nixosModules.nix-ld
+        { programs.nix-ld.dev.enable = true; }
 	      {
 	        home-manager = {
 	          useGlobalPkgs = true;

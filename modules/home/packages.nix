@@ -5,7 +5,7 @@
     # devTools
     git
     helix
-    jetbrains.idea-community
+    jetbrains.idea-oss
     neovim
     obsidian
     vim

@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764885363,
-        "narHash": "sha256-P6UHmw6enwxmP5wP4Lv722+tgpq1PFDAPAdtj7l/16U=",
+        "lastModified": 1770388745,
+        "narHash": "sha256-tmAONUMNHnlkozNcMR1kZJ/68OGea5wS56vl6vaUS5U=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "95042630028d613080393e0f03c694b77883c7db",
+        "rev": "5e9efb97caeffea3bf248023b6d8b68e63b839b9",
         "type": "github"
       },
       "original": {
@@ -45,11 +45,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765217760,
-        "narHash": "sha256-BVVyAodLcAD8KOtR3yCStBHSE0WAH/xQWH9f0qsxbmk=",
+        "lastModified": 1770476834,
+        "narHash": "sha256-cyxgVsNfHnJ4Zn6G1EOzfTXbjTy7Ds9zMOsZaX7VZWs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e5b1f87841810fc24772bf4389f9793702000c9b",
+        "rev": "6cee0821577643e0b34e2c5d9a90d0b1b5cdca70",
         "type": "github"
       },
       "original": {
@@ -67,11 +67,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1765284568,
-        "narHash": "sha256-GU/Tcy8MryR4y7B5re/TX0e9XQToF/mYQEwUOvuYLi8=",
+        "lastModified": 1770471978,
+        "narHash": "sha256-KlTvvTfgZ0bUb4uj8uUT4zJrOIAfqWSYlakSqQLvjXg=",
         "owner": "DreamMaoMao",
         "repo": "mango",
-        "rev": "318dc85b22cb66c6bc4fcdb2b39cf8cf14cee0d3",
+        "rev": "9b92f139c06d319d9fc6066ee194b967b672e369",
         "type": "github"
       },
       "original": {
@@ -80,13 +80,33 @@
         "type": "github"
       }
     },
+    "nix-ld": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770023640,
+        "narHash": "sha256-IC9fPCRvDoIHs+ErVGTWzDytZ9anm3QgPI/fNx8DpzQ=",
+        "owner": "Mic92",
+        "repo": "nix-ld",
+        "rev": "d68325dfe03c3dfe3e2627062b39e1d4fc3dab1f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "nix-ld",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1765186076,
-        "narHash": "sha256-hM20uyap1a0M9d344I692r+ik4gTMyj60cQWO+hAYP8=",
+        "lastModified": 1770197578,
+        "narHash": "sha256-AYqlWrX09+HvGs8zM6ebZ1pwUqjkfpnv8mewYwAo+iM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+        "rev": "00c21e4c93d963c50d4c0c89bfa84ed6e0694df2",
         "type": "github"
       },
       "original": {
@@ -115,6 +135,7 @@
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
         "mango": "mango",
+        "nix-ld": "nix-ld",
         "nixpkgs": "nixpkgs"
       }
     },

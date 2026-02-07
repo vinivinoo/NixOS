@@ -16,7 +16,7 @@
         ];
         modules-right = [
           "custome/pomodoro"
-          # "tray"
+          "tray"
           "bluetooth"
           "network"
           "wireplumber"
