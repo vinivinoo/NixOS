@@ -12,6 +12,8 @@
     ./kitty.nix
     ./lazygit.nix
     ./mango.nix
+    #./nvf.nix
+    ./nixvim.nix
     ./rofi.nix
     ./starship.nix
     ./swaylock.nix

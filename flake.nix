@@ -21,15 +21,16 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, nix-ld, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, catppuccin, nix-ld, mango, ... }@inputs: {
     nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./hosts/laptop/configuration.nix
         home-manager.nixosModules.home-manager
-        catppuccin.nixosModules.catppuccin
+        inputs.catppuccin.nixosModules.catppuccin
         inputs.mango.nixosModules.mango
-        nix-ld.nixosModules.nix-ld
+        inputs.nix-ld.nixosModules.nix-ld
+
         { programs.nix-ld.dev.enable = true; }
 	      {
 	        home-manager = {
