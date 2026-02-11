@@ -6,9 +6,9 @@
     git
     helix
     jetbrains.idea-oss
-    # neovim
+    neovim
     obsidian
-    # vim
+    vim
     vscode
     yazi
     zed-editor
