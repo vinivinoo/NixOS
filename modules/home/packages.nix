@@ -34,6 +34,7 @@
     hyprland
     kitty
     libnotify
+    niri
     nwg-look
     rofi
     slurp

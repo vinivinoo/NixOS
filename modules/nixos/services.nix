@@ -13,6 +13,10 @@
     blueman = {
       enable = true;
     };
+
+    xserver = {
+        enable = false;
+    };
   };
 
   hardware.bluetooth.enable = true;

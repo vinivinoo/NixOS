@@ -9,7 +9,8 @@
         spacing = 0;
         modules-left = [
           # "hyprland/workspaces"
-          "ext/workspaces"
+          # "ext/workspaces"
+          "niri/workspaces"
         ];
         modules-center = [
           "clock"
@@ -31,6 +32,10 @@
         #     default = "";
         #   };
         # };
+        
+        "niri/workspaces" = {
+          format = "{index}";
+        };
 
         bluetooth = {
           format = "󰂲";
@@ -191,7 +196,7 @@
       #workspaces button.urgent {
         color: #f38ba8;
       }
-      
+
       /* --- Center Module (Individual, Fully Rounded Block - With Simple Hover) --- */
       #clock {
         background-color: #1a1b26;

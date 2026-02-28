@@ -9,6 +9,8 @@ let
     unzip
     wget
     wl-clipboard
+    xwayland
+    xwayland-satellite
   ];
 
 

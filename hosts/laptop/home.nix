@@ -6,7 +6,6 @@
     ./../../modules/home/bundle.nix
     inputs.catppuccin.homeModules.catppuccin
     inputs.mango.hmModules.mango
-    inputs.niri.homeModules.niri
   ];
 
 
@@ -33,7 +32,8 @@
   };
 
   home.file = {
-    "Bilder/Backgrounds".source = ./../../config/makko-background;
-    "bin/screenshot.sh".source = ./../../config/bash-scripts/screenshot.sh;
+    "/home/vini/.config/niri".source = ./../../config/niri;
+    "/home/vini/Bilder/Backgrounds".source = ./../../config/makko-background;
+    "/home/vini/bin/screenshot.sh".source = ./../../config/bash-scripts/screenshot.sh;
   };
 }

@@ -17,9 +17,11 @@
     keyMap = "de";
   };
 
+  programs.xwayland.enable = true;
+
   programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
+    enable = false;
+    xwayland.enable = false;
   };
 
   programs.niri.enable = true;

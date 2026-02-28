@@ -27,7 +27,7 @@
 
     initContent = ''
       if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-         exec mango
+         exec niri
       fi
 
       man() {

@@ -15,10 +15,6 @@
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri = {
-      url = "github:YaLTeR/niri";
-      inputs.nixpkgs.follow = "nixpkgs";
-    };
     nix-ld = {
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,10 +27,9 @@
       modules = [
         ./hosts/laptop/configuration.nix
         home-manager.nixosModules.home-manager
-        inputs.catppuccin.nixosModules.catppuccin
-        inputs.mango.nixosModules.mango
-        inputs.nix-ld.nixosModules.nix-ld
-        inputs.niri.nixosModules.niri
+        catppuccin.nixosModules.catppuccin
+        mango.nixosModules.mango
+        nix-ld.nixosModules.nix-ld
 
 	      {
 	        home-manager = {
