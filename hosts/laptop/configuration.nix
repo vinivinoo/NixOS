@@ -22,9 +22,10 @@
     xwayland.enable = true;
   };
 
+  programs.niri.enable = true;
   programs.mango.enable = true;
-  
   programs.zsh.enable = true;
+  programs.nix-ld.dev.enable = true;
 
   catppuccin = {
     enable = true;

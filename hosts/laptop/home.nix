@@ -6,6 +6,7 @@
     ./../../modules/home/bundle.nix
     inputs.catppuccin.homeModules.catppuccin
     inputs.mango.hmModules.mango
+    inputs.niri.homeModules.niri
   ];
 
 

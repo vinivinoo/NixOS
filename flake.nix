@@ -15,6 +15,10 @@
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:YaLTeR/niri";
+      inputs.nixpkgs.follow = "nixpkgs";
+    };
     nix-ld = {
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,8 +34,8 @@
         inputs.catppuccin.nixosModules.catppuccin
         inputs.mango.nixosModules.mango
         inputs.nix-ld.nixosModules.nix-ld
+        inputs.niri.nixosModules.niri
 
-        { programs.nix-ld.dev.enable = true; }
 	      {
 	        home-manager = {
 	          useGlobalPkgs = true;

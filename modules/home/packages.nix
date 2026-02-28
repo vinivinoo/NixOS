@@ -45,6 +45,7 @@
     xdg-desktop-portal-hyprland
 
     # media
+    anki-bin
     discord
     firefox
     spotify
