@@ -5,7 +5,6 @@
   imports = [
     ./../../modules/home/bundle.nix
     inputs.catppuccin.homeModules.catppuccin
-    inputs.mango.hmModules.mango
   ];
 
 
@@ -32,7 +31,7 @@
   };
 
   home.file = {
-    "/home/vini/.config/niri".source = ./../../config/niri;
+    "/home/vini/.config/niri/config.kdl".source = ./../../config/niri/config.kdl;
     "/home/vini/Bilder/Backgrounds".source = ./../../config/makko-background;
     "/home/vini/bin/screenshot.sh".source = ./../../config/bash-scripts/screenshot.sh;
   };

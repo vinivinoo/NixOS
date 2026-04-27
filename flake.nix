@@ -11,25 +11,15 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mango = {
-      url = "github:DreamMaoMao/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-ld = {
-      url = "github:Mic92/nix-ld";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, nix-ld, mango, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, catppuccin, ... }@inputs: {
     nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./hosts/laptop/configuration.nix
         home-manager.nixosModules.home-manager
         catppuccin.nixosModules.catppuccin
-        mango.nixosModules.mango
-        nix-ld.nixosModules.nix-ld
 
 	      {
 	        home-manager = {

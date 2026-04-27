@@ -41,7 +41,7 @@
     swayidle
     swaylock-effects
     swaynotificationcenter
-    swww
+    awww
     waybar
     xdg-desktop-portal-hyprland
 
@@ -50,6 +50,14 @@
     discord
     firefox
     spotify
+    signal-desktop
+
+    # work
+    libreoffice-fresh
+    hunspell
+    hunspellDicts.de_DE
+    hunspellDicts.en_US
+    hunspellDicts.sv_SE
 
     # fonts
     fira-sans
@@ -72,6 +80,8 @@
     gnumake
     gradle
     graphviz
+    sdl3
+    shaderc
     tree-sitter
   ];
 }
