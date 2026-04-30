@@ -80,6 +80,8 @@
     gnumake
     gradle
     graphviz
+    lua
+    luarocks
     sdl3
     shaderc
     tree-sitter

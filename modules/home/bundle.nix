@@ -11,6 +11,7 @@
     ./hyprland.nix
     ./kitty.nix
     ./lazygit.nix
+    ./nix-ld.nix
     ./rofi.nix
     ./starship.nix
     ./swaylock.nix

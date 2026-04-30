@@ -143,8 +143,8 @@
       # autostart 
       exec-once = waybar
       exec-once = swaync
-      exec-once = swww-daemon
-      exec-once = swww img /home/vini/Bilder/Backgrounds/makko-background.png
+      exec-once = awww-daemon
+      exec-once = awww img /home/vini/Bilder/Backgrounds/makko-background.png
       
       # Key Bindings
       # key name refer to `xev` or `wev` command output,

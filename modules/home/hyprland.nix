@@ -7,9 +7,9 @@
 
       exec-once = [
         "waybar & swaync"
-        "swww-daemon"
+        "awww-daemon"
         "swayidle -w timeout 1800 'swaylock -f' timeout 1830 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'"
-        "swww img /home/vini/Bilder/Backgrounds/makko-background.png"
+        "awww img /home/vini/Bilder/Backgrounds/makko-background.png"
       ];
 
       general = {
