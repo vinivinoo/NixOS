@@ -21,12 +21,12 @@
           libxcrypt
       
           # 3. GUI / Wayland / X11 Bibliotheken (für SDL3 & Tools)
-          xorg.libX11
-          xorg.libXcursor
-          xorg.libXext
-          xorg.libXfixes
-          xorg.libXi
-          xorg.libXrender
+          libX11
+          libXcursor
+          libXext
+          libXfixes
+          libXi
+          libXrender
           libxkbcommon
           wayland
         ];

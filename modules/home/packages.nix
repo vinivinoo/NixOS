@@ -47,6 +47,7 @@
 
     # media
     anki-bin
+    bitwarden-desktop
     discord
     firefox
     spotify
