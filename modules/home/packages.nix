@@ -36,6 +36,7 @@
     libnotify
     niri
     nwg-look
+    polkit_gnome
     rofi
     slurp
     swayidle
