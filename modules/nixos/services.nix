@@ -17,11 +17,6 @@
     xserver = {
         enable = false;
     };
-    
-    gnome.gnome-keyring = {
-        enable = true;
-    };
-  };
 
   hardware.bluetooth.enable = true;
 }

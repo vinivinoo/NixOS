@@ -83,7 +83,6 @@ spawn-at-startup "swaync"
 spawn-at-startup "awww-daemon"
 spawn-at-startup "awww img /home/vini/Bilder/Backgrounds/makko-background.png"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
 
 hotkey-overlay {
   skip-at-startup

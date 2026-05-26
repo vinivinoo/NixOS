@@ -36,7 +36,6 @@
     libnotify
     niri
     nwg-look
-    polkit_gnome
     rofi
     slurp
     swayidle
@@ -53,6 +52,7 @@
     firefox
     spotify
     signal-desktop
+    thunderbird
 
     # work
     libreoffice-fresh

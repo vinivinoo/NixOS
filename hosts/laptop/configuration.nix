@@ -25,7 +25,6 @@
   };
 
   programs.niri.enable = true;
-  # programs.mango.enable = false;
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
 
