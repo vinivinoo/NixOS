@@ -12,6 +12,7 @@
     ./kitty.nix
     ./lazygit.nix
     ./nix-ld.nix
+    ./niri.nix
     ./rofi.nix
     ./starship.nix
     ./swaylock.nix

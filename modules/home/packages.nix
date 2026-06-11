@@ -35,7 +35,7 @@
     hyprland
     kitty
     libnotify
-    niri
+    # niri
     noctalia-shell
     nwg-look
     rofi
