@@ -19,6 +19,9 @@
       TERMINAL = "kitty";
       XCURSOR_THEME = "Bibata-Modern-Ice";
       XCURSOR_SIZE = "24";
+      QS-ICON-THEME = "Adwaita";
+      QT_QPA_PLATFORMTHEME = "gtk3";
+      XDG_DATA_DIRS = "$GSETTINGS_SCHEMAS_PATH:$XDG_DATA_DIRS:/run/current-system/sw/share";
     };
   };
 
@@ -31,7 +34,7 @@
   };
 
   home.file = {
-    "/home/vini/.config/niri/config.kdl".source = ./../../config/niri/config.kdl;
+    "/home/vini/.config/niri".source = ./../../config/niri;
     "/home/vini/Bilder/Backgrounds".source = ./../../config/makko-background;
     "/home/vini/bin/screenshot.sh".source = ./../../config/bash-scripts/screenshot.sh;
   };

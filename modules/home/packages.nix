@@ -30,6 +30,7 @@
     zsh
 
     # desktop
+    adwaita-icon-theme
     grim
     hyprland
     kitty
