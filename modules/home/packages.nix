@@ -35,6 +35,7 @@
     kitty
     libnotify
     niri
+    noctalia-shell
     nwg-look
     rofi
     slurp

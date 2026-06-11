@@ -2,6 +2,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    configType = "lua";
     settings = {
       monitor = "eDP-1,1920x1200@60,0x0,1";
 
