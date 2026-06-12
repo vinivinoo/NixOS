@@ -44,11 +44,8 @@
           urgent.color = "#9b0000";
         };
 
-        preset-column-widths = [
-            { proportion = 1.0 / 3.0; }
-            { proportion = 1.0 / 2.0; }
-            { proportion = 2.0 / 3.0; }
-        ];
+        default-column-width.proportion = 0.5;
+        
 
         struts = {};
       };
@@ -98,20 +95,20 @@
           clip-to-geometry = true;
         } 
         {
-          matches = [ { title = "discord"; } ];
+          matches = [ { title = "Discord"; } ];
           open-on-workspace = "2";
         }
         {
-          matches = [ { title = "spotify"; } ];
+          matches = [ { title = "Spotify"; } ];
           open-on-workspace = "2";
         }
         {
-          matches = [ { title = "obsidian"; } ];
+          matches = [ { title = "Obsidian"; } ];
           open-on-workspace = "2";
           open-maximized = true;
         }
         {
-          matches = [ { title = "firefox"; } ];
+          matches = [ { title = "Firefox"; } ];
           open-on-workspace = "1";
           open-maximized = true;
         }

@@ -15,9 +15,13 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/legacy-v4";
+      inputs.inxpkgs.follow = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, niri, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, catppuccin, niri, noctalia, ... }@inputs: {
     nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [

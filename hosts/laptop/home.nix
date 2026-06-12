@@ -1,11 +1,11 @@
 { pkgs, inputs, ... }:
 
 {
-
   imports = [
     ./../../modules/home/bundle.nix
     inputs.catppuccin.homeModules.catppuccin
     inputs.niri.homeModules.niri
+    inputs.noctalia.homeModules.default
   ];
 
 
