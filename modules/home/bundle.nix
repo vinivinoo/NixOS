@@ -13,6 +13,7 @@
     ./lazygit.nix
     ./nix-ld.nix
     ./niri.nix
+    ./noctalia.nix
     ./rofi.nix
     ./starship.nix
     ./swaylock.nix
