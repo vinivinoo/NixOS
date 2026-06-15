@@ -19,6 +19,7 @@
     ./starship.nix
     ./swaylock.nix
     ./tmux.nix
+    ./userDirs.nix
     # ./waybar.nix
     ./yazi.nix
     ./zed.nix

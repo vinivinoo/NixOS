@@ -1,4 +1,6 @@
-{ config, ... }: {
+{ config, ... }: 
+
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -7,7 +9,7 @@
 
     shellAliases =
       let
-        flakeDir = "/home/vini/nixos";
+        flakeDir = "${config.home.homeDirectory}/nixos";
       in {
         rb = "sudo nixos-rebuild switch --flake ${flakeDir}#vini";
         rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#vini --no-reexec";
@@ -22,7 +24,7 @@
       };
 
     history.size = 5000;
-    history.path = "/home/vini/.zsh_history";
+    history.path = "${config.home.homeDirectory}/.zsh_history";
 
     initContent = ''
       if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then

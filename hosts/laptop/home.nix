@@ -3,9 +3,6 @@
 {
   imports = [
     ./../../modules/home/bundle.nix
-    inputs.catppuccin.homeModules.catppuccin
-    inputs.niri.homeModules.niri
-    inputs.noctalia.homeModules.default
   ];
 
 
@@ -29,7 +26,6 @@
   programs.home-manager.enable = true;
 
   home.file = {
-    # "/home/vini/.config/niri".source = ./../../config/niri;
     "/home/vini/Bilder/Backgrounds".source = ./../../config/makko-background;
     "/home/vini/bin/screenshot.sh".source = ./../../config/bash-scripts/screenshot.sh;
   };

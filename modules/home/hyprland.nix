@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -10,7 +12,7 @@
         "waybar & swaync"
         "awww-daemon"
         "swayidle -w timeout 1800 'swaylock -f' timeout 1830 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'"
-        "awww img /home/vini/Bilder/Backgrounds/makko-background.png"
+        "awww img ${config.xdg.userDirs.extraConfig.XDG_WALLPAPERS_DIR}/makko-wallpaper.png"
       ];
 
       general = {

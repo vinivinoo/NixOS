@@ -1,7 +1,13 @@
+{ inputs, config, ... }:
+
 {
+  imports = [
+    inputs.noctalia.homeModules.default
+  ];
+
   home.file.".cache/noctalia/wallpapers,json" = {
     text = builtins.toJSON {
-      defaultWallpaper = "~/Bilder/Backgrounds/makko-background.png";
+      defaultWallpaper = "${config.xdg.userDirs.extraConfig.XDG_WALLPAPERS_DIR}/makko-wallpaper.png";
     };
   };
 

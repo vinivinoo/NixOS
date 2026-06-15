@@ -1,6 +1,8 @@
+{ config, ... }:
+
 {
   programs.firefox = {
     enable = true;
-    configPath = "$home/vini/.config/mozilla/firefox";
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
   };
 }

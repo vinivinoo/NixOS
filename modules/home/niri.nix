@@ -1,4 +1,10 @@
+{ inputs, config, ... }:
+
 {
+  imports = [
+    inputs.niri.homeModules.niri
+  ];
+
   programs.niri = {
     enable = true;
     settings = {
@@ -317,11 +323,11 @@
         # ─── screenshots ───
         "mod+s" = {
           hotkey-overlay.title = "take a screenshot";
-          action.spawn-sh = [ "/home/vini/bin/screenshot.sh" ];
+          action.spawn-sh = [ "${config.home.homeDirectory}/bin/screenshot.sh" ];
         };
         "mod+shift+s" = {
           hotkey-overlay.title = "take a screenshot select";
-          action.spawn-sh = [ "/home/vini/bin/screenshot.sh select" ];
+          action.spawn-sh = [ "${config.home.homeDirectory}/bin/screenshot.sh select" ];
         };
       
         # ─── emergency escape key ───
