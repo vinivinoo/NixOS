@@ -17,22 +17,9 @@
     keyMap = "de";
   };
 
-  programs.xwayland.enable = true;
-
-  programs.hyprland = {
-    enable = false;
-    xwayland.enable = false;
-  };
-
-  programs.niri.enable = true;
-  programs.zsh.enable = true;
-  programs.nix-ld.enable = true;
-
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-    accent = "lavender";
-  };
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+  ];
  
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

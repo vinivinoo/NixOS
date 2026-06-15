@@ -12,9 +12,8 @@
         rb = "sudo nixos-rebuild switch --flake ${flakeDir}#vini";
         rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#vini --no-reexec";
         upd = "nix flake update --flake ${flakeDir}";
-        upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
 
-        conf = "hx ${flakeDir}";
+        conf = "nvim ${flakeDir}";
 
         c = "clear";
         # cat = "bat";

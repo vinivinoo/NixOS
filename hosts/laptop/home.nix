@@ -28,12 +28,6 @@
 
   programs.home-manager.enable = true;
 
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-    accent = "lavender";
-  };
-
   home.file = {
     # "/home/vini/.config/niri".source = ./../../config/niri;
     "/home/vini/Bilder/Backgrounds".source = ./../../config/makko-background;

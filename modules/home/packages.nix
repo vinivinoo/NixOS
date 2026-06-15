@@ -49,7 +49,7 @@
 
     # media
     anki-bin
-    bitwarden-desktop
+    # bitwarden-desktop
     discord
     firefox
     spotify

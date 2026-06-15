@@ -3,6 +3,7 @@
     ./packages.nix
     ./btop.nix
     ./bat.nix
+    ./catppuccin.nix
     ./cursor.nix
     ./firefox.nix
     ./fonts.nix
@@ -18,7 +19,7 @@
     ./starship.nix
     ./swaylock.nix
     ./tmux.nix
-    ./waybar.nix
+    # ./waybar.nix
     ./yazi.nix
     ./zed.nix
     ./zsh.nix
