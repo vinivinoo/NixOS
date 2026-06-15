@@ -19,9 +19,13 @@
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, niri, noctalia, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, catppuccin, niri, noctalia, nvf, ... }@inputs: {
     nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [

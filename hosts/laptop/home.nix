@@ -26,7 +26,7 @@
   programs.home-manager.enable = true;
 
   home.file = {
-    "/home/vini/Bilder/Backgrounds".source = ./../../config/makko-background;
+    "/home/vini/Pictures/Wallpapers".source = ./../../config/wallpapers;
     "/home/vini/bin/screenshot.sh".source = ./../../config/bash-scripts/screenshot.sh;
   };
 }
