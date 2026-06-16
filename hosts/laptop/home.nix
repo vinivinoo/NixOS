@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (import-tree ./../../modules/home)
+    (inputs.import-tree ./../../modules/home)
     # ./../../modules/home/bundle.nix
   ];
 

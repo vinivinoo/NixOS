@@ -2,13 +2,14 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    (import-tree ./../../modules/nixos)
+    (inputs.import-tree ./../../modules/nixos)
     # ./../../modules/nixos/bundle.nix
 
   ];

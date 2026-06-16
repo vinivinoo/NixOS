@@ -2,12 +2,12 @@
 
 {
   imports = [
-      inputs.nvf.homeManagerModules.default
-      ./options.nix
-      (import-tree ./plugins) 
-    ];
+    inputs.nvf.homeManagerModules.default
+    ./options.nix
+    (inputs.import-tree ./plugins)
+  ];
 
-
+  programs.nvf = {
     enable = true;
     settings = {
       vim = {
