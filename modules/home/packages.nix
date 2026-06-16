@@ -30,7 +30,7 @@
     zsh
 
     # desktop
-    adwaita-icon-theme
+    papirus-icon-theme
     grim
     hyprland
     kitty

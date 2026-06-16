@@ -13,16 +13,16 @@
         keyboard = {
           xkb = {
             layout = "de";
-          };          
+          };
         };
 
         touchpad = {
-            tap = true;
-            dwt = true;
-            natural-scroll = true;
+          tap = true;
+          dwt = true;
+          natural-scroll = true;
         };
 
-         focus-follows-mouse = {};
+        focus-follows-mouse.enable = true;
       };
 
       outputs."edp-1" = {
@@ -51,14 +51,13 @@
         };
 
         default-column-width.proportion = 0.5;
-        
 
-        struts = {};
+        struts = { };
       };
 
       spawn-at-startup = [
-        { 
-          # Hinweis: Wenn noctalia-shell und xwayland-satellite zwei getrennte 
+        {
+          # Hinweis: Wenn noctalia-shell und xwayland-satellite zwei getrennte
           # Programme sind, sollten sie eigene Blöcke bekommen:
           command = [ "noctalia-shell" ];
         }
@@ -66,7 +65,7 @@
           command = [ "xwayland-satellite" ];
         }
       ];
-    
+
       prefer-no-csd = true;
       screenshot-path = null; # Echter null-Wert statt String
 
@@ -80,14 +79,14 @@
       };
 
       debug = {
-        honor-xdg-activation-with-invalid-serial = {};
+        honor-xdg-activation-with-invalid-serial = { };
       };
 
       hotkey-overlay = {
         skip-at-startup = true;
       };
 
-      # Animations-Block entfernt, da er den Niri-Defaults entsprach 
+      # Animations-Block entfernt, da er den Niri-Defaults entsprach
       # und Obsolete-Warnungen erzeugt hat.
 
       window-rules = [
@@ -99,7 +98,7 @@
             bottom-right = 20.0;
           };
           clip-to-geometry = true;
-        } 
+        }
         {
           matches = [ { title = "Discord"; } ];
           open-on-workspace = "2";
@@ -120,12 +119,12 @@
         }
       ];
 
-      workspaces."1" = {};
-      workspaces."2" = {};
+      workspaces."1" = { };
+      workspaces."2" = { };
 
       layer-rules = [
-        { 
-          matches = [ { namespace = "^noctalia-wallpaper*"; }];
+        {
+          matches = [ { namespace = "^noctalia-wallpaper*"; } ];
           place-within-backdrop = true;
         }
       ];
@@ -200,10 +199,10 @@
           allow-when-locked = true;
           action.spawn-sh = [ "brightnessctl --class=backlight set 10%-" ];
         };
-      
+
         # ─── window movement and focus ───
         "mod+q".action.close-window = { };
-      
+
         "mod+left".action.focus-column-left = { };
         "mod+h".action.focus-column-left = { };
         "mod+right".action.focus-column-right = { };
@@ -212,7 +211,7 @@
         "mod+k".action.focus-window-up = { };
         "mod+down".action.focus-window-down = { };
         "mod+j".action.focus-window-down = { };
-      
+
         "mod+shift+left".action.move-column-left = { };
         "mod+shift+h".action.move-column-left = { };
         "mod+shift+right".action.move-column-right = { };
@@ -221,12 +220,12 @@
         "mod+shift+k".action.move-window-up = { };
         "mod+shift+down".action.move-window-down = { };
         "mod+shift+j".action.move-window-down = { };
-      
+
         "mod+home".action.focus-column-first = { };
         "mod+end".action.focus-column-last = { };
         "mod+ctrl+home".action.move-column-to-first = { };
         "mod+ctrl+end".action.move-column-to-last = { };
-      
+
         "mod+ctrl+left".action.focus-monitor-left = { };
         "mod+ctrl+h".action.focus-monitor-left = { };
         "mod+ctrl+right".action.focus-monitor-right = { };
@@ -235,12 +234,12 @@
         "mod+ctrl+k".action.focus-monitor-up = { };
         "mod+ctrl+down".action.focus-monitor-down = { };
         "mod+ctrl+j".action.focus-monitor-down = { };
-      
+
         "mod+shift+ctrl+left".action.move-column-to-monitor-left = { };
         "mod+shift+ctrl+right".action.move-column-to-monitor-right = { };
         "mod+shift+ctrl+up".action.move-column-to-monitor-up = { };
         "mod+shift+ctrl+down".action.move-column-to-monitor-down = { };
-      
+
         # ─── workspace switching ───
         "mod+wheelscrolldown" = {
           cooldown-ms = 150;
@@ -274,15 +273,15 @@
           cooldown-ms = 150;
           action.move-column-to-workspace-up = { };
         };
-      
+
         "mod+wheelscrollright".action.focus-column-right = { };
         "mod+wheelscrollleft".action.focus-column-left = { };
         "mod+shift+wheelscrollright".action.move-column-right = { };
         "mod+shift+wheelscrollleft".action.move-column-left = { };
-      
+
         "mod+ctrl+shift+wheelscrolldown".action.move-column-right = { };
         "mod+ctrl+shift+wheelscrollup".action.move-column-left = { };
-      
+
         "mod+1".action.focus-workspace = [ 1 ];
         "mod+2".action.focus-workspace = [ 2 ];
         "mod+3".action.focus-workspace = [ 3 ];
@@ -292,7 +291,7 @@
         "mod+7".action.focus-workspace = [ 7 ];
         "mod+8".action.focus-workspace = [ 8 ];
         "mod+9".action.focus-workspace = [ 9 ];
-      
+
         "mod+shift+1".action.move-column-to-workspace = [ 1 ];
         "mod+shift+2".action.move-column-to-workspace = [ 2 ];
         "mod+shift+3".action.move-column-to-workspace = [ 3 ];
@@ -302,9 +301,9 @@
         "mod+shift+7".action.move-column-to-workspace = [ 7 ];
         "mod+shift+8".action.move-column-to-workspace = [ 8 ];
         "mod+shift+9".action.move-column-to-workspace = [ 9 ];
-      
+
         "mod+tab".action.focus-workspace-previous = { };
-      
+
         # ─── layout controls ───
         "mod+ctrl+f".action.expand-column-to-available-width = { };
         "mod+c".action.center-column = { };
@@ -313,7 +312,7 @@
         "mod+equal".action.set-column-width = [ "+10%" ];
         "mod+shift+minus".action.set-window-height = [ "-10%" ];
         "mod+shift+equal".action.set-window-height = [ "+10%" ];
-      
+
         # ─── modes ───
         "mod+t".action.toggle-window-floating = { };
         "mod+f".action.maximize-column = { };
@@ -329,13 +328,13 @@
           hotkey-overlay.title = "take a screenshot select";
           action.spawn-sh = [ "${config.home.homeDirectory}/bin/screenshot.sh select" ];
         };
-      
+
         # ─── emergency escape key ───
         "mod+escape" = {
           allow-inhibiting = false;
           action.toggle-keyboard-shortcuts-inhibit = { };
         };
-      
+
         # ─── exit / power ───
         "ctrl+alt+delete".action.quit = { };
         "mod+shift+p".action.power-off-monitors = { };

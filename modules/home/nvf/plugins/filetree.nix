@@ -1,5 +1,7 @@
 {
-  programs.nvf.settings.vim.filetree = {
-    neo-tree.enable = false;
+  programs.nvf.settings.vim = {
+    filetree = {
+      neo-tree.enable = false;
+    };
   };
 }

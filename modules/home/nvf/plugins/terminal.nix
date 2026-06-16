@@ -1,5 +1,7 @@
 {
-  programs.nvf.settings.vim.terminal = {
-    toggleterm.enable = true;
+  programs.nvf.settings.vim = {
+    terminal = {
+      toggleterm.enable = true;
+    };
   };
 }

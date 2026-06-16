@@ -1,5 +1,7 @@
 {
-  programs.nvf.settings.vim.navigation = {
-    harpoon.enable = true;
+  programs.nvf.settings.vim = {
+    navigation = {
+      harpoon.enable = true;
+    };
   };
 }

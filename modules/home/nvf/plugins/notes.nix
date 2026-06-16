@@ -1,5 +1,7 @@
 {
-  programs.nvf.settings.vim.notes = {
-    todo-comments.enable = true;
+  programs.nvf.settings.vim = {
+    notes = {
+      todo-comments.enable = true;
+    };
   };
 }

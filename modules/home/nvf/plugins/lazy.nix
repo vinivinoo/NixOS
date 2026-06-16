@@ -1,5 +1,7 @@
 {
-  programs.nvf.settings.vim.lazy = {
-    enable = true;
+  programs.nvf.settings.vim = {
+    lazy = {
+      enable = true;
+    };
   };
 }

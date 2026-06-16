@@ -1,6 +1,7 @@
 {
-  programs.nvf.settings.vim.debugger = {
-    enable = true;
-    nvim-dap.enable = true;
+  programs.nvf.settings.vim = {
+    debugger = {
+      nvim-dap.enable = true;
+    };
   };
 }

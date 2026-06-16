@@ -1,5 +1,7 @@
 {
-  programs.nvf.settings.vim.formatter = {
-    conform-nvim.enable = true;
+  programs.nvf.settings.vim = {
+    formatter = {
+      conform-nvim.enable = true;
+    };
   };
 }
