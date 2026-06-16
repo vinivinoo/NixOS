@@ -86,6 +86,7 @@
     graphviz
     lua
     luarocks
+    nixfmt-rfc-style
     sdl3
     shaderc
     tree-sitter

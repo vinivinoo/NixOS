@@ -2,10 +2,9 @@
 
 {
   imports = [
-    ./../../modules/home/bundle.nix
+    (import-tree ./../../modules/home)
+    # ./../../modules/home/bundle.nix
   ];
-
-
 
   home = {
     username = "vini";
