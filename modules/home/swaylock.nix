@@ -10,8 +10,8 @@
       image = "${config.xdg.userDirs.pictures}/Wallpapers/line-crust.png";
       clock = true;
       daemonize = true;
-      effect-blur = "3x5";
-      effect-vignette = "0.5:0.5";
+      # effect-blur = "3x5";
+      # effect-vignette = "0.5:0.5";
       font = "FiraCode Nerd Font Mono";
       font-size = 24;
       ignore-empty-password = true;
