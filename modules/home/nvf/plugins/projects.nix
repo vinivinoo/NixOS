@@ -3,5 +3,9 @@
     projects = {
       project-nvim.enable = true;
     };
+    # TODO: Keybinds setzen
+    # keybinds = [
+    #
+    # ];
   };
 }

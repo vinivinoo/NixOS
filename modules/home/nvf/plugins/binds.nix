@@ -1,7 +1,12 @@
 {
   programs.nvf.settings.vim = {
     binds = {
-      whichKey.enable = true;
+      whichKey = {
+        enable = true;
+        setupOpts = {
+          preset = "helix";
+        };
+      };
     };
   };
 }

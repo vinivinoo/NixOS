@@ -1,20 +1,20 @@
 {
   programs.nvf.settings.vim = {
     utility = {
-      motion.flash-nvim.enable = true;
-      multicursors.enable = true;
-      nix-develop.enable = true;
-      snacks-nvim = {
-        enable = true;
-        setupOpts = {
-          indent.enable = true;
-          input.enable = true;
-          notifier.enable = true;
-          scope.enable = true;
-          statuscolumn.enable = true;
-          words.enable = true;
+      motion = {
+        flash-nvim = {
+          enable = true;
+          mappings = {
+            jump = "f";
+            treesitter = "F";
+            remote = "r";
+            treesitter_search = "R";
+            toggle = "<c-f>";
+          };
         };
       };
+      multicursors.enable = true;
+      nix-develop.enable = true;
       yazi-nvim.enable = true;
     };
   };

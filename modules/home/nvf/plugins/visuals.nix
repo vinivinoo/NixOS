@@ -1,9 +1,8 @@
 {
   programs.nvf.settings.vim = {
-    terminal = {
-      toggleterm = {
+    visuals = {
+      blink-indent = {
         enable = true;
-        lazygit.enable = true;
       };
     };
   };

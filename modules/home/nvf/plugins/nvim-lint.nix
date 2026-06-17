@@ -1,5 +1,8 @@
 {
   programs.nvf.settings.vim = {
-    diagnostics.nvim-lint.enable = true;
+    diagnostics = {
+      enable = true;
+      nvim-lint.enable = true;
+    };
   };
 }

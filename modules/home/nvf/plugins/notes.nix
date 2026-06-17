@@ -3,5 +3,10 @@
     notes = {
       todo-comments.enable = true;
     };
+    # keymaps = [
+    #   {
+    #
+    #   }
+    # ];
   };
 }
