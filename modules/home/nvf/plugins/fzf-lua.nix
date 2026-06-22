@@ -14,7 +14,7 @@
         key = "<leader><space>";
         action = "<cmd>lua require('fzf-lua').files({ cwd = require('fzf-lua.path').git_root({}) })<cr>";
         silent = true;
-        desc = "Find Files (Project Root)";
+        desc = "Find Files (Root Dir)";
       }
       {
         mode = "n";
@@ -183,5 +183,11 @@
         desc = "Search QuickfixList";
       }
     ];
+    luaConfigRC.keymap-unfolds = ''
+      vim.keymap.del('n', '<leader><space>h')
+      vim.keymap.del('n', '<leader><space>j')
+      vim.keymap.del('n', '<leader><space>k')
+      vim.keymap.del('n', '<leader><space>l')
+    '';
   };
 }
