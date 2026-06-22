@@ -62,7 +62,7 @@
               {
                 icon = " ";
                 desc = "Find text";
-                key = "s";
+                key = "g";
                 action = "lua require('fzf-lua').live_grep()"; # Alternativ "Telescope live_grep"
               }
               {
