@@ -18,6 +18,7 @@
           "gs" = "Surround";
           "z" = "Fold";
           "<leader>b" = "Buffer";
+          "<leader>d" = "Debug";
         };
       };
     };
