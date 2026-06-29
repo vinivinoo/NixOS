@@ -4,6 +4,7 @@
   imports = [
     inputs.nvf.homeManagerModules.default
     ./options.nix
+    ./keybinds.nix
     (inputs.import-tree ./plugins)
   ];
 
