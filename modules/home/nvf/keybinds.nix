@@ -16,33 +16,5 @@
       action = "\"_dP";
       silent = true;
     }
-    {
-      mode = "n";
-      key = "<leader>bb";
-      action = "\"_dP";
-      silent = true;
-      desc = "Switch Buffer";
-    }
-    {
-      mode = "n";
-      key = "<leader>bi";
-      action = "<cmd>BufferDelete!<cr>";
-      silent = true;
-      desc = "Delete Invisible Buffers";
-    }
-    {
-      mode = "n";
-      key = "<leader>bd";
-      action = "<cmd>Bdelete<cr>";
-      silent = true;
-      desc = "Delete Buffers";
-    }
-    {
-      mode = "n";
-      key = "<leader>bx";
-      action = "<cmd>%bd<cr>";
-      silent = true;
-      desc = "Close Buffers";
-    }
   ];
 }
