@@ -26,6 +26,7 @@
     tmux
     tree
     yazi
+    zip
     zoxide
     zsh
 
