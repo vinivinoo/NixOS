@@ -73,9 +73,9 @@
               }
               {
                 icon = " ";
-                desc = "Restore Session";
-                key = "s";
-                action = "lua require('session_manager').load_last_session()"; # Falls persistence aktiv ist
+                desc = "Directory";
+                key = "d";
+                action = "lua require('fzf-lua').zoxide()"; # Falls persistence aktiv ist
               }
               {
                 icon = " ";

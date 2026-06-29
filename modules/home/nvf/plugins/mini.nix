@@ -18,56 +18,5 @@
         };
       };
     };
-    # keymaps = [
-    #   {
-    #     mode = "n, x";
-    #     key = "gsa";
-    #     action = ""
-    #     silent = true;
-    #     desc = "Add Surrounding";
-    #   }
-    #   {
-    #     mode = "n";
-    #     key = "gsd";
-    #     action = ""
-    #     silent = true;
-    #     desc = "Delete Surrounding";
-    #   }
-    #   {
-    #     mode = "n";
-    #     key = "gsf";
-    #     action = ""
-    #     silent = true;
-    #     desc = "Find Right Surrounding";
-    #   }
-    #   {
-    #     mode = "n";
-    #     key = "gsF";
-    #     action = ""
-    #     silent = true;
-    #     desc = "Find Left Surrounding";
-    #   }
-    #   {
-    #     mode = "n";
-    #     key = "gsh";
-    #     action = ""
-    #     silent = true;
-    #     desc = "Highlight Surrounding";
-    #   }
-    #   {
-    #     mode = "n";
-    #     key = "gsn";
-    #     action = ""
-    #     silent = true;
-    #     desc = "Update Surrounding";
-    #   }
-    #   {
-    #     mode = "n";
-    #     key = "gsr";
-    #     action = ""
-    #     silent = true;
-    #     desc = "Replace Surrounding";
-    #   }
-    # ];
   };
 }

@@ -9,27 +9,6 @@
       };
     };
     keymaps = [
-      {
-        mode = "n";
-        key = "<leader><space>";
-        action = "<cmd>lua require('fzf-lua').files({ cwd = require('fzf-lua.path').git_root({}) })<cr>";
-        silent = true;
-        desc = "Find Files (Root Dir)";
-      }
-      {
-        mode = "n";
-        key = "<leader>/";
-        action = "<cmd>lua require('fzf-lua').live_grep({ cwd = require('fzf-lua.path').git_root({}) })<cr>";
-        silent = true;
-        desc = "Grep (Root Dir)";
-      }
-      {
-        mode = "n";
-        key = "<leader>:";
-        action = "<cmd>lua require('fzf-lua').command_history()<cr>";
-        silent = true;
-        desc = "Command History";
-      }
       # --- find ---
       {
         mode = "n";
@@ -44,6 +23,13 @@
         action = "<cmd>lua require('fzf-lua').files({ cwd = '/home/vini/nixos' })<cr>";
         silent = true;
         desc = "Find in Config";
+      }
+      {
+        mode = "n";
+        key = "<leader>fd";
+        action = "<cmd>lua require('fzf-lua').zoxide()<cr>";
+        silent = true;
+        desc = "Find Directory";
       }
       {
         mode = "n";
@@ -103,6 +89,13 @@
         key = "<leader>s/";
         action = "<cmd>lua require('fzf-lua').search_history()<cr>";
         desc = "Search History";
+      }
+      {
+        mode = "n";
+        key = "<leader>s:";
+        action = "<cmd>lua require('fzf-lua').command_history()<cr>";
+        silent = true;
+        desc = "Command History";
       }
       {
         mode = "n";

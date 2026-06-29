@@ -2,7 +2,7 @@
   programs.nvf.settings.vim = {
     navigation = {
       harpoon = {
-        enable = true;
+        enable = false;
         mappings = {
           markFile = "<leader>H";
           listMarks = "<leader>h";

@@ -12,6 +12,7 @@
           "<leader>g" = "Git";
           "<leader>s" = "Search";
           "<leader>x" = "Diagnostics/Quickfix";
+          "<leader>l" = "LSP";
           "<" = "Prev";
           ">" = "Next";
           "g" = "Goto";
@@ -19,6 +20,7 @@
           "z" = "Fold";
           "<leader>b" = "Buffer";
           "<leader>d" = "Debug";
+          "<leader>h" = null;
         };
       };
     };

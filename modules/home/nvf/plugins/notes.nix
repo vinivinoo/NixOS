@@ -1,7 +1,13 @@
 {
   programs.nvf.settings.vim = {
     notes = {
-      todo-comments.enable = true;
+      todo-comments = {
+        enable = true;
+        mappings = {
+          quickFix = null;
+          trouble = null;
+        };
+      };
     };
     keymaps = [
       {
