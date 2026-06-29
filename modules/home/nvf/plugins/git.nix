@@ -21,8 +21,8 @@
           };
         };
         mappings = {
-          nextHunk = ">h";
-          previousHunk = "<h";
+          nextHunk = "]h";
+          previousHunk = "[h";
           stageHunk = "<leader>ghs";
           undoStageHunk = "<leader>ghu";
           resetHunk = "<leader>ghr";
