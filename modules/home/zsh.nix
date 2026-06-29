@@ -1,4 +1,4 @@
-{ config, ... }: 
+{ config, ... }:
 
 {
   programs.zsh = {
@@ -10,7 +10,8 @@
     shellAliases =
       let
         flakeDir = "${config.home.homeDirectory}/nixos";
-      in {
+      in
+      {
         rb = "sudo nixos-rebuild switch --flake ${flakeDir}#vini";
         rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#vini --no-reexec";
         upd = "nix flake update --flake ${flakeDir}";
@@ -31,10 +32,25 @@
          exec niri
       fi
 
+      cdf() {
+        local dir
+        dir=$(find . -type d | fzf) && cd "$dir"
+      }
+
+      function y() {
+        local tmp="$(mktemp -t 'yazi-cwd.XXXXXX')"
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          builtin cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+      }
+
+
       man() {
         command man "$@" | bat -l man -p
       }
-      
+
       bindkey '^f' autosuggest-accept
       bindkey '^p' history-search-backward
       bindkey '^n' history-search-forward
