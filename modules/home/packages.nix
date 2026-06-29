@@ -50,12 +50,12 @@
 
     # media
     anki-bin
-    # bitwarden-desktop
-    discord
+    # discord
     firefox
     spotify
     signal-desktop
     thunderbird
+    vesktop
 
     # work
     libreoffice-fresh
