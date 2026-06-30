@@ -11,7 +11,7 @@
 
       background_opacity = 0.9;
 
-      window_padding_width = "0 10 10 10";
+      window_padding_width = "0 10 0 10";
       # cursor_trail = 1;
     };
   };
