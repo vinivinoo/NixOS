@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.nvf.homeManagerModules.default
+    ./globals.nix
     ./options.nix
     ./keybinds.nix
     (inputs.import-tree ./plugins)
