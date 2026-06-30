@@ -15,80 +15,80 @@
         key = "<leader>fb";
         action = "<cmd>lua require('fzf-lua').buffers()<cr>";
         silent = true;
-        desc = "Find Buffers";
+        desc = "Buffers";
       }
       {
         mode = "n";
         key = "<leader>fc";
         action = "<cmd>lua require('fzf-lua').files({ cwd = '/home/vini/nixos' })<cr>";
         silent = true;
-        desc = "Find in Config";
+        desc = "Config";
       }
       {
         mode = "n";
         key = "<leader>fd";
         action = "<cmd>lua require('fzf-lua').zoxide()<cr>";
         silent = true;
-        desc = "Find Directory";
+        desc = "Directory";
       }
       {
         mode = "n";
         key = "<leader>ff";
         action = "<cmd>lua require('fzf-lua').files()<cr>";
         silent = true;
-        desc = "Find Files";
+        desc = "Files";
       }
       {
         mode = "n";
         key = "<leader>fg";
         action = "<cmd>lua require('fzf-lua').git_files()<cr>";
         silent = true;
-        desc = "Find Gitfiles";
+        desc = "Gitfiles";
       }
       {
         mode = "n";
         key = "<leader>fr";
         action = "<cmd>lua require('fzf-lua').oldfiles()<cr>";
         silent = true;
-        desc = "Find Recent";
+        desc = "Recent";
       }
       # --- git ---
       {
         mode = "n";
         key = "<leader>gc";
         action = "<cmd>lua require('fzf-lua').git_commits()<cr>";
-        desc = "Git Commits";
+        desc = "Commits";
       }
       {
         mode = "n";
         key = "<leader>gd";
         action = "<cmd>lua require('fzf-lua').git_diff()<cr>";
-        desc = "Git Diff";
+        desc = "Diff";
       }
       {
         mode = "n";
         key = "<leader>gs";
         action = "<cmd>lua require('fzf-lua').git_status()<cr>";
-        desc = "Git Status";
+        desc = "Status";
       }
       {
         mode = "n";
         key = "<leader>gS";
         action = "<cmd>lua require('fzf-lua').git_stash()<cr>";
-        desc = "Git Stash";
+        desc = "Stash";
       }
       # --- search ---
       {
         mode = "n";
         key = ''<leader>s"'';
         action = "<cmd>lua require('fzf-lua').registers()<cr>";
-        desc = "Search Registers";
+        desc = "Registers";
       }
       {
         mode = "n";
         key = "<leader>s/";
         action = "<cmd>lua require('fzf-lua').search_history()<cr>";
-        desc = "Search History";
+        desc = "History";
       }
       {
         mode = "n";
@@ -101,67 +101,67 @@
         mode = "n";
         key = "<leader>sb";
         action = "<cmd>lua require('fzf-lua').lines()<cr>";
-        desc = "Search Buffer Lines";
+        desc = "Buffer Lines";
       }
       {
         mode = "n";
         key = "<leader>sc";
         action = "<cmd>lua require('fzf-lua').commands()<cr>";
-        desc = "Search Commands";
+        desc = "Commands";
       }
       {
         mode = "n";
         key = "<leader>sd";
         action = "<cmd>lua require('fzf-lua').diagnostics_workspace()<cr>";
-        desc = "Search Diagnostics";
+        desc = "Diagnostics";
       }
       {
         mode = "n";
         key = "<leader>sD";
         action = "<cmd>lua require('fzf-lua').diagnostics_document()<cr>";
-        desc = "Search Buffer Diagnostics";
+        desc = "Buffer Diagnostics";
       }
       {
         mode = "n";
         key = "<leader>sg";
         action = "<cmd>lua require('fzf-lua').live_grep()<cr>";
-        desc = "Search Grep";
+        desc = "Grep";
       }
       {
         mode = "n";
         key = "<leader>sh";
         action = "<cmd>lua require('fzf-lua').help_tags()<cr>";
-        desc = "Search Help Pages";
+        desc = "Help Pages";
       }
       {
         mode = "n";
         key = "<leader>sj";
         action = "<cmd>lua require('fzf-lua').jumps()<cr>";
-        desc = "Search Jumps";
+        desc = "Jumps";
       }
       {
         mode = "n";
         key = "<leader>sk";
         action = "<cmd>lua require('fzf-lua').keymaps()<cr>";
-        desc = "Search Keymaps";
+        desc = "Keymaps";
       }
       {
         mode = "n";
         key = "<leader>sl";
         action = "<cmd>lua require('fzf-lua').loclist()<cr>";
-        desc = "Search Location List";
+        desc = "Location List";
       }
       {
         mode = "n";
         key = "<leader>sM";
         action = "<cmd>lua require('fzf-lua').man_pages()<cr>";
-        desc = "Search Man Pages";
+        desc = "Man Pages";
       }
       {
         mode = "n";
         key = "<leader>sm";
         action = "<cmd>lua require('fzf-lua').marks()<cr>";
-        desc = "Search Marks";
+        desc = "Marks";
       }
       {
         mode = "n";
@@ -173,7 +173,7 @@
         mode = "n";
         key = "<leader>sq";
         action = "<cmd>lua require('fzf-lua').quickfix()<cr>";
-        desc = "Search QuickfixList";
+        desc = "Quickfix List";
       }
     ];
     luaConfigRC.keymap-unfolds = ''
