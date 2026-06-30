@@ -12,6 +12,7 @@
           "<leader>g" = "Git";
           "<leader>s" = "Search";
           "<leader>x" = "Diagnostics/Quickfix";
+          "<leader>q" = "Quit/Session";
           "g" = "Goto";
           "gs" = "Surround";
           "z" = "Fold";
@@ -23,7 +24,13 @@
           "<leader>d" = "Debug";
           "<leader>h" = null;
           "<leader>lw" = null;
-          "<leader>-" = "Yazi";
+          "<leader>gh" = "Hunk";
+          "<leader>gt" = "Toggle";
+          "<leader>ct" = "Toggle";
+          "<leader>xg" = "Goto";
+          "<leader>xw" = "Workspace";
+          "<leader>gg" = "Lazygit";
+          "<leader>bm" = null;
         };
       };
     };
