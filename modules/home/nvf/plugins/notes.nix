@@ -12,13 +12,13 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader><t";
+        key = "<leader>[t";
         action = "function() require('todo-comments').jump_prev() end";
         desc = "Previous Todo Comment";
       }
       {
         mode = "n";
-        key = "<leader>>t";
+        key = "<leader>]t";
         action = "function() require('todo-comments').jump_next() end";
         desc = "Next Todo Comment";
       }
