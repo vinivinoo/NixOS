@@ -100,7 +100,7 @@
           clip-to-geometry = true;
         }
         {
-          matches = [ { title = "Discord"; } ];
+          matches = [ { title = "Vescord"; } ];
           open-on-workspace = "2";
         }
         {
