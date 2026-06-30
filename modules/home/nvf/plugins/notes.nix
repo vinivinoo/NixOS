@@ -8,6 +8,9 @@
           trouble = null;
         };
       };
+      obsidian = {
+        enable = true;
+      };
     };
     keymaps = [
       {
