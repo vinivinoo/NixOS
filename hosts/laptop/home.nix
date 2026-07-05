@@ -1,9 +1,6 @@
-{ pkgs, inputs, ... }:
-
-{
+{inputs, ...}: {
   imports = [
     (inputs.import-tree ./../../modules/home)
-    # ./../../modules/home/bundle.nix
   ];
 
   home = {
@@ -27,6 +24,15 @@
   };
 
   programs.home-manager.enable = true;
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = "firefox.desktop";
+    };
+  };
+
+  fonts.fontconfig.enable = true;
 
   home.file = {
     "/home/vini/Pictures/Wallpapers".source = ./../../config/wallpapers;
