@@ -7,7 +7,7 @@
 
     openssh = {
       enable = true;
-      ports = [ 443 ];
+      ports = [443];
     };
 
     blueman = {
@@ -15,12 +15,24 @@
     };
 
     xserver = {
-        enable = false;
+      enable = false;
+    };
+
+    keyd = {
+      enable = true;
+      keyboards.default = {
+        ids = ["*"];
+        settings = {
+          main = {
+            capslock = "overload(control, esc)";
+          };
+        };
+      };
     };
 
     power-profiles-daemon.enable = true;
     upower.enable = true;
   };
-  
+
   hardware.bluetooth.enable = true;
 }
