@@ -1,8 +1,7 @@
-{ inputs, config, ... }:
-
-{
+{inputs, ...}: {
   imports = [
     inputs.nvf.homeManagerModules.default
+    ./autocmds.nix
     ./globals.nix
     ./options.nix
     ./keybinds.nix

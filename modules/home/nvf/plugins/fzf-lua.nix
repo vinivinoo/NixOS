@@ -20,7 +20,7 @@
       {
         mode = "n";
         key = "<leader>fc";
-        action = "<cmd>lua require('fzf-lua').files({ cwd = '/home/vini/nixos' })<cr>";
+        action = "<cmd>lua require('fzf-lua').files({ cwd='/home/vini/nixos' })<cr>";
         silent = true;
         desc = "Config";
       }
@@ -37,6 +37,13 @@
         action = "<cmd>lua require('fzf-lua').files()<cr>";
         silent = true;
         desc = "Files";
+      }
+      {
+        mode = "n";
+        key = "<leader>fF";
+        action = "<cmd>lua require('fzf-lua').files({ cwd='/home/vini' })<cr>";
+        silent = true;
+        desc = "Files (Home Directory)";
       }
       {
         mode = "n";

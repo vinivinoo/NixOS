@@ -1,5 +1,6 @@
 {
-  programs.nvf.settings.vim = { lsp = {
+  programs.nvf.settings.vim = {
+    lsp = {
       enable = true;
       formatOnSave = true;
       lspconfig.enable = true;
@@ -20,6 +21,7 @@
         bash-language-server.enable = true;
         clangd.enable = true;
         nixd.enable = true;
+        markdown-oxide.enable = true;
       };
 
       mappings = {
@@ -44,7 +46,6 @@
         signatureHelp = "<leader>cs";
         toggleFormatOnSave = "<leader>ctf";
       };
-
     };
   };
 }

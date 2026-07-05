@@ -10,6 +10,7 @@
           "<leader>f" = "Files/Find";
           "<leader>c" = "Code";
           "<leader>g" = "Git";
+          "<leader>o" = "Obsidian";
           "<leader>s" = "Search";
           "<leader>x" = "Diagnostics/Quickfix";
           "<leader>q" = "Quit/Session";
