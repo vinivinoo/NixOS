@@ -49,11 +49,6 @@
       # Mit Shift + Alt + H/L zwischen Fenstern wechseln (Vim-Style)
       bind -n M-H previous-window
       bind -n M-L next-window
-
-      # --- Vi Copy-Mode Keybindings ---
-      # (Aktivieren mit Prefix + [ )
-      bind-key -T copy-mode-vi v send-keys -X begin-selection
-      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
     '';
 
     # Setzt den Prefix auf Ctrl + Space (Home Manager kümmert sich um das unbind von C-b)
