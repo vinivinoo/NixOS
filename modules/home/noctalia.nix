@@ -17,22 +17,6 @@
 
   programs.noctalia-shell = {
     enable = true;
-    # plugins = {
-    #   sources = [
-    #     {
-    #       enabled = true;
-    #       name = "Official Noctalia Plugins";
-    #       url = "https://github.com/noctalia-dev/noctalia-plugins";
-    #     }
-    #   ];
-    #   states = {
-    #     polkit-agent = {
-    #       enabled = true;
-    #       sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-    #     };
-    #   };
-    #   version = 2;
-    # };
     settings = {
       bar = {
         density = "default";
@@ -41,6 +25,10 @@
         widgets = {
 
           left = [
+            {
+              id = "Spacer";
+              width = 1;
+            }
             {
               id = "Clock";
             }
@@ -86,6 +74,10 @@
             {
               id = "ControlCenter";
               useDistroLogo = true;
+            }
+            {
+              id = "Spacer";
+              width = 1;
             }
           ];
         };
