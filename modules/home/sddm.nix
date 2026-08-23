@@ -1,5 +1,0 @@
-{
-  programs.sddm = {
-    enable = true;
-  };
-}

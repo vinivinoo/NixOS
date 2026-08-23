@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # devTools
     git
@@ -36,10 +34,7 @@
     hyprland
     kitty
     libnotify
-    # niri
-    # noctalia-shell
     nwg-look
-    rofi
     slurp
     swayidle
     swaylock-effects
@@ -50,12 +45,15 @@
 
     # media
     anki-bin
-    # discord
     firefox
     spotify
     signal-desktop
     thunderbird
     vesktop
+
+    # gaming
+    steam
+    prismlauncher
 
     # work
     libreoffice-fresh
@@ -63,6 +61,9 @@
     hunspellDicts.de_DE
     hunspellDicts.en_US
     hunspellDicts.sv_SE
+    rclone
+    oculante
+    nautilus
 
     # fonts
     fira-sans
@@ -87,7 +88,7 @@
     graphviz
     lua
     luarocks
-    nixfmt-rfc-style
+    nixfmt
     sdl3
     shaderc
     tree-sitter

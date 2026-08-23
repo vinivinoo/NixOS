@@ -43,11 +43,39 @@
             y = 0;
           };
         };
-        "HDMI-A-1" = {
+        # "HDMI-A-1" = {
+        #   mode = {
+        #     width = 2560;
+        #     height = 1440;
+        #     refresh = 74.780;
+        #   };
+        #   scale = 1.0;
+        #   position = {
+        #     x = 0;
+        #     y = -1440;
+        #   };
+        # };
+
+        # D120 Monitore
+        "PNP(AOC) U27B3AF ZXLQ8HA004111" = {
+          mode = {
+            width = 3840;
+            height = 2160;
+            refresh = 60.0;
+          };
+          scale = 1.5;
+          position = {
+            x = 0;
+            y = -1440;
+          };
+        };
+
+        # C-Pool Monitore
+        "Lenovo Group Limited P27QD-40 VNACFDXA" = {
           mode = {
             width = 2560;
             height = 1440;
-            refresh = 74.780;
+            refresh = 119.998;
           };
           scale = 1.0;
           position = {
@@ -80,12 +108,22 @@
 
       spawn-at-startup = [
         {
-          # Hinweis: Wenn noctalia-shell und xwayland-satellite zwei getrennte
-          # Programme sind, sollten sie eigene Blöcke bekommen:
-          command = ["noctalia-shell"];
+          command = ["noctalia"];
         }
         {
           command = ["xwayland-satellite"];
+        }
+        {
+          command = ["firefox"];
+        }
+        {
+          command = ["obsidian"];
+        }
+        {
+          command = ["spotify"];
+        }
+        {
+          command = ["vesktop"];
         }
       ];
 
@@ -123,27 +161,31 @@
           clip-to-geometry = true;
         }
         {
-          matches = [{title = "Vescord";}];
-          open-on-workspace = "2";
-        }
-        {
-          matches = [{title = "Spotify";}];
-          open-on-workspace = "2";
-        }
-        {
-          matches = [{title = "Obsidian";}];
-          open-on-workspace = "2";
-          open-maximized = true;
-        }
-        {
-          matches = [{title = "Firefox";}];
+          matches = [
+            {app-id = "firefox";}
+          ];
           open-on-workspace = "1";
           open-maximized = true;
+        }
+        {
+          matches = [
+            {app-id = "obsidian";}
+          ];
+          open-on-workspace = "2";
+          open-maximized = true;
+        }
+        {
+          matches = [
+            {app-id = "vesktop";}
+            {app-id = "Spotify";}
+          ];
+          open-on-workspace = "3";
         }
       ];
 
       workspaces."1" = {};
       workspaces."2" = {};
+      workspaces."3" = {};
 
       layer-rules = [
         {
@@ -165,7 +207,7 @@
         };
         "mod+space" = {
           hotkey-overlay.title = "run an application: rofi";
-          action.spawn-sh = ["rofi -show drun"];
+          action.spawn-sh = ["noctalia msg panel-toggle launcher"];
         };
         "mod+b" = {
           hotkey-overlay.title = "open browser: firefox";
@@ -179,7 +221,6 @@
           hotkey-overlay.title = "file manager: nautilus";
           action.spawn = ["nautilus"];
         };
-
         # ─── audio controls ───
         "xf86audioraisevolume" = {
           allow-when-locked = true;
@@ -214,6 +255,22 @@
           allow-when-locked = true;
           action.spawn-sh = ["playerctl next"];
         };
+        "mod+shift+up" = {
+          allow-when-locked = true;
+          action.spawn-sh = ["playerctl play-pause"];
+        };
+        "mod+shift+down" = {
+          allow-when-locked = true;
+          action.spawn-sh = ["playerctl stop"];
+        };
+        "mod+shift+left" = {
+          allow-when-locked = true;
+          action.spawn-sh = ["playerctl previous"];
+        };
+        "mod+shift+right" = {
+          allow-when-locked = true;
+          action.spawn-sh = ["playerctl next"];
+        };
         "xf86monbrightnessup" = {
           allow-when-locked = true;
           action.spawn-sh = ["brightnessctl --class=backlight set +10%"];
@@ -235,13 +292,9 @@
         "mod+down".action.focus-window-down = {};
         "mod+j".action.focus-window-down = {};
 
-        "mod+shift+left".action.move-column-left = {};
         "mod+shift+h".action.move-column-left = {};
-        "mod+shift+right".action.move-column-right = {};
         "mod+shift+l".action.move-column-right = {};
-        "mod+shift+up".action.move-window-up = {};
         "mod+shift+k".action.move-window-up = {};
-        "mod+shift+down".action.move-window-down = {};
         "mod+shift+j".action.move-window-down = {};
 
         "mod+home".action.focus-column-first = {};

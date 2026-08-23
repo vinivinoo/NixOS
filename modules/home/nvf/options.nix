@@ -5,5 +5,8 @@
     expandtab = true;
     conceallevel = 2;
     foldlevel = 99;
+    wrap = true;
+    linebreak = true;
+    breakindent = true;
   };
 }
