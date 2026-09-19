@@ -38,7 +38,6 @@
             "battery"
             "volume"
             "brightness"
-            "session"
             "control-center"
           ];
         };
@@ -90,35 +89,6 @@
         panel = {
           open_near_click_control_center = true;
         };
-
-        session = {
-          actions = [
-            {
-              action = "lock";
-              enabled = true;
-              command = "swaylock";
-            }
-            {
-              action = "logout";
-              enabled = true;
-            }
-            {
-              action = "lock_and_suspend";
-              enabled = true;
-              command = "swaylock && systemctl suspend";
-            }
-            {
-              action = "reboot";
-              enabled = true;
-              command = "reboot";
-            }
-            {
-              action = "shutdown";
-              enabled = true;
-              command = "shutdown";
-            }
-          ];
-        };
       };
 
       calendar = {
@@ -148,26 +118,13 @@
       };
 
       location = {
-        auto_locate = true;
+        auto_locate = false;
+        address = "Skövde, SE";
       };
 
       nightlight = {
         enabled = true;
         temperature_night = 4000;
-      };
-
-      plugins = {
-        enabled = [
-          thepunkoff/pomodoro
-        ];
-        source = [
-          {
-            name = "official";
-            kind = "git";
-            location = "https://github.com/noctalia-dev/official-plugins";
-            enabled = true;
-          }
-        ];
       };
     };
   };

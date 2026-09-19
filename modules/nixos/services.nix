@@ -15,7 +15,15 @@
     };
 
     xserver = {
-      enable = false;
+      enable = true;
+      xkb = {
+        layout = "de,se";
+        options = "grp:alt_caps_toggle";
+      };
+    };
+
+    flatpak = {
+      enable = true;
     };
 
     keyd = {
@@ -28,6 +36,16 @@
           };
         };
       };
+    };
+
+    gvfs = {
+      enable = true;
+    };
+
+    displayManager.sddm = {
+      enable = true;
+      # enable xserver instead of wayland to enable cursor
+      wayland.enable = true;
     };
 
     power-profiles-daemon.enable = true;

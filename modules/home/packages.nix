@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
     # devTools
     git
     helix
-    jetbrains.idea-oss
+    jetbrains.idea
     neovim
     obsidian
     vim
@@ -34,6 +38,7 @@
     hyprland
     kitty
     libnotify
+    libdisplay-info
     nwg-look
     slurp
     swayidle
@@ -45,18 +50,18 @@
 
     # media
     anki-bin
-    firefox
     spotify
     signal-desktop
-    thunderbird
     vesktop
+    brave
 
     # gaming
     steam
     prismlauncher
 
     # work
-    libreoffice-fresh
+    blender
+    libreoffice
     hunspell
     hunspellDicts.de_DE
     hunspellDicts.en_US
@@ -64,6 +69,8 @@
     rclone
     oculante
     nautilus
+    thunderbird
+    inputs.zennotes.packages.${pkgs.system}.default
 
     # fonts
     fira-sans
@@ -92,5 +99,6 @@
     sdl3
     shaderc
     tree-sitter
+    typst
   ];
 }

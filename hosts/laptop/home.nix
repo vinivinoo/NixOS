@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   imports = [
     (inputs.import-tree ./../../modules/home)
   ];
@@ -8,9 +12,11 @@
     homeDirectory = "/home/vini";
     stateVersion = "25.11";
     sessionVariables = {
-      BROWSER = "firefox";
+      BROWSER = "brave";
       EDITOR = "nvim";
       TERMINAL = "kitty";
+      EMAIL = "thunderbird";
+      NOTES = "zennotes-desktop";
       XCURSOR_THEME = "Bibata-Modern-Ice";
       XCURSOR_SIZE = "24";
       QS-ICON-THEME = "Papirus";
@@ -28,7 +34,9 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "application/pdf" = "firefox.desktop";
+      "application/pdf" = "${config.home.sessionVariables.BROWSER}.desktop";
+      "image/png" = "oculante.desktop";
+      "x-schema-handler/mailto" = "${config.home.sessionVariables.EMAIL}.desktop";
     };
   };
 

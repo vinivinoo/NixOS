@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -41,7 +39,7 @@
       animations = {
         enabled = true;
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-        animation = [  
+        animation = [
           "windows, 1, 7, myBezier"
           "windowsOut, 1, 7, default, popin 80%"
           "border, 1, 10, default"
@@ -85,29 +83,29 @@
         "$mainMod, P, pseudo,"
         "$SUPER_SHIFT, R, exec, hyprctl reload; notify-send 'Hyprland Reloaded!'"
         "$mainMod, F, fullscreen,"
-        "$mainMod, B, exec, $BROWSER"
-        
+        "$mainMod, B, exec, ${config.home.sessionVariables.BROWSER}"
+
         "$SUPER_SHIFT, O, exec, swaylock"
-        
+
         "$mainMod, S, exec, /home/vini/bin/screenshot.sh"
-        
+
         "$SUPER_SHIFT, S, exec, /home/vini/bin/screenshot.sh select"
-        
+
         "$mainMod, H, movefocus, l"
         "$mainMod, L, movefocus, r"
         "$mainMod, K, movefocus, u"
         "$mainMod, J, movefocus, d"
-        
+
         "$SUPER_SHIFT, H, movewindow, l"
         "$SUPER_SHIFT, L, movewindow, r"
         "$SUPER_SHIFT, K, movewindow, u"
         "$SUPER_SHIFT, J, movewindow, d"
-        
+
         "$mainMod, right, resizeactive, 100 0"
         "$mainMod, left, resizeactive, -100 0"
         "$mainMod, up, resizeactive, 0 -100"
         "$mainMod, down, resizeactive, 0 100"
-        
+
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
@@ -118,7 +116,7 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
-        
+
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
         "$mainMod SHIFT, 3, movetoworkspace, 3"
@@ -154,7 +152,7 @@
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
       ];
- 
+
       windowrulev2 = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"

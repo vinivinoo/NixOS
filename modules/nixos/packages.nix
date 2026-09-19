@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   systemUtils = with pkgs; [
     brightnessctl
     openssh
     pavucontrol
+    playerctl
     pipewire
     unzip
     wget
@@ -13,12 +12,10 @@ let
     xwayland-satellite
   ];
 
-
   networkTools = with pkgs; [
     blueman
     networkmanagerapplet
   ];
-
 in {
   environment.systemPackages =
     systemUtils

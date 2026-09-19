@@ -4,5 +4,6 @@
     niri.enable = true;
     zsh.enable = true;
     nix-ld.enable = true;
+    fuse.userAllowOther = true;
   };
 }

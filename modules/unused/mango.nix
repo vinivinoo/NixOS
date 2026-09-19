@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   wayland.windowManager.mango = {
     enable = true;
     settings = ''
@@ -14,7 +14,7 @@
       blur_params_brightness = 0.9
       blur_params_contrast = 0.9
       blur_params_saturation = 1.2
-      
+
       shadows = 0
       layer_shadows = 0
       shadow_only_floating = 1
@@ -23,12 +23,12 @@
       shadows_position_x = 0
       shadows_position_y = 0
       shadowscolor= 0x000000ff
-      
+
       border_radius=6
       no_radius_when_single=0
       focused_opacity=1.0
       unfocused_opacity=1.0
-      
+
       # Animation Configuration(support type:zoom,slide)
       # tag_animation_direction: 0-horizontal,1-vertical
       animations=1
@@ -52,7 +52,7 @@
       animation_curve_tag=0.46,1.0,0.29,1
       animation_curve_close=0.08,0.92,0,1
       animation_curve_focus=0.46,1.0,0.29,1
-      
+
       # Scroller Layout Setting
       scroller_structs=20
       scroller_default_proportion=0.8
@@ -61,20 +61,20 @@
       edge_scroller_pointer_focus=1
       scroller_default_proportion_single=1.0
       scroller_proportion_preset=0.5,0.8,1.0
-      
+
       # Master-Stack Layout Setting
       new_is_master=1
       default_mfact=0.55
       default_nmaster=1
       smartgaps=0
-      
+
       # Overview Setting
       hotarea_size=10
       enable_hotarea=0
       ov_tab_mode=0
       overviewgappi=5
       overviewgappo=30
-      
+
       # Misc
       no_border_when_single=0
       axis_bind_apply_timeout=100
@@ -88,13 +88,13 @@
       snap_distance=30
       cursor_size=24
       drag_tile_to_tile=1
-      
+
       # keyboard
       repeat_rate=25
       repeat_delay=600
       numlockon=0
       xkb_rules_layout=de
-      
+
       # Trackpad
       # need relogin to make it apply
       disable_trackpad=0
@@ -106,11 +106,11 @@
       left_handed=0
       middle_button_emulation=0
       swipe_min_threshold=1
-      
+
       # mouse
       # need relogin to make it apply
       mouse_natural_scrolling=0
-      
+
       # Appearance
       gappih=5
       gappiv=5
@@ -127,7 +127,7 @@
       scratchpadcolor=0x516c93ff
       globalcolor=0xb153a7ff
       overlaycolor=0x14a57cff
-      
+
       # layout support:
       # tile,scroller,grid,deck,monocle,center_tile,vertical_tile,vertical_scroller
       tagrule=id:1,layout_name:tile
@@ -140,26 +140,26 @@
       tagrule=id:8,layout_name:tile
       tagrule=id:9,layout_name:tile
 
-      # autostart 
+      # autostart
       exec-once = waybar
       exec-once = swaync
       exec-once = awww-daemon
       exec-once = awww img /home/vini/Bilder/Backgrounds/makko-background.png
-      
+
       # Key Bindings
       # key name refer to `xev` or `wev` command output,
       # mod keys name: super,ctrl,alt,shift,none
-      
+
       # reload config
       bind=SUPER+SHIFT,r,reload_config
       bind=SUPER+SHIFT,r,spawn,notify-send Mango Reloaded!
-      
+
       # menu and terminal
       bind=SUPER,space,spawn,rofi -show drun
       bind=SUPER,Return,spawn,kitty
-      bind=SUPER,b,spawn,firefox
+      bind=SUPER,b,spawn,${config.home.sessionVariables.BROWSER}
       bind=SUPER+SHIFT,o,spawn,swaylock
-      
+
       # exit
       bind=SUPER,q,killclient
       bind=SUPER,m,quit
@@ -167,20 +167,20 @@
       # screenshots
       bind=SUPER,s,spawn,/home/vini/bin/screenshot.sh
       bind=SUPER+SHIFT,s,spawn,/home/vini/bin/screenshot.sh select
-      
+
       # switch window focus
       bind=SUPER,Tab,focusstack,next
       bind=SUPER,h,focusdir,left
       bind=SUPER,l,focusdir,right
       bind=SUPER,k,focusdir,up
       bind=SUPER,j,focusdir,down
-      
+
       # swap window
       bind=SUPER+SHIFT,k,exchange_client,up
       bind=SUPER+SHIFT,j,exchange_client,down
       bind=SUPER+SHIFT,h,exchange_client,left
       bind=SUPER+SHIFT,l,exchange_client,right
-      
+
       # switch window status
       bind=SUPER,g,toggleglobal,
       bind=SUPER,Tab,toggleoverview,
@@ -192,18 +192,18 @@
       # bind=SUPER,o,toggleoverlay,
       bind=SUPER+SHIFT,I,restore_minimized
       # bind=ALT,z,toggle_scratchpad
-      
+
       # scroller layout
       # bind=ALT,e,set_proportion,1.0
       # bind=ALT,x,switch_proportion_preset,
-      
+
       # switch layout
       bind=SUPER,t,setlayout, tile
       bind=SUPER,v,setlayout, vertical_grid
       bind=SUPER,c,setlayout, vertical_spiral
       bind=SUPER,x,setlayout, scroller
       bind=SUPER,n,switch_layout
-      
+
       # tag switch
       # bind=SUPER,Left,viewtoleft,0
       # bind=CTRL,Left,viewtoleft_have_client,0
@@ -211,7 +211,7 @@
       # bind=CTRL,Right,viewtoright_have_client,0
       # bind=CTRL+SUPER,Left,tagtoleft,0
       # bind=CTRL+SUPER,Right,tagtoright,0
-      
+
       bind=SUPER,1,view,1,0
       bind=SUPER,2,view,2,0
       bind=SUPER,3,view,3,0
@@ -221,7 +221,7 @@
       bind=SUPER,7,view,7,0
       bind=SUPER,8,view,8,0
       bind=SUPER,9,view,9,0
-      
+
       # tag: move client to the tag and focus it
       # tagsilent: move client to the tag and not focus it
       # bind=Alt,1,tagsilent,1
@@ -234,24 +234,24 @@
       bind=SUPER+Shift,7,tag,7,0
       bind=SUPER+Shift,8,tag,8,0
       bind=SUPER+Shift,9,tag,9,0
-      
+
       # monitor switch
       # bind=alt+shift,Left,focusmon,left
       # bind=alt+shift,Right,focusmon,right
       # bind=SUPER+Alt,Left,tagmon,left
       # bind=SUPER+Alt,Right,tagmon,right
-      
+
       # gaps
       # bind=ALT+SHIFT,X,incgaps,1
       # bind=ALT+SHIFT,Z,incgaps,-1
       # bind=ALT+SHIFT,R,togglegaps
-      
+
       # movewin
       # bind=CTRL+SHIFT,Up,movewin,+0,-50
       # bind=CTRL+SHIFT,Down,movewin,+0,+50
       # bind=CTRL+SHIFT,Left,movewin,-50,+0
       # bind=CTRL+SHIFT,Right,movewin,+50,+0
-      
+
       # resizewin
       bind=CTRL+ALT,Up,resizewin,+0,-50
       bind=CTRL+ALT,Down,resizewin,+0,+50
@@ -265,7 +265,7 @@
       bind=NONE,XF86AudioMicMute,spawn,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
       bind=NONE,XF86MonBrightnessUp,spawn,brightnessctl s 10%+
       bind=NONE,XF86MonBrightnessDown,spawn,brightnessctl s 10%-
-      
+
       # Mouse Button Bindings
       # NONE mode key only work in ov mode
       # mousebind=SUPER,btn_left,moveresize,curmove
@@ -273,15 +273,15 @@
       # mousebind=SUPER,btn_right,moveresize,curresize
       # mousebind=NONE,btn_left,toggleoverview,1
       # mousebind=NONE,btn_right,killclient,0
-      
+
       # Axis Bindings
       # axisbind=SUPER,UP,viewtoleft_have_client
       # axisbind=SUPER,DOWN,viewtoright_have_client
-      
-      
+
+
       # layer rule
       layerrule=animation_type_open:zoom,layer_name:rofi
-      layerrule=animation_type_close:zoom,layer_name:rofi  
+      layerrule=animation_type_close:zoom,layer_name:rofi
     '';
     # autostart_sh = ''
     #   waybar > /dev/null 2>&1 &

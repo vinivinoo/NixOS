@@ -9,6 +9,7 @@
 
   programs.niri = {
     enable = true;
+
     settings = {
       input = {
         keyboard = {
@@ -114,10 +115,10 @@
           command = ["xwayland-satellite"];
         }
         {
-          command = ["firefox"];
+          command = ["${config.home.sessionVariables.BROWSER}"];
         }
         {
-          command = ["obsidian"];
+          command = ["${config.home.sessionVariables.NOTES}"];
         }
         {
           command = ["spotify"];
@@ -162,14 +163,14 @@
         }
         {
           matches = [
-            {app-id = "firefox";}
+            {app-id = "${config.home.sessionVariables.BROWSER}";}
           ];
           open-on-workspace = "1";
           open-maximized = true;
         }
         {
           matches = [
-            {app-id = "obsidian";}
+            {app-id = "${config.home.sessionVariables.NOTES}";}
           ];
           open-on-workspace = "2";
           open-maximized = true;
@@ -202,16 +203,16 @@
 
         # ─── applications ───
         "mod+return" = {
-          hotkey-overlay.title = "open terminal: kitty";
-          action.spawn = ["kitty"];
+          hotkey-overlay.title = "open terminal: ${config.home.sessionVariables.TERMINAL}";
+          action.spawn = ["${config.home.sessionVariables.TERMINAL}"];
         };
         "mod+space" = {
           hotkey-overlay.title = "run an application: rofi";
           action.spawn-sh = ["noctalia msg panel-toggle launcher"];
         };
         "mod+b" = {
-          hotkey-overlay.title = "open browser: firefox";
-          action.spawn = ["firefox"];
+          hotkey-overlay.title = "open browser: ${config.home.sessionVariables.BROWSER}";
+          action.spawn = ["${config.home.sessionVariables.BROWSER}"];
         };
         "mod+alt+l" = {
           hotkey-overlay.title = "lock screen: swaylock";

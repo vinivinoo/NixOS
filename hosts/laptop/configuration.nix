@@ -4,14 +4,11 @@
   pkgs,
   inputs,
   ...
-}:
-
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     (inputs.import-tree ./../../modules/nixos)
     # ./../../modules/nixos/bundle.nix
-
   ];
 
   time.timeZone = "Europe/Berlin";
@@ -25,7 +22,7 @@
   };
 
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-39.8.10"
+    "electron-40.10.5"
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -40,5 +37,4 @@
   ];
 
   system.stateVersion = "25.05";
-
 }

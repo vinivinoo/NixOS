@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   programs.yazi = {
     enable = true;
     shellWrapperName = "y";
@@ -7,14 +7,14 @@
       opener = {
         browser = [
           {
-            run = "firefox \"$@\"";
+            run = "${config.home.sessionVariables.BROWSER} \"$@\"";
             block = false;
             desc = "Open in Browser";
           }
         ];
         edit = [
           {
-            run = "nvim \"$@\"";
+            run = "${config.home.sessionVariables.EDITOR} \"$@\"";
             block = true;
             desc = "Neovim";
           }

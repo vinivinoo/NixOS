@@ -18,51 +18,53 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
-      url = "github:sodiboo/niri-flake";
+      url = "github:epireyn/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia/legacy-v4";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    zennotes = {
+      url = "github:ZenNotes/zennotes";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    {
-      nixpkgs,
-      home-manager,
-      flake-parts,
-      import-tree,
-      catppuccin,
-      niri,
-      noctalia,
-      nvf,
-      ...
-    }@inputs:
-    {
-      nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/laptop/configuration.nix
-          home-manager.nixosModules.home-manager
-          catppuccin.nixosModules.catppuccin
+  outputs = {
+    nixpkgs,
+    home-manager,
+    flake-parts,
+    import-tree,
+    catppuccin,
+    niri,
+    noctalia,
+    nvf,
+    zennotes,
+    ...
+  } @ inputs: {
+    nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/laptop/configuration.nix
+        home-manager.nixosModules.home-manager
+        catppuccin.nixosModules.catppuccin
 
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.vini = ./hosts/laptop/home.nix;
-              extraSpecialArgs = { inherit inputs; };
-              backupFileExtension = "backup";
-            };
-          }
-        ];
-      };
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.vini = ./hosts/laptop/home.nix;
+            extraSpecialArgs = {inherit inputs;};
+            backupFileExtension = "backup";
+          };
+        }
+      ];
     };
+  };
 }
