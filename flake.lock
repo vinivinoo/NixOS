@@ -323,11 +323,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790628436,
-        "narHash": "sha256-Fmo+M5O8+fsffVi2awuTDzLlG87MuKQU2oAiMsGxNS0=",
+        "lastModified": 1790791143,
+        "narHash": "sha256-xANSBk3QNtpvP1cO2trUjMbFltVKav31DesjjiGwRwA=",
         "owner": "ZenNotes",
         "repo": "zennotes",
-        "rev": "140cd6a1f6d31d096c89142f9384a590f4160dbf",
+        "rev": "fcf5fb41646c66b2a84bcb0ef8b389a15df4d919",
         "type": "github"
       },
       "original": {
