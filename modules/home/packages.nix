@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     # devTools
     git
@@ -10,6 +11,7 @@
     jetbrains.idea
     neovim
     obsidian
+    opencode
     vim
     vscode
     yazi
@@ -68,6 +70,7 @@
     hunspellDicts.sv_SE
     rclone
     oculante
+    openconnect
     nautilus
     thunderbird
     inputs.zennotes.packages.${pkgs.system}.default

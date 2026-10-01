@@ -7,7 +7,7 @@
 
     openssh = {
       enable = true;
-      ports = [443];
+      ports = [ 443 ];
     };
 
     blueman = {
@@ -26,17 +26,17 @@
       enable = true;
     };
 
-    keyd = {
-      enable = true;
-      keyboards.default = {
-        ids = ["*"];
-        settings = {
-          main = {
-            capslock = "overload(control, esc)";
-          };
-        };
-      };
-    };
+    # keyd = {
+    #   enable = true;
+    #   keyboards.default = {
+    #     ids = ["*"];
+    #     settings = {
+    #       main = {
+    #         capslock = "overload(control, esc)";
+    #       };
+    #     };
+    #   };
+    # };
 
     gvfs = {
       enable = true;

@@ -22,6 +22,7 @@
         clangd.enable = true;
         nixd.enable = true;
         markdown-oxide.enable = true;
+        zls.enable = true;
       };
 
       mappings = {

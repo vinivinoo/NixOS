@@ -170,7 +170,7 @@
         }
         {
           matches = [
-            {app-id = "${config.home.sessionVariables.NOTES}";}
+            {app-id = "zennotes";}
           ];
           open-on-workspace = "2";
           open-maximized = true;

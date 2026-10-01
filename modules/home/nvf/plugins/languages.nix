@@ -1,7 +1,7 @@
 {
   programs.nvf.settings.vim = {
     languages = {
-      enableFormat = true;
+      enableFormat = false;
       enableTreesitter = true;
 
       bash.enable = true;
@@ -10,10 +10,11 @@
       glsl.enable = true;
       java.enable = true;
       nix.enable = true;
+      zig.enable = true;
 
       markdown = {
         enable = true;
-        lsp.servers = ["markdown-oxide"];
+        lsp.servers = [ "markdown-oxide" ];
       };
     };
   };

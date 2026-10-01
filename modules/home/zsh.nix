@@ -1,23 +1,30 @@
-{config, ...}: {
+{ config, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    shellAliases = let
-      flakeDir = "${config.home.homeDirectory}/nixos";
-    in {
-      rb = "sudo nixos-rebuild switch --flake ${flakeDir}#vini";
-      rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#vini --no-reexec";
-      upd = "nix flake update --flake ${flakeDir}";
+    shellAliases =
+      let
+        flakeDir = "${config.home.homeDirectory}/nixos";
+      in
+      {
+        rb = "sudo nixos-rebuild switch --flake ${flakeDir}#vini";
+        rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#vini --no-reexec";
+        upd = "nix flake update --flake ${flakeDir}";
 
-      conf = "${config.home.sessionVariables.EDITOR} ${flakeDir}";
+        conf = "${config.home.sessionVariables.EDITOR} ${flakeDir}";
 
-      c = "clear";
-      # cat = "bat";
-      ls = "eza";
-      la = "eza -lA";
+        c = "clear";
+        # cat = "bat";
+        ls = "eza";
+        la = "eza -lA";
+      };
+
+    sessionVariables = {
+      OPENAI_API_BASE = "http://localhost:11434/v1";
+      OPENAI_API_KEY = "ollama";
     };
 
     history.size = 5000;
