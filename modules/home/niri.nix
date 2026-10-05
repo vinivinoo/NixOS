@@ -2,7 +2,8 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     inputs.niri.homeModules.niri
   ];
@@ -14,7 +15,7 @@
       input = {
         keyboard = {
           xkb = {
-            layout = "de";
+            layout = "de,se";
           };
         };
 
@@ -104,27 +105,27 @@
 
         default-column-width.proportion = 0.5;
 
-        struts = {};
+        struts = { };
       };
 
       spawn-at-startup = [
         {
-          command = ["noctalia"];
+          command = [ "noctalia" ];
         }
         {
-          command = ["xwayland-satellite"];
+          command = [ "xwayland-satellite" ];
         }
         {
-          command = ["${config.home.sessionVariables.BROWSER}"];
+          command = [ "${config.home.sessionVariables.BROWSER}" ];
         }
         {
-          command = ["${config.home.sessionVariables.NOTES}"];
+          command = [ "${config.home.sessionVariables.NOTES}" ];
         }
         {
-          command = ["spotify"];
+          command = [ "spotify" ];
         }
         {
-          command = ["vesktop"];
+          command = [ "vesktop" ];
         }
       ];
 
@@ -141,7 +142,7 @@
       };
 
       debug = {
-        honor-xdg-activation-with-invalid-serial = {};
+        honor-xdg-activation-with-invalid-serial = { };
       };
 
       hotkey-overlay = {
@@ -163,34 +164,34 @@
         }
         {
           matches = [
-            {app-id = "${config.home.sessionVariables.BROWSER}";}
+            { app-id = "${config.home.sessionVariables.BROWSER}"; }
           ];
           open-on-workspace = "1";
           open-maximized = true;
         }
         {
           matches = [
-            {app-id = "zennotes";}
+            { app-id = "zennotes"; }
           ];
           open-on-workspace = "2";
           open-maximized = true;
         }
         {
           matches = [
-            {app-id = "vesktop";}
-            {app-id = "Spotify";}
+            { app-id = "vesktop"; }
+            { app-id = "Spotify"; }
           ];
           open-on-workspace = "3";
         }
       ];
 
-      workspaces."1" = {};
-      workspaces."2" = {};
-      workspaces."3" = {};
+      workspaces."1" = { };
+      workspaces."2" = { };
+      workspaces."3" = { };
 
       layer-rules = [
         {
-          matches = [{namespace = "^noctalia-wallpaper*";}];
+          matches = [ { namespace = "^noctalia-wallpaper*"; } ];
           place-within-backdrop = true;
         }
       ];
@@ -199,229 +200,232 @@
         # ────────────── keybindings ──────────────
 
         # ─── noctalia-shell keybinds ───
-        "mod+shift+escape".action.show-hotkey-overlay = {};
+        "mod+shift+escape".action.show-hotkey-overlay = { };
 
         # ─── applications ───
         "mod+return" = {
           hotkey-overlay.title = "open terminal: ${config.home.sessionVariables.TERMINAL}";
-          action.spawn = ["${config.home.sessionVariables.TERMINAL}"];
+          action.spawn = [ "${config.home.sessionVariables.TERMINAL}" ];
         };
         "mod+space" = {
           hotkey-overlay.title = "run an application: rofi";
-          action.spawn-sh = ["noctalia msg panel-toggle launcher"];
+          action.spawn-sh = [ "noctalia msg panel-toggle launcher" ];
         };
         "mod+b" = {
           hotkey-overlay.title = "open browser: ${config.home.sessionVariables.BROWSER}";
-          action.spawn = ["${config.home.sessionVariables.BROWSER}"];
+          action.spawn = [ "${config.home.sessionVariables.BROWSER}" ];
         };
         "mod+alt+l" = {
           hotkey-overlay.title = "lock screen: swaylock";
-          action.spawn = ["swaylock"];
+          action.spawn = [ "swaylock" ];
         };
         "mod+e" = {
           hotkey-overlay.title = "file manager: nautilus";
-          action.spawn = ["nautilus"];
+          action.spawn = [ "nautilus" ];
         };
         # ─── audio controls ───
         "xf86audioraisevolume" = {
           allow-when-locked = true;
-          action.spawn-sh = ["wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"];
+          action.spawn-sh = [ "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0" ];
         };
         "xf86audiolowervolume" = {
           allow-when-locked = true;
-          action.spawn-sh = ["wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"];
+          action.spawn-sh = [ "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-" ];
         };
         "xf86audiomute" = {
           allow-when-locked = true;
-          action.spawn-sh = ["wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"];
+          action.spawn-sh = [ "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" ];
         };
         "xf86audiomicmute" = {
           allow-when-locked = true;
-          action.spawn-sh = ["wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"];
+          action.spawn-sh = [ "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" ];
         };
 
         "xf86audioplay" = {
           allow-when-locked = true;
-          action.spawn-sh = ["playerctl play-pause"];
+          action.spawn-sh = [ "playerctl play-pause" ];
         };
         "xf86audiostop" = {
           allow-when-locked = true;
-          action.spawn-sh = ["playerctl stop"];
+          action.spawn-sh = [ "playerctl stop" ];
         };
         "xf86audioprev" = {
           allow-when-locked = true;
-          action.spawn-sh = ["playerctl previous"];
+          action.spawn-sh = [ "playerctl previous" ];
         };
         "xf86audionext" = {
           allow-when-locked = true;
-          action.spawn-sh = ["playerctl next"];
+          action.spawn-sh = [ "playerctl next" ];
         };
         "mod+shift+up" = {
           allow-when-locked = true;
-          action.spawn-sh = ["playerctl play-pause"];
+          action.spawn-sh = [ "playerctl play-pause" ];
         };
         "mod+shift+down" = {
           allow-when-locked = true;
-          action.spawn-sh = ["playerctl stop"];
+          action.spawn-sh = [ "playerctl stop" ];
         };
         "mod+shift+left" = {
           allow-when-locked = true;
-          action.spawn-sh = ["playerctl previous"];
+          action.spawn-sh = [ "playerctl previous" ];
         };
         "mod+shift+right" = {
           allow-when-locked = true;
-          action.spawn-sh = ["playerctl next"];
+          action.spawn-sh = [ "playerctl next" ];
         };
         "xf86monbrightnessup" = {
           allow-when-locked = true;
-          action.spawn-sh = ["brightnessctl --class=backlight set +10%"];
+          action.spawn-sh = [ "brightnessctl --class=backlight set +10%" ];
         };
         "xf86monbrightnessdown" = {
           allow-when-locked = true;
-          action.spawn-sh = ["brightnessctl --class=backlight set 10%-"];
+          action.spawn-sh = [ "brightnessctl --class=backlight set 10%-" ];
+        };
+        "alt+shift+l" = {
+          action.switch-layout = "next";
         };
 
         # ─── window movement and focus ───
-        "mod+q".action.close-window = {};
+        "mod+q".action.close-window = { };
 
-        "mod+left".action.focus-column-left = {};
-        "mod+h".action.focus-column-left = {};
-        "mod+right".action.focus-column-right = {};
-        "mod+l".action.focus-column-right = {};
-        "mod+up".action.focus-window-up = {};
-        "mod+k".action.focus-window-up = {};
-        "mod+down".action.focus-window-down = {};
-        "mod+j".action.focus-window-down = {};
+        "mod+left".action.focus-column-left = { };
+        "mod+h".action.focus-column-left = { };
+        "mod+right".action.focus-column-right = { };
+        "mod+l".action.focus-column-right = { };
+        "mod+up".action.focus-window-up = { };
+        "mod+k".action.focus-window-up = { };
+        "mod+down".action.focus-window-down = { };
+        "mod+j".action.focus-window-down = { };
 
-        "mod+shift+h".action.move-column-left = {};
-        "mod+shift+l".action.move-column-right = {};
-        "mod+shift+k".action.move-window-up = {};
-        "mod+shift+j".action.move-window-down = {};
+        "mod+shift+h".action.move-column-left = { };
+        "mod+shift+l".action.move-column-right = { };
+        "mod+shift+k".action.move-window-up = { };
+        "mod+shift+j".action.move-window-down = { };
 
-        "mod+home".action.focus-column-first = {};
-        "mod+end".action.focus-column-last = {};
-        "mod+ctrl+home".action.move-column-to-first = {};
-        "mod+ctrl+end".action.move-column-to-last = {};
+        "mod+home".action.focus-column-first = { };
+        "mod+end".action.focus-column-last = { };
+        "mod+ctrl+home".action.move-column-to-first = { };
+        "mod+ctrl+end".action.move-column-to-last = { };
 
-        "mod+ctrl+left".action.focus-monitor-left = {};
-        "mod+ctrl+h".action.focus-monitor-left = {};
-        "mod+ctrl+right".action.focus-monitor-right = {};
-        "mod+ctrl+l".action.focus-monitor-right = {};
-        "mod+ctrl+up".action.focus-monitor-up = {};
-        "mod+ctrl+k".action.focus-monitor-up = {};
-        "mod+ctrl+down".action.focus-monitor-down = {};
-        "mod+ctrl+j".action.focus-monitor-down = {};
+        "mod+ctrl+left".action.focus-monitor-left = { };
+        "mod+ctrl+h".action.focus-monitor-left = { };
+        "mod+ctrl+right".action.focus-monitor-right = { };
+        "mod+ctrl+l".action.focus-monitor-right = { };
+        "mod+ctrl+up".action.focus-monitor-up = { };
+        "mod+ctrl+k".action.focus-monitor-up = { };
+        "mod+ctrl+down".action.focus-monitor-down = { };
+        "mod+ctrl+j".action.focus-monitor-down = { };
 
-        "mod+shift+ctrl+left".action.move-column-to-monitor-left = {};
-        "mod+shift+ctrl+h".action.move-column-to-monitor-left = {};
-        "mod+shift+ctrl+right".action.move-column-to-monitor-right = {};
-        "mod+shift+ctrl+l".action.move-column-to-monitor-right = {};
-        "mod+shift+ctrl+up".action.move-column-to-monitor-up = {};
-        "mod+shift+ctrl+k".action.move-column-to-monitor-up = {};
-        "mod+shift+ctrl+down".action.move-column-to-monitor-down = {};
-        "mod+shift+ctrl+j".action.move-column-to-monitor-down = {};
+        "mod+shift+ctrl+left".action.move-column-to-monitor-left = { };
+        "mod+shift+ctrl+h".action.move-column-to-monitor-left = { };
+        "mod+shift+ctrl+right".action.move-column-to-monitor-right = { };
+        "mod+shift+ctrl+l".action.move-column-to-monitor-right = { };
+        "mod+shift+ctrl+up".action.move-column-to-monitor-up = { };
+        "mod+shift+ctrl+k".action.move-column-to-monitor-up = { };
+        "mod+shift+ctrl+down".action.move-column-to-monitor-down = { };
+        "mod+shift+ctrl+j".action.move-column-to-monitor-down = { };
 
         # ─── workspace switching ───
         "mod+wheelscrolldown" = {
           cooldown-ms = 150;
-          action.focus-workspace-down = {};
+          action.focus-workspace-down = { };
         };
         "mod+u" = {
           cooldown-ms = 150;
-          action.focus-workspace-down = {};
+          action.focus-workspace-down = { };
         };
         "mod+wheelscrollup" = {
           cooldown-ms = 150;
-          action.focus-workspace-up = {};
+          action.focus-workspace-up = { };
         };
         "mod+i" = {
           cooldown-ms = 150;
-          action.focus-workspace-up = {};
+          action.focus-workspace-up = { };
         };
         "mod+shift+wheelscrolldown" = {
           cooldown-ms = 150;
-          action.move-column-to-workspace-down = {};
+          action.move-column-to-workspace-down = { };
         };
         "mod+shift+u" = {
           cooldown-ms = 150;
-          action.move-column-to-workspace-down = {};
+          action.move-column-to-workspace-down = { };
         };
         "mod+shift+wheelscrollup" = {
           cooldown-ms = 150;
-          action.move-column-to-workspace-up = {};
+          action.move-column-to-workspace-up = { };
         };
         "mod+shift+i" = {
           cooldown-ms = 150;
-          action.move-column-to-workspace-up = {};
+          action.move-column-to-workspace-up = { };
         };
 
-        "mod+wheelscrollright".action.focus-column-right = {};
-        "mod+wheelscrollleft".action.focus-column-left = {};
-        "mod+shift+wheelscrollright".action.move-column-right = {};
-        "mod+shift+wheelscrollleft".action.move-column-left = {};
+        "mod+wheelscrollright".action.focus-column-right = { };
+        "mod+wheelscrollleft".action.focus-column-left = { };
+        "mod+shift+wheelscrollright".action.move-column-right = { };
+        "mod+shift+wheelscrollleft".action.move-column-left = { };
 
-        "mod+ctrl+shift+wheelscrolldown".action.move-column-right = {};
-        "mod+ctrl+shift+wheelscrollup".action.move-column-left = {};
+        "mod+ctrl+shift+wheelscrolldown".action.move-column-right = { };
+        "mod+ctrl+shift+wheelscrollup".action.move-column-left = { };
 
-        "mod+1".action.focus-workspace = [1];
-        "mod+2".action.focus-workspace = [2];
-        "mod+3".action.focus-workspace = [3];
-        "mod+4".action.focus-workspace = [4];
-        "mod+5".action.focus-workspace = [5];
-        "mod+6".action.focus-workspace = [6];
-        "mod+7".action.focus-workspace = [7];
-        "mod+8".action.focus-workspace = [8];
-        "mod+9".action.focus-workspace = [9];
+        "mod+1".action.focus-workspace = [ 1 ];
+        "mod+2".action.focus-workspace = [ 2 ];
+        "mod+3".action.focus-workspace = [ 3 ];
+        "mod+4".action.focus-workspace = [ 4 ];
+        "mod+5".action.focus-workspace = [ 5 ];
+        "mod+6".action.focus-workspace = [ 6 ];
+        "mod+7".action.focus-workspace = [ 7 ];
+        "mod+8".action.focus-workspace = [ 8 ];
+        "mod+9".action.focus-workspace = [ 9 ];
 
-        "mod+shift+1".action.move-column-to-workspace = [1];
-        "mod+shift+2".action.move-column-to-workspace = [2];
-        "mod+shift+3".action.move-column-to-workspace = [3];
-        "mod+shift+4".action.move-column-to-workspace = [4];
-        "mod+shift+5".action.move-column-to-workspace = [5];
-        "mod+shift+6".action.move-column-to-workspace = [6];
-        "mod+shift+7".action.move-column-to-workspace = [7];
-        "mod+shift+8".action.move-column-to-workspace = [8];
-        "mod+shift+9".action.move-column-to-workspace = [9];
+        "mod+shift+1".action.move-column-to-workspace = [ 1 ];
+        "mod+shift+2".action.move-column-to-workspace = [ 2 ];
+        "mod+shift+3".action.move-column-to-workspace = [ 3 ];
+        "mod+shift+4".action.move-column-to-workspace = [ 4 ];
+        "mod+shift+5".action.move-column-to-workspace = [ 5 ];
+        "mod+shift+6".action.move-column-to-workspace = [ 6 ];
+        "mod+shift+7".action.move-column-to-workspace = [ 7 ];
+        "mod+shift+8".action.move-column-to-workspace = [ 8 ];
+        "mod+shift+9".action.move-column-to-workspace = [ 9 ];
 
-        "mod+tab".action.focus-workspace-previous = {};
+        "mod+tab".action.focus-workspace-previous = { };
 
         # ─── layout controls ───
-        "mod+ctrl+f".action.expand-column-to-available-width = {};
-        "mod+c".action.center-column = {};
-        "mod+ctrl+c".action.center-visible-columns = {};
-        "mod+minus".action.set-column-width = ["-10%"];
-        "mod+equal".action.set-column-width = ["+10%"];
-        "mod+shift+minus".action.set-window-height = ["-10%"];
-        "mod+shift+equal".action.set-window-height = ["+10%"];
+        "mod+ctrl+f".action.expand-column-to-available-width = { };
+        "mod+c".action.center-column = { };
+        "mod+ctrl+c".action.center-visible-columns = { };
+        "mod+minus".action.set-column-width = [ "-10%" ];
+        "mod+equal".action.set-column-width = [ "+10%" ];
+        "mod+shift+minus".action.set-window-height = [ "-10%" ];
+        "mod+shift+equal".action.set-window-height = [ "+10%" ];
 
         # ─── modes ───
-        "mod+t".action.toggle-window-floating = {};
-        "mod+f".action.maximize-column = {};
-        "mod+shift+f".action.fullscreen-window = {};
-        "mod+w".action.toggle-column-tabbed-display = {};
+        "mod+t".action.toggle-window-floating = { };
+        "mod+f".action.maximize-column = { };
+        "mod+shift+f".action.fullscreen-window = { };
+        "mod+w".action.toggle-column-tabbed-display = { };
 
         # ─── screenshots ───
         "mod+s" = {
           hotkey-overlay.title = "take a screenshot";
-          action.spawn-sh = ["${config.home.homeDirectory}/bin/screenshot.sh"];
+          action.spawn-sh = [ "${config.home.homeDirectory}/bin/screenshot.sh" ];
         };
         "mod+shift+s" = {
           hotkey-overlay.title = "take a screenshot select";
-          action.spawn-sh = ["${config.home.homeDirectory}/bin/screenshot.sh select"];
+          action.spawn-sh = [ "${config.home.homeDirectory}/bin/screenshot.sh select" ];
         };
 
         # ─── emergency escape key ───
         "mod+escape" = {
           allow-inhibiting = false;
-          action.toggle-keyboard-shortcuts-inhibit = {};
+          action.toggle-keyboard-shortcuts-inhibit = { };
         };
 
         # ─── exit / power ───
-        "ctrl+alt+delete".action.quit = {};
-        "mod+shift+p".action.power-off-monitors = {};
+        "ctrl+alt+delete".action.quit = { };
+        "mod+shift+p".action.power-off-monitors = { };
         "mod+o" = {
           repeat = false;
-          action.toggle-overview = {};
+          action.toggle-overview = { };
         };
       };
     };

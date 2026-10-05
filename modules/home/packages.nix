@@ -63,6 +63,7 @@
 
     # work
     blender
+    geteduroam
     libreoffice
     hunspell
     hunspellDicts.de_DE

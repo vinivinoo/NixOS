@@ -17,8 +17,7 @@
     xserver = {
       enable = true;
       xkb = {
-        layout = "de,se";
-        options = "grp:alt_caps_toggle";
+        layout = "de";
       };
     };
 
@@ -26,17 +25,17 @@
       enable = true;
     };
 
-    # keyd = {
-    #   enable = true;
-    #   keyboards.default = {
-    #     ids = ["*"];
-    #     settings = {
-    #       main = {
-    #         capslock = "overload(control, esc)";
-    #       };
-    #     };
-    #   };
-    # };
+    keyd = {
+      enable = true;
+      keyboards.default = {
+        ids = [ "*" ];
+        settings = {
+          main = {
+            capslock = "overload(control, esc)";
+          };
+        };
+      };
+    };
 
     gvfs = {
       enable = true;
