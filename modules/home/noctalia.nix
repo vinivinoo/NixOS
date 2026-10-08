@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{ inputs, ... }: {
   imports = [
     inputs.noctalia.homeModules.default
   ];
@@ -15,8 +15,8 @@
           position = "top";
           capsule = true;
           widget_spacing = 6;
-          margin_ends = 7;
-          margin_edge = 5;
+          margin_ends = 2;
+          margin_edge = 2;
           font_family = "Fira Sans";
           padding = 5;
           start = [

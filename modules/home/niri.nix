@@ -92,7 +92,7 @@
       };
 
       layout = {
-        gaps = 8;
+        gaps = 4;
         center-focused-column = "never";
         background-color = "transparent";
 

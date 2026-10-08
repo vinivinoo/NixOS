@@ -33,38 +33,42 @@
       url = "github:ZenNotes/zennotes";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    flake-parts,
-    import-tree,
-    catppuccin,
-    niri,
-    noctalia,
-    nvf,
-    zennotes,
-    ...
-  } @ inputs: {
-    nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/laptop/configuration.nix
-        home-manager.nixosModules.home-manager
-        catppuccin.nixosModules.catppuccin
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      flake-parts,
+      import-tree,
+      catppuccin,
+      niri,
+      noctalia,
+      nvf,
+      zennotes,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/laptop/configuration.nix
+          home-manager.nixosModules.home-manager
+          catppuccin.nixosModules.catppuccin
 
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.vini = ./hosts/laptop/home.nix;
-            extraSpecialArgs = {inherit inputs;};
-            backupFileExtension = "backup";
-          };
-        }
-      ];
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.vini = ./hosts/laptop/home.nix;
+              extraSpecialArgs = { inherit inputs; };
+              backupFileExtension = "backup";
+            };
+          }
+        ];
+      };
     };
-  };
 }

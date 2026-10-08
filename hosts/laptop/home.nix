@@ -2,7 +2,8 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     (inputs.import-tree ./../../modules/home)
   ];
@@ -12,7 +13,7 @@
     homeDirectory = "/home/vini";
     stateVersion = "25.11";
     sessionVariables = {
-      BROWSER = "brave";
+      BROWSER = "zen-browser";
       EDITOR = "nvim";
       TERMINAL = "kitty";
       EMAIL = "thunderbird";
