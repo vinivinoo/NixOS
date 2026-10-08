@@ -13,7 +13,7 @@
     homeDirectory = "/home/vini";
     stateVersion = "25.11";
     sessionVariables = {
-      BROWSER = "zen-browser";
+      BROWSER = "zen-beta";
       EDITOR = "nvim";
       TERMINAL = "kitty";
       EMAIL = "thunderbird";

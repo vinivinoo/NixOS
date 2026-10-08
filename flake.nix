@@ -37,38 +37,5 @@
 
   };
 
-  outputs =
-    {
-      nixpkgs,
-      home-manager,
-      flake-parts,
-      import-tree,
-      catppuccin,
-      niri,
-      noctalia,
-      nvf,
-      zennotes,
-      ...
-    }@inputs:
-    {
-      nixosConfigurations.vini = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/laptop/configuration.nix
-          home-manager.nixosModules.home-manager
-          catppuccin.nixosModules.catppuccin
-
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.vini = ./hosts/laptop/home.nix;
-              extraSpecialArgs = { inherit inputs; };
-              backupFileExtension = "backup";
-            };
-          }
-        ];
-      };
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree /modules);
 }
