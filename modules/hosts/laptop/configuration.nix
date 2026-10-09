@@ -1,12 +1,16 @@
-{ self, inputs, ... }: {
-
-  flake.nixosModules.laptopConfiguration = { inputs, ... }: {
+{
+  self,
+  inputs,
+  ...
+}: {
+  flake.nixosModules.laptopConfiguration = {inputs, ...}: {
     imports = with self.nixosModules; [
       laptopHardware
       boot
       catppuccin
       hardware
       networks
+      nix
       nixosPackages
       programs
       services
@@ -27,12 +31,6 @@
 
     nixpkgs.config.permittedInsecurePackages = [
       "electron-40.10.5"
-    ];
-
-    nixpkgs.config.allowUnfree = true;
-    nix.settings.experimental-features = [
-      "nix-command"
-      "flakes"
     ];
 
     environment.pathsToLink = [

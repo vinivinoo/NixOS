@@ -1,15 +1,15 @@
 {
   self,
   inputs,
-  pkgs,
   ...
 }:
 {
 
   flake.nixosModules.nixosPackages =
+    { pkgs, ... }:
     let
       systemUtils = with pkgs; [
-        brightnessct
+        brightnessctl
         openssh
         pavucontrol
         playerctl

@@ -1,6 +1,13 @@
-{ self, inputs, ... }: {
-
-  flake.homeModules.packages = { pkgs, inputs, ... }: {
+{
+  self,
+  inputs,
+  ...
+}: {
+  flake.homeModules.packages = {
+    pkgs,
+    inputs,
+    ...
+  }: {
     home.packages = with pkgs; [
       # devTools
       git
@@ -51,10 +58,6 @@
       signal-desktop
       vesktop
       brave
-
-      # gaming
-      steam
-      prismlauncher
 
       # work
       geteduroam

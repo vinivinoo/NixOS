@@ -1,28 +1,34 @@
-{ self, inputs, ... }: {
-
-  flake.homeModules.zsh = { config, ... }: {
+{
+  self,
+  inputs,
+  ...
+}: {
+  flake.homeModules.zsh = {
+    config,
+    pkgs,
+    ...
+  }: {
+    users.users.vini.shell = pkgs.zsh;
     programs.zsh = {
       enable = true;
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
-      shellAliases =
-        let
-          flakeDir = "${config.home.homeDirectory}/nixos";
-        in
-        {
-          rb = "sudo nixos-rebuild switch --flake ${flakeDir}#laptop";
-          rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#laptop --no-reexec";
-          upd = "nix flake update --flake ${flakeDir}";
+      shellAliases = let
+        flakeDir = "${config.home.homeDirectory}/nixos";
+      in {
+        rb = "sudo nixos-rebuild switch --flake ${flakeDir}#laptop";
+        rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#laptop --no-reexec";
+        upd = "nix flake update --flake ${flakeDir}";
 
-          conf = "${config.home.sessionVariables.EDITOR} ${flakeDir}";
+        conf = "${config.home.sessionVariables.EDITOR} ${flakeDir}";
 
-          c = "clear";
-          # cat = "bat";
-          ls = "eza";
-          la = "eza -lA";
-        };
+        c = "clear";
+        # cat = "bat";
+        ls = "eza";
+        la = "eza -lA";
+      };
 
       history.size = 5000;
       history.path = "${config.home.homeDirectory}/.zsh_history";
