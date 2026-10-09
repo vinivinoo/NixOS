@@ -1,14 +1,15 @@
-{ inputs, ... }:
+{ self, inputs, ... }: {
 
-{
-  imports = [
-    inputs.catppuccin.homeModules.catppuccin
-  ];
+  flake.homeModules.catppuccin = { inputs, ... }: {
+    imports = [
+      inputs.catppuccin.homeModules.catppuccin
+    ];
 
-  catppuccin = {
-    enable = true;
-    autoEnable = true;
-    flavor = "mocha";
-    accent = "lavender";
+    catppuccin = {
+      enable = true;
+      autoEnable = true;
+      flavor = "mocha";
+      accent = "lavender";
+    };
   };
 }

@@ -1,22 +1,25 @@
-{
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
+{ self, inputs, ... }: {
 
-    settings = {
-      character = {
-        success_symbol = "[❯](green)";
-        error_symbol = "[❯](red)";
-        vimcmd_symbol = "[❮](subtext1)";
-      };
+  flake.homeModules.starship = {
+    programs.starship = {
+      enable = true;
+      enableZshIntegration = true;
 
-      git_branch = {
-        style = "bold mauve";
-      };
+      settings = {
+        character = {
+          success_symbol = "[❯](green)";
+          error_symbol = "[❯](red)";
+          vimcmd_symbol = "[❮](subtext1)";
+        };
 
-      directory = {
-        truncation_length = 4;
-        style = "bold lavender";
+        git_branch = {
+          style = "bold mauve";
+        };
+
+        directory = {
+          truncation_length = 4;
+          style = "bold lavender";
+        };
       };
     };
   };

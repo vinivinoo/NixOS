@@ -1,9 +1,12 @@
-{
-  programs.git = {
-    enable = true;
-    settings.user = {
-      Name = "vinivinoo";
-      Email = "antoni.vince92@gmail.com";
+{ self, inputs, ... }: {
+
+  flake.homeModules.git = {
+    programs.git = {
+      enable = true;
+      settings.user = {
+        Name = "vinivinoo";
+        Email = "antoni.vince92@gmail.com";
+      };
     };
   };
 }

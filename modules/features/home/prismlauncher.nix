@@ -1,5 +1,8 @@
-{
-  programs.prismlauncher = {
-    enable = true;
+{ self, inputs, ... }: {
+
+  flake.homeModules.prismlauncher = {
+    programs.prismlauncher = {
+      enable = true;
+    };
   };
 }

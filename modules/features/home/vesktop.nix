@@ -1,5 +1,8 @@
-{
-  programs.vesktop = {
-    enable = true;
+{ self, inputs, ... }: {
+
+  flake.homeModules.vesktop = {
+    programs.vesktop = {
+      enable = true;
+    };
   };
 }

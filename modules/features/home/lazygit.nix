@@ -1,12 +1,8 @@
-{
-  programs.lazygit = {
-    enable = true;
-    settings = {
-      gui = {
-        theme = {
-          authorColors = { };
-        };
-      };
+{ self, inputs, ... }: {
+
+  flake.homeModules.lazygit = {
+    programs.lazygit = {
+      enable = true;
     };
   };
 }

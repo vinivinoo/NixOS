@@ -1,5 +1,6 @@
-{
-  programs.nvf.settings.vim = {
+{ self, inputs, ... }: {
+
+  flake.homeModules.nvfUtility = {
     utility = {
       grug-far-nvim = {
         enable = true;

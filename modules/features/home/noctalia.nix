@@ -1,130 +1,133 @@
-{ inputs, ... }: {
-  imports = [
-    inputs.noctalia.homeModules.default
-  ];
+{ self, inputs, ... }: {
 
-  programs.noctalia = {
-    enable = true;
-    settings = {
-      bar = {
-        order = [
-          "main"
-        ];
-        main = {
-          enabled = true;
-          position = "top";
-          capsule = true;
-          widget_spacing = 6;
-          margin_ends = 2;
-          margin_edge = 2;
-          font_family = "Fira Sans";
-          padding = 5;
-          start = [
-            "clock"
-            "weather"
-            "active_window"
-            "media"
+  flake.homeModules.noctalia = { inputs, ... }: {
+    imports = [
+      inputs.noctalia.homeModules.default
+    ];
+
+    programs.noctalia = {
+      enable = true;
+      settings = {
+        bar = {
+          order = [
+            "main"
           ];
+          main = {
+            enabled = true;
+            position = "top";
+            capsule = true;
+            widget_spacing = 6;
+            margin_ends = 2;
+            margin_edge = 2;
+            font_family = "Fira Sans";
+            padding = 5;
+            start = [
+              "clock"
+              "weather"
+              "active_window"
+              "media"
+            ];
 
-          center = [
-            "workspaces"
-          ];
+            center = [
+              "workspaces"
+            ];
 
-          end = [
-            "tray"
-            "notifications"
-            "bluetooth"
-            "network"
-            "battery"
-            "volume"
-            "brightness"
-            "control-center"
-          ];
-        };
-      };
-      widget = {
-        clock = {
-          format = "{:%H:%M %a, %d %b}";
-        };
-        active_window = {
-          min_length = 0;
-          max_length = 180;
-          title_scroll = "on_hover";
-        };
-        media = {
-          min_length = 0;
-          max_length = 180;
-          title_scroll = "on_hover";
-          hide_when_no_media = true;
-        };
-        tray = {
-          hidden = [
-            "nm-applet"
-            "blueman"
-          ];
-        };
-        control-center = {
-          custorm_image = "/nix/store/hcc4x3ag7qxa2fjqk5bny2v4nhl24nny-noctalia-5.0.0/share/noctalia/assets/images/distros/nixos.svg";
-          custom_image_colorize = false;
-        };
-        network = {
-          show_label = false;
-        };
-      };
-
-      control_center = {
-        sidebar = "full";
-        sidebar_section = "full";
-        width = 700;
-      };
-
-      lockscreen = {
-        enabled = false;
-      };
-
-      shell = {
-        font_family = "Fira Sans";
-        lang = "en";
-        polkit_agent = true;
-        panel = {
-          open_near_click_control_center = true;
-        };
-      };
-
-      calendar = {
-        enabled = true;
-        refresh_minutes = 15;
-
-        account = {
-          work_google = {
-            type = "google";
-            name = "Google Calender";
+            end = [
+              "tray"
+              "notifications"
+              "bluetooth"
+              "network"
+              "battery"
+              "volume"
+              "brightness"
+              "control-center"
+            ];
           };
         };
-      };
+        widget = {
+          clock = {
+            format = "{:%H:%M %a, %d %b}";
+          };
+          active_window = {
+            min_length = 0;
+            max_length = 180;
+            title_scroll = "on_hover";
+          };
+          media = {
+            min_length = 0;
+            max_length = 180;
+            title_scroll = "on_hover";
+            hide_when_no_media = true;
+          };
+          tray = {
+            hidden = [
+              "nm-applet"
+              "blueman"
+            ];
+          };
+          control-center = {
+            custorm_image = "/nix/store/hcc4x3ag7qxa2fjqk5bny2v4nhl24nny-noctalia-5.0.0/share/noctalia/assets/images/distros/nixos.svg";
+            custom_image_colorize = false;
+          };
+          network = {
+            show_label = false;
+          };
+        };
 
-      wallpaper = {
-        enabled = true;
-        directory = "/home/vini/Pictures/Wallpapers";
-        directory_dark = "/home/vini/Pictures/Wallpapers";
-        default.path = "/home/vini/Pictures/Wallpapers/makko-wallpaper.png";
-      };
+        control_center = {
+          sidebar = "full";
+          sidebar_section = "full";
+          width = 700;
+        };
 
-      theme = {
-        mode = "dark";
-        source = "community";
-        builtin = "Catppuccin";
-        community_palette = "Catppuccin Lavender";
-      };
+        lockscreen = {
+          enabled = false;
+        };
 
-      location = {
-        auto_locate = false;
-        address = "Skövde, SE";
-      };
+        shell = {
+          font_family = "Fira Sans";
+          lang = "en";
+          polkit_agent = true;
+          panel = {
+            open_near_click_control_center = true;
+          };
+        };
 
-      nightlight = {
-        enabled = true;
-        temperature_night = 4000;
+        calendar = {
+          enabled = true;
+          refresh_minutes = 15;
+
+          account = {
+            work_google = {
+              type = "google";
+              name = "Google Calender";
+            };
+          };
+        };
+
+        wallpaper = {
+          enabled = true;
+          directory = "/home/vini/Pictures/Wallpapers";
+          directory_dark = "/home/vini/Pictures/Wallpapers";
+          default.path = "/home/vini/Pictures/Wallpapers/makko-wallpaper.png";
+        };
+
+        theme = {
+          mode = "dark";
+          source = "community";
+          builtin = "Catppuccin";
+          community_palette = "Catppuccin Lavender";
+        };
+
+        location = {
+          auto_locate = false;
+          address = "Skövde, SE";
+        };
+
+        nightlight = {
+          enabled = true;
+          temperature_night = 4000;
+        };
       };
     };
   };

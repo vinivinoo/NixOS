@@ -1,8 +1,10 @@
-{ pkgs, ... }:
+{ self, inputs, ... }: {
 
-{
+  flake.homeModules.nixLd = { pkgs, ... }: {
     home.sessionVariables = {
-        NIX_LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [
+      NIX_LD_LIBRARY_PATH =
+        with pkgs;
+        lib.makeLibraryPath [
           # 1. Absolut notwendige Standard-Basics
           stdenv.cc.cc
           zlib
@@ -12,14 +14,14 @@
           openssl
           curl
           expat
-      
+
           # 2. Spezifisch für C++ / Grafik-Entwicklung (wegen deinem SDL3 Code)
           # Diese sind wichtig, damit clangd und die kompilierten Binaries laufen
           libGL
           libgcc
           glibc
           libxcrypt
-      
+
           # 3. GUI / Wayland / X11 Bibliotheken (für SDL3 & Tools)
           libX11
           libXcursor
@@ -30,5 +32,6 @@
           libxkbcommon
           wayland
         ];
-      };
-  }
+    };
+  };
+}

@@ -1,11 +1,8 @@
-{
-  programs.nvf.settings.vim = {
-    projects = {
+{ self, inputs, ... }: {
+
+  flake.homeModules.nvfProject = {
+    programs.nvf.settings.vim = {
       project-nvim.enable = true;
     };
-    # TODO: Keybinds setzen
-    # keybinds = [
-    #
-    # ];
   };
 }

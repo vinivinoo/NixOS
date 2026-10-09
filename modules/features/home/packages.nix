@@ -1,82 +1,80 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
-{
-  home.packages = with pkgs; [
-    # devTools
-    git
-    helix
-    neovim
-    obsidian
-    vscode
-    yazi
-    zed-editor
+{ self, inputs, ... }: {
 
-    # terminal
-    bat
-    btop
-    eza
-    fastfetch
-    fd
-    fzf
-    lazygit
-    ripgrep
-    starship
-    tmux
-    tree
-    yazi
-    zip
-    zoxide
-    zsh
+  flake.homeModules.packages = { pkgs, inputs, ... }: {
+    home.packages = with pkgs; [
+      # devTools
+      git
+      helix
+      neovim
+      obsidian
+      vscode
+      yazi
+      zed-editor
 
-    # desktop
-    papirus-icon-theme
-    grim
-    hyprland
-    kitty
-    libnotify
-    libdisplay-info
-    nwg-look
-    slurp
-    swayidle
-    swaylock-effects
-    swaynotificationcenter
-    awww
-    waybar
-    xdg-desktop-portal-hyprland
-    oculante
+      # terminal
+      bat
+      btop
+      eza
+      fastfetch
+      fd
+      fzf
+      lazygit
+      ripgrep
+      starship
+      tmux
+      tree
+      yazi
+      zip
+      zoxide
+      zsh
 
-    # media
-    anki-bin
-    spotify
-    signal-desktop
-    vesktop
-    brave
+      # desktop
+      papirus-icon-theme
+      grim
+      hyprland
+      kitty
+      libnotify
+      libdisplay-info
+      nwg-look
+      slurp
+      swayidle
+      swaylock-effects
+      swaynotificationcenter
+      awww
+      waybar
+      xdg-desktop-portal-hyprland
+      oculante
 
-    # gaming
-    steam
-    prismlauncher
+      # media
+      anki-bin
+      spotify
+      signal-desktop
+      vesktop
+      brave
 
-    # work
-    geteduroam
-    libreoffice
-    rclone
-    openconnect
-    nautilus
-    thunderbird
-    inputs.zennotes.packages.${pkgs.system}.default
+      # gaming
+      steam
+      prismlauncher
 
-    # fonts
-    fira-sans
-    nerd-fonts.fira-code
-    dejavu_fonts
-    noto-fonts-color-emoji
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.symbols-only
+      # work
+      geteduroam
+      libreoffice
+      rclone
+      openconnect
+      nautilus
+      thunderbird
+      inputs.zennotes.packages.${pkgs.system}.default
 
-    # cursor
-    bibata-cursors
-  ];
+      # fonts
+      fira-sans
+      nerd-fonts.fira-code
+      dejavu_fonts
+      noto-fonts-color-emoji
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
+
+      # cursor
+      bibata-cursors
+    ];
+  };
 }

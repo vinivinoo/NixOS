@@ -1,8 +1,10 @@
-{
-  networking = {
-    hostName = "thinkpad-t14";
-    networkmanager = {
-      enable = true;
+{ self, inputs, ... }: {
+
+  flake.nixosModules.networks = {
+    networking = {
+      networkmanager = {
+        enable = true;
+      };
     };
   };
 }

@@ -1,10 +1,19 @@
 { self, inputs, ... }: {
 
   flake.nixosModules.laptopConfiguration = { inputs, ... }: {
-    imports = [
-      self.nixosModules.laptopHardware
-      (inputs.import-tree ./../../modules/nixos)
+    imports = with self.nixosModules; [
+      laptopHardware
+      boot
+      catppuccin
+      hardware
+      networks
+      packages
+      programs
+      services
+      users
     ];
+
+    networking.hostName = "thinkpad-t14";
 
     time.timeZone = "Europe/Berlin";
 

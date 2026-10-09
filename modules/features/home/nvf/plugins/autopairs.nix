@@ -1,7 +1,10 @@
-{
-  programs.nvf.settings.vim = {
-    autopairs = {
-      nvim-autopairs.enable = true;
+{ self, inputs, ... }: {
+
+  flake.homeModules.nvfAutopairs = {
+    programs.nvf.settings.vim = {
+      autopairs = {
+        nvim-autopairs.enable = true;
+      };
     };
   };
 }

@@ -1,5 +1,6 @@
-{
-  programs.nvf.settings.vim = {
+{ self, inputs, ... }: {
+
+  flake.homeModules.nvfBinds = {
     binds = {
       whichKey = {
         enable = true;

@@ -1,24 +1,25 @@
-{ config, pkgs, ... }:
- 
-{
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
-    setSessionVariables = true;
+{ self, inputs, ... }: {
 
-    download = "${config.home.homeDirectory}/Downloads";
-    documents = "${config.home.homeDirectory}/Documents";
-    pictures = "${config.home.homeDirectory}/Pictures";
-    projects = "${config.home.homeDirectory}/Projects";
+  flake.homeModules.userDirs = { config, pkgs, ... }: {
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+      setSessionVariables = true;
 
-    desktop = null;
-    music = null;
-    videos = null;
-    templates = null;
-    publicShare = null;
-    
-    extraConfig = {
-      SCREENSHOTS = "${config.home.homeDirectory}/Pictures/Screenshots";
+      download = "${config.home.homeDirectory}/Downloads";
+      documents = "${config.home.homeDirectory}/Documents";
+      pictures = "${config.home.homeDirectory}/Pictures";
+      projects = "${config.home.homeDirectory}/Projects";
+
+      desktop = null;
+      music = null;
+      videos = null;
+      templates = null;
+      publicShare = null;
+
+      extraConfig = {
+        SCREENSHOTS = "${config.home.homeDirectory}/Pictures/Screenshots";
+      };
     };
   };
 }

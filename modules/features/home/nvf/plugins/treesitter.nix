@@ -1,7 +1,5 @@
-{
-  programs.nvf.settings.vim = {
-    treesitter = {
-      enable = true;
-    };
+{ self, inputs, ... }: {
+
+  flake.homeModules.name = {
   };
 }
