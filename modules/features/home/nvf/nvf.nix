@@ -21,8 +21,8 @@
       self.homeModules.nvfMini
       self.homeModules.nvfNavigation
       self.homeModules.nvfNotes
-      self.homeModules.nvfLinter
-      self.homeModules.nvfProjects
+      self.homeModules.nvfLint
+      self.homeModules.nvfProject
       self.homeModules.nvfSession
       self.homeModules.nvfStatusline
       self.homeModules.nvfTabline

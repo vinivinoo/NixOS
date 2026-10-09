@@ -12,8 +12,8 @@
           flakeDir = "${config.home.homeDirectory}/nixos";
         in
         {
-          rb = "sudo nixos-rebuild switch --flake ${flakeDir}#vini";
-          rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#vini --no-reexec";
+          rb = "sudo nixos-rebuild switch --flake ${flakeDir}#laptop";
+          rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#laptop --no-reexec";
           upd = "nix flake update --flake ${flakeDir}";
 
           conf = "${config.home.sessionVariables.EDITOR} ${flakeDir}";

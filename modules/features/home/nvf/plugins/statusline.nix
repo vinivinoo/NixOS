@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.name = {
+  flake.homeModules.nvfStatusline = {
     programs.nvf.settings.vim = {
       statusline = {
         lualine.enable = true;

@@ -7,7 +7,7 @@
       catppuccin
       hardware
       networks
-      packages
+      nixosPackages
       programs
       services
       users

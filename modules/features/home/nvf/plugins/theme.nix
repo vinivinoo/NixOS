@@ -4,7 +4,7 @@
     programs.nvf.settings.vim = {
       theme = {
         enable = true;
-        nvfTheme = "catppuccin";
+        name = "catppuccin";
         style = "mocha";
       };
     };

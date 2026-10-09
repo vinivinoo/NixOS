@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.name = {
+  flake.homeModules.nvfNotes = {
     programs.nvf.settings.vim = {
       notes = {
         todo-comments = {

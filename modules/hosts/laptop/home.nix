@@ -24,7 +24,7 @@
       userDirs
       vesktop
       yazi
-      zed
+      zedEditor
       zenBrowser
       zsh
     ];
@@ -67,8 +67,8 @@
     };
 
     home.file = {
-      "/home/vini/Pictures/Wallpapers".source = ./../../config/wallpapers;
-      "/home/vini/bin/screenshot.sh".source = ./../../config/bash-scripts/screenshot.sh;
+      "/home/vini/Pictures/Wallpapers".source = ./../../../config/wallpapers;
+      "/home/vini/bin/screenshot.sh".source = ./../../../config/bash-scripts/screenshot.sh;
     };
   };
 }
