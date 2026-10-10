@@ -8,7 +8,6 @@
     pkgs,
     ...
   }: {
-    users.users.vini.shell = pkgs.zsh;
     programs.zsh = {
       enable = true;
       enableCompletion = true;
