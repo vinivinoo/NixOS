@@ -112,18 +112,6 @@
           {
             command = [ "xwayland-satellite" ];
           }
-          {
-            command = [ "${config.home.sessionVariables.BROWSER}" ];
-          }
-          {
-            command = [ "${config.home.sessionVariables.NOTES}" ];
-          }
-          {
-            command = [ "spotify" ];
-          }
-          {
-            command = [ "vesktop" ];
-          }
         ];
 
         prefer-no-csd = true;

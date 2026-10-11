@@ -1,6 +1,13 @@
-{ self, inputs, ... }: {
-
-  flake.homeConfiguration.vini = { inputs, config, ... }: {
+{
+  self,
+  inputs,
+  ...
+}: {
+  flake.homeConfiguration.vini = {
+    inputs,
+    config,
+    ...
+  }: {
     imports = with self.homeModules; [
       bat
       btop
@@ -14,7 +21,7 @@
       niri
       nixLd
       noctalia
-      nvf
+      # nvf
       packages
       prismlauncher
       rclone
@@ -68,7 +75,7 @@
 
     home.file = {
       "/home/vini/Pictures/Wallpapers".source = ./../../../config/wallpapers;
-      "/home/vini/bin/screenshot.sh".source = ./../../../config/bash-scripts/screenshot.sh;
+      "/home/vini/.local/bin/screenshot.sh".source = ./../../../config/bash-scripts/screenshot.sh;
     };
   };
 }

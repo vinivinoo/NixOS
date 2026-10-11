@@ -18,23 +18,6 @@
       yazi
       zed-editor
 
-      # terminal
-      bat
-      btop
-      eza
-      fastfetch
-      fd
-      fzf
-      lazygit
-      ripgrep
-      starship
-      tmux
-      tree
-      yazi
-      zip
-      zoxide
-      zsh
-
       # desktop
       papirus-icon-theme
       grim
@@ -58,6 +41,7 @@
       signal-desktop
       vesktop
       brave
+      prismlauncher
 
       # work
       geteduroam
@@ -78,6 +62,8 @@
 
       # cursor
       bibata-cursors
+	
+      temurin-bin-21
     ];
   };
 }
