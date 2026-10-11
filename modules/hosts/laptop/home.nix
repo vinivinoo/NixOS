@@ -13,6 +13,7 @@
       btop
       catppuccin
       cursor
+      cliTools
       fonts
       git
       helix

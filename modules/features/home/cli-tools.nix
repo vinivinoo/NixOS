@@ -1,6 +1,7 @@
 { self, inputs, ... }: {
 
   flake.homeModules.cliTools = { pkgs, ... }: {
+    home.packages = with pkgs; [
       bat
       btop
       eza
@@ -16,5 +17,6 @@
       zip
       zoxide
       zsh
+    ];
   };
-};
+}
