@@ -17,7 +17,6 @@
       vscode
       yazi
       zed-editor
-      fff
 
       # desktop
       papirus-icon-theme
@@ -64,10 +63,6 @@
       # cursor
       bibata-cursors
 	
-      # programming
-
-      gcc
-      temurin-bin-21
     ];
   };
 }
