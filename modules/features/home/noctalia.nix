@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.noctalia = { inputs, ... }: {
+  flake.homeModules.noctalia = { inputs, pkgs, ... }: {
     imports = [
       inputs.noctalia.homeModules.default
     ];
@@ -66,7 +66,7 @@
             ];
           };
           control-center = {
-            custorm_image = "/nix/store/hcc4x3ag7qxa2fjqk5bny2v4nhl24nny-noctalia-5.0.0/share/noctalia/assets/images/distros/nixos.svg";
+            custorm_image = "../../../config/logos/NixOS.svg";
             custom_image_colorize = false;
           };
           network = {

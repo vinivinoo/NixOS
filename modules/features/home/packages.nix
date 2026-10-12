@@ -17,6 +17,7 @@
       vscode
       yazi
       zed-editor
+      fff
 
       # desktop
       papirus-icon-theme
