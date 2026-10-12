@@ -20,11 +20,11 @@
       kitty
       lazygit
       niri
-      nixLd
       noctalia
       # nvf
       packages
       prismlauncher
+      pl
       rclone
       starship
       swaylock

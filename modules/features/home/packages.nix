@@ -63,6 +63,9 @@
       # cursor
       bibata-cursors
 	
+      # programming
+
+      gcc
       temurin-bin-21
     ];
   };

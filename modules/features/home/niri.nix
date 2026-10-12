@@ -392,11 +392,11 @@
           # ─── screenshots ───
           "mod+s" = {
             hotkey-overlay.title = "take a screenshot";
-            action.spawn-sh = [ "${config.home.homeDirectory}/bin/screenshot.sh" ];
+            action.spawn-sh = [ "${config.home.homeDirectory}/.local/bin/screenshot.sh" ];
           };
           "mod+shift+s" = {
             hotkey-overlay.title = "take a screenshot select";
-            action.spawn-sh = [ "${config.home.homeDirectory}/bin/screenshot.sh select" ];
+            action.spawn-sh = [ "${config.home.homeDirectory}/.local/bin/screenshot.sh select" ];
           };
 
           # ─── emergency escape key ───

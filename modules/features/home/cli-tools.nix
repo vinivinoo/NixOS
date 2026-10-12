@@ -12,6 +12,7 @@
       ripgrep
       starship
       tmux
+      tree-sitter
       tree
       yazi
       zip
