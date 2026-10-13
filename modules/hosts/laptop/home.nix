@@ -24,6 +24,7 @@
         kitty
         lazygit
         media
+        mimeApps
         niri
         noctalia
         neovim
@@ -61,18 +62,6 @@
           LC_TIME = "de_DE.UTF-8";
           LC_NUMERIC = "de_DE.UTF-8";
           LC_MONETARY = "de_DE.UTF-8";
-        };
-      };
-
-      xdg.mimeApps = {
-        enable = true;
-        defaultApplications = {
-          "application/pdf" = "${config.home.sessionVariables.BROWSER}.desktop";
-          "image/png" = "oculante.desktop";
-          "image/jpeg" = "oculante.desktop";
-          "image/webp" = "oculante.desktop";
-          "image/gif" = "oculante.desktop";
-          "x-schema-handler/mailto" = "${config.home.sessionVariables.EMAIL}.desktop";
         };
       };
 
