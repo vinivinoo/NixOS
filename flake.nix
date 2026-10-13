@@ -29,10 +29,6 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zennotes = {
-      url = "github:ZenNotes/zennotes";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
   };

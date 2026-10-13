@@ -27,6 +27,8 @@
         niri
         noctalia
         neovim
+        obsidian
+        opencode
         prismlauncher
         rclone
         starship
@@ -51,7 +53,7 @@
           EDITOR = "nvim";
           TERMINAL = "ghostty";
           EMAIL = "thunderbird";
-          NOTES = "zennotes-desktop";
+          NOTES = "obsidian";
 
           LANG = "en_US.UTF-8";
           LC_TIME = "de_DE.UTF-8";

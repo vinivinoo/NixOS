@@ -297,8 +297,7 @@
         "noctalia": "noctalia",
         "nvf": "nvf",
         "wrapper-modules": "wrapper-modules",
-        "zen-browser": "zen-browser",
-        "zennotes": "zennotes"
+        "zen-browser": "zen-browser"
       }
     },
     "wrapper-modules": {
@@ -370,26 +369,6 @@
       "original": {
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "type": "github"
-      }
-    },
-    "zennotes": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1791854634,
-        "narHash": "sha256-Z0EwfShqamjeY8JNFlmYbcNa1d/19b2svqb2jJQHq/c=",
-        "owner": "ZenNotes",
-        "repo": "zennotes",
-        "rev": "ef4115e8e5ce43719cb776071edd155da8c0511b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ZenNotes",
-        "repo": "zennotes",
         "type": "github"
       }
     }

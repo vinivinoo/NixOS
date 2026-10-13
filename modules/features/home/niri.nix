@@ -191,7 +191,7 @@
             }
             {
               matches = [
-                { app-id = "zennotes"; }
+                { app-id = "${config.home.sessionVariables.NOTES}"; }
               ];
               open-on-workspace = "2";
               open-maximized = true;
@@ -242,6 +242,10 @@
             "mod+e" = {
               hotkey-overlay.title = "file manager: nautilus";
               action.spawn = [ "nautilus" ];
+            };
+            "mod+n" = {
+              hotkey-overlay.title = "open notes";
+              action.spawn = [ "${config.home.sessionVariables.NOTES}" ];
             };
             # ─── audio controls ───
             "xf86audioraisevolume" = {

@@ -16,7 +16,6 @@
       rclone
       openconnect
       thunderbird
-      inputs.zennotes.packages.${pkgs.system}.default
     ];
   };
 }
