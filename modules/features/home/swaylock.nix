@@ -3,9 +3,13 @@
   flake.homeModules.swaylock = { config, pkgs, lib, ... }: {
     catppuccin.swaylock.enable = true;
 
+    home.packages = with pkgs; [
+      swaylock-effects
+    ];
+
     programs.swaylock = {
       enable = true;
-      package = lib.getExe pkgs.swaylock-effects;
+      package = pkgs.swaylock-effects;
       settings = {
         image = "${config.xdg.userDirs.pictures}/Wallpapers/line-crust.png";
         clock = true;
