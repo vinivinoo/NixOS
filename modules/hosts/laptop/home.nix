@@ -16,11 +16,10 @@
         btop
         catppuccin
         cliTools
-        cursor
         fonts
         git
+        gtk
         helix
-        iconTheme
         kitty
         lazygit
         media

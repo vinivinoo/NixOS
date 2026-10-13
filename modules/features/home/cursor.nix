@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.cursor = { pkgs, ... }: {
+  flake.homeModules.cursorTheme = { pkgs, ... }: {
     home.packages = with pkgs; [
       bibata-cursors
     ];
