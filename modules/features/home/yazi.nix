@@ -23,7 +23,7 @@
             {
               run = "${config.home.sessionVariables.EDITOR} \"$@\"";
               block = true;
-              desc = "Neovim";
+              desc = "Open in Editor";
             }
           ];
           picture = [
