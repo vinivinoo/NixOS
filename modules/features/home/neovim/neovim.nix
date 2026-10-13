@@ -1,14 +1,18 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.neovim = { pkgs }: {
+  flake.homeModules.neovim = { pkgs, ... }: {
     programs.neovim = {
       enable = true;
       defaultEditor = true;
       vimAlias = true;
       viAlias = true;
+
+      # NOTE: to silence Legacy Warning
+      withRuby = false;
+      withPython3 = false;
     };
 
-    extraPackages = with pkgs; [
+    home.packages = with pkgs; [
       bat
       fd
       fzf
@@ -23,7 +27,7 @@
       lua55Packages.luacheck
 
       # nix
-      nixld
+      nixd
       nixfmt
     ];
 

@@ -35,7 +35,6 @@
       vesktop
       yazi
       work
-      zedEditor
       zenBrowser
       zsh
     ];

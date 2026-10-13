@@ -27,12 +27,6 @@
       oculante
       nautilus
 
-      # media
-      spotify
-      signal-desktop
-      vesktop
-      prismlauncher
-
       # cursor
       bibata-cursors
 	

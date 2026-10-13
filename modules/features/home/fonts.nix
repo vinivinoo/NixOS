@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.fonts = { pkgs }: {
+  flake.homeModules.fonts = { pkgs, ... }: {
 
     home.packages = with pkgs; [
       fira-sans
