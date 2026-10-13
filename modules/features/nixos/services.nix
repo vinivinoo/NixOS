@@ -1,54 +1,11 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.services = {
-    services = {
-      pipewire = {
-        enable = true;
-        pulse.enable = true;
+  flake.nixosModules.xserver = {
+    services.xserver = {
+      enable = true;
+      xkb = {
+        layout = "de";
       };
-
-      openssh = {
-        enable = true;
-        ports = [ 443 ];
-      };
-
-      blueman = {
-        enable = true;
-      };
-
-      xserver = {
-        enable = true;
-        xkb = {
-          layout = "de";
-        };
-      };
-
-      keyd = {
-        enable = true;
-        keyboards.default = {
-          ids = [ "*" ];
-          settings = {
-            main = {
-              capslock = "overload(control, esc)";
-            };
-          };
-        };
-      };
-
-      gvfs = {
-        enable = true;
-      };
-
-      displayManager.sddm = {
-        enable = true;
-        # enable xserver instead of wayland to enable cursor
-        wayland.enable = true;
-      };
-
-      power-profiles-daemon.enable = true;
-      upower.enable = true;
     };
-
-    hardware.bluetooth.enable = true;
   };
 }

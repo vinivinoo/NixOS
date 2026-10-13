@@ -6,9 +6,9 @@
     };
 
     home.packages = with pkgs; [
-      temurin-jre-8
-      temurin-jre-17
-      temurin-jre-21
+      # temurin-bin-8
+      # temurin-bin-17
+      temurin-bin-21
     ];
   };
 }

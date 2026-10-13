@@ -2,18 +2,24 @@
   self,
   inputs,
   ...
-}: {
-  flake.nixosModules.laptopConfiguration = {inputs, ...}: {
+}:
+{
+  flake.nixosModules.laptopConfiguration = { inputs, ... }: {
     imports = with self.nixosModules; [
       laptopHardware
+      blueman
       boot
       catppuccin
       hardware
+      keyd
       networks
       nix
       nixosPackages
+      openssh
       programs
-      services
+      pipewire
+      sddm
+      xserver
       users
     ];
 
@@ -28,10 +34,6 @@
     console = {
       keyMap = "de";
     };
-
-    nixpkgs.config.permittedInsecurePackages = [
-      "electron-40.10.5"
-    ];
 
     environment.pathsToLink = [
       "/share/applications"

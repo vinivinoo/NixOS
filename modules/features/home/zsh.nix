@@ -20,12 +20,10 @@
         rb = "sudo nixos-rebuild switch --flake ${flakeDir}#laptop";
         rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#laptop --no-reexec";
         upd = "nix flake update --flake ${flakeDir}";
-	vi = "nvim";
 
         conf = "${config.home.sessionVariables.EDITOR} ${flakeDir}";
 
         c = "clear";
-        # cat = "bat";
         ls = "eza";
         la = "eza -lA";
       };
