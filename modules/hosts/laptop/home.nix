@@ -16,6 +16,7 @@
         btop
         catppuccin
         cliTools
+        fastfetch
         fonts
         git
         gtk
