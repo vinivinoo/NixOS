@@ -3,14 +3,14 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.users = {pkgs, ...}: {
+  flake.nixosModules.users = { pkgs, lib, ...}: {
     users.users.vini = {
       isNormalUser = true;
       extraGroups = [
         "wheel"
         "networkmanager"
       ];
-      shell = pkgs.zsh;
+      shell = lib.getExe pkgs.zsh;
     };
   };
 }

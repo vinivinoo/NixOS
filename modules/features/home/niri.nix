@@ -118,7 +118,7 @@
               command = [ "noctalia" ];
             }
             {
-              command = [ "${lib.getExe pkgs.xwayland-satellite}" ];
+              command = [ "xwayland-satellite" ];
             }
           ];
 
