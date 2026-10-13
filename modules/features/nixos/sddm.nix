@@ -1,8 +1,10 @@
 { self, inputs, ... }: {
-  flake.nixosModules.sddm = {
+  flake.nixosModules.sddm = { pkgs, ... }: {
     services.displayManager.sddm = {
       enable = true;
-      wayland.enable = true;
     };
+
+    # NOTE: needs to be set so sddm can start niri
+    programs.niri.enable = true;
   };
 }
