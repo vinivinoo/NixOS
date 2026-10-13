@@ -23,9 +23,11 @@
 
         swaynotificationcenter
         awww
+        wl-clipboard
 
         oculante
         nautilus
+
       ];
 
       programs.niri = {

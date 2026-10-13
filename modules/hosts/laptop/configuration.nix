@@ -10,15 +10,15 @@
       blueman
       boot
       catppuccin
-      gaming
       hardware
       keyd
       networks
       nix
-      nixosPackages
       openssh
       pipewire
+      power
       sddm
+      steam
       xserver
       xwayland
       users

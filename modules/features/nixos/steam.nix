@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.gaming = {
+  flake.nixosModules.steam = {
     programs.steam = {
       enable = true;
     };

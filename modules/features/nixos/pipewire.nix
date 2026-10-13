@@ -1,5 +1,10 @@
 { self, inputs, ... }: {
-  flake.nixosModules.pipewire = {
+  flake.nixosModules.pipewire = { pkgs, ... }: {
+
+    environment.systemPackages = with pkgs; [
+      pwvucontrol
+    ];
+
     services.pipewire = {
       enable = true;
       pulse.enable = true;
