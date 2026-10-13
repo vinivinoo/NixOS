@@ -17,10 +17,10 @@
       nix
       nixosPackages
       openssh
-      programs
       pipewire
       sddm
       xserver
+      xwayland
       users
     ];
 
