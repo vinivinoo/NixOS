@@ -172,6 +172,16 @@
               # };
               clip-to-geometry = true;
             }
+            # NOTE: needed to make ghostty have blur           
+            {
+              matches = [
+                { app-id = "com.mitchellh.ghostty"; }
+              ];
+              background-effect = {
+                blur = true;
+                xray = false;
+              };
+            }
             {
               matches = [
                 { app-id = "${config.home.sessionVariables.BROWSER}"; }

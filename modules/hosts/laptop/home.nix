@@ -20,8 +20,7 @@
         fonts
         git
         gtk
-        helix
-        kitty
+        ghostty
         lazygit
         media
         mimeApps
@@ -50,7 +49,7 @@
         sessionVariables = {
           BROWSER = "zen-beta";
           EDITOR = "nvim";
-          TERMINAL = "kitty";
+          TERMINAL = "ghostty";
           EMAIL = "thunderbird";
           NOTES = "zennotes-desktop";
 

@@ -15,73 +15,73 @@
         };
         modules = [
           {
-            key = "╭───────────╮";
+            key = "{#34}╭───────────╮{#keys}";
             type = "custom";
           }
           {
-            key = "│ {#31} user    {#keys}│";
+            key = "{#34}│{#keys} {#31} user    {#keys}{#34}│{#keys}";
             type = "title";
             format = "{user-name}";
           }
           {
-            key = "│ {#32}󰇅 hname   {#keys}│";
+            key = "{#34}│{#keys} {#32}󰇅 hname   {#keys}{#34}│{#keys}";
             type = "title";
             format = "{host-name}";
           }
           {
-            key = "│ {#33}󰅐 uptime  {#keys}│";
+            key = "{#34}│{#keys} {#33}󰅐 uptime  {#keys}{#34}│{#keys}";
             type = "uptime";
           }
           {
-            key = "│ {#34}{icon} distro  {#keys}│";
+            key = "{#34}│{#keys} {#34}{icon} distro  {#keys}{#34}│{#keys}";
             type = "os";
           }
           {
-            key = "│ {#35} kernel  {#keys}│";
+            key = "{#34}│{#keys} {#35} kernel  {#keys}{#34}│{#keys}";
             type = "kernel";
           }
           {
-            key = "│ {#36}󰇄 desktop {#keys}│";
+            key = "{#34}│{#keys} {#36}󰇄 desktop {#keys}{#34}│{#keys}";
             type = "de";
           }
           {
-            key = "│ {#31} term    {#keys}│";
+            key = "{#34}│{#keys} {#31} term    {#keys}{#34}│{#keys}";
             type = "terminal";
           }
           {
-            key = "│ {#32} shell   {#keys}│";
+            key = "{#34}│{#keys} {#32} shell   {#keys}{#34}│{#keys}";
             type = "shell";
           }
           {
-            key = "│ {#33}󰍛 cpu     {#keys}│";
+            key = "{#34}│{#keys} {#33}󰍛 cpu     {#keys}{#34}│{#keys}";
             type = "cpu";
             showPeCoreCount = true;
           }
           {
-            key = "│ {#34}󰉉 disk    {#keys}│";
+            key = "{#34}│{#keys} {#34}󰉉 disk    {#keys}{#34}│{#keys}";
             type = "disk";
             folders = "/";
           }
           {
-            key = "│ {#35} memory  {#keys}│";
+            key = "{#34}│{#keys} {#35} memory  {#keys}{#34}│{#keys}";
             type = "memory";
           }
           {
-            key = "│ {#36}󰩟 network {#keys}│";
+            key = "{#34}│{#keys} {#36}󰩟 network {#keys}{#34}│{#keys}";
             type = "localip";
             format = "{ipv4} ({ifname})";
           }
           {
-            key = "├───────────┤";
+            key = "{#34}├───────────┤{#keys}";
             type = "custom";
           }
           {
-            key = "│ {#39} colors  {#keys}│";
+            key = "{#34}│{#keys} {#39} colors  {#keys}{#34}│{#keys}";
             type = "colors";
             symbol = "circle";
           }
           {
-            key = "╰───────────╯";
+            key = "{#34}╰───────────╯{#keys}";
             type = "custom";
           }
         ];

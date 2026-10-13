@@ -19,7 +19,7 @@
             widget_spacing = 6;
             margin_ends = 2;
             margin_edge = 2;
-            font_family = "Fira Sans";
+            font_family = "JetBrainsMono Nerd Font Propo";
             padding = 5;
             start = [
               "clock"

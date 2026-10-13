@@ -7,6 +7,7 @@ return {
     require("mini.move").setup()
     require("mini.pairs").setup()
     require("mini.icons").setup()
+    require("mini.sessions").setup()
     require("mini.splitjoin").setup()
     require("mini.surround").setup()
   end,

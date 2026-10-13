@@ -6,6 +6,12 @@
       yazi
     ];
 
+    catppuccin.yazi.enable = false;
+    home.file = {
+      "/home/vini/.config/yazi/theme.toml".source = ./theme.toml;
+      "/home/vini/.config/yazi/Catppuccin_Mocha-tmTheme".source = ./Catppuccin_Mocha.tmTheme;
+    
+
     programs.yazi = {
       enable = true;
       shellWrapperName = "y";
