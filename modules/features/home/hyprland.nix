@@ -1,8 +1,13 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.hyprland = { config, ... }: {
+  flake.homeModules.hyprland = { config, pkgs, ... }: {
     wayland.windowManager.hyprland = {
       enable = true;
+
+      home.packages = with pkgs; [
+        xdg-desktop-portal-hyprland
+      ];
+
       xwayland.enable = true;
       configType = "lua";
       settings = {

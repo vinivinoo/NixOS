@@ -20,16 +20,14 @@
         fonts
         git
         helix
+        iconTheme
         kitty
         lazygit
         media
         niri
         noctalia
-        # nvf
         neovim
-        packages
         prismlauncher
-        pl
         rclone
         starship
         swaylock

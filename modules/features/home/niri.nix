@@ -13,6 +13,21 @@
         inputs.niri.homeModules.niri
       ];
 
+      home.packages = with pkgs; [
+        # NOTE: for Screenshots 
+        grim
+        slurp
+
+        libnotify
+        libdisplay-info
+
+        swaynotificationcenter
+        awww
+
+        oculante
+        nautilus
+      ];
+
       programs.niri = {
         enable = true;
 
