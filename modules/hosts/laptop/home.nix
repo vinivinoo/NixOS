@@ -12,16 +12,18 @@
       bat
       btop
       catppuccin
-      cursor
       cliTools
+      cursor
       fonts
       git
       helix
       kitty
       lazygit
+      media
       niri
       noctalia
       # nvf
+      neovim
       packages
       prismlauncher
       pl
@@ -32,6 +34,7 @@
       userDirs
       vesktop
       yazi
+      work
       zedEditor
       zenBrowser
       zsh

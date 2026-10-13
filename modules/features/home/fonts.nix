@@ -1,6 +1,16 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.fonts = {
+  flake.homeModules.fonts = { pkgs }: {
+
+    home.packages = with pkgs; [
+      fira-sans
+      nerd-fonts.fira-code
+      dejavu_fonts
+      noto-fonts-color-emoji
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
+    ];
+
     fonts.fontconfig = {
       enable = true;
       defaultFonts = {

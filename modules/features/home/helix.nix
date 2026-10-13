@@ -1,6 +1,10 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.helix = {
+  flake.homeModules.helix = { pkgs }: {
+    home.packages = with pkgs; [
+      helix
+    ];
+
     programs.helix = {
       enable = true;
       settings = {

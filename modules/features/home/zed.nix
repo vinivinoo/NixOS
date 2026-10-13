@@ -1,6 +1,11 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.zedEditor = {
+  flake.homeModules.zedEditor = { pkgs }: {
+
+    home.packages = with pkgs; [
+      zed
+    ];
+
     programs.zed-editor = {
       enable = false;
       extensions = [ "Nix" ];

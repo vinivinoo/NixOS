@@ -2,7 +2,6 @@
 
   flake.homeModules.cliTools = { pkgs, ... }: {
     home.packages = with pkgs; [
-      bat
       btop
       eza
       fastfetch
@@ -12,7 +11,6 @@
       ripgrep
       starship
       tmux
-      tree-sitter
       tree
       yazi
       zip
