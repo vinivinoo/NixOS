@@ -7,7 +7,9 @@
         enable32Bit = true;
       };
     };
-    power-profiles-daemon.enable = true;
-    upower.enable = true;
+    services = {
+      power-profiles-daemon.enable = true;
+      upower.enable = true;
+    };
   };
 }

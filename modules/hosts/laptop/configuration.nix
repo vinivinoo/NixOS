@@ -10,6 +10,7 @@
       blueman
       boot
       catppuccin
+      gaming
       hardware
       keyd
       networks

@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.networks = { pkgs }: {
+  flake.nixosModules.networks = { pkgs, ... }: {
     networking = {
       networkmanager = {
         enable = true;
