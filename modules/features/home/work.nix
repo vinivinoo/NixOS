@@ -12,6 +12,7 @@
       # work
       anki-bin
       geteduroam
+      localsend
       libreoffice
       rclone
       openconnect
