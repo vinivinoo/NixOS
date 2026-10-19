@@ -1,10 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.noctalia = { inputs, pkgs, ... }: {
-    imports = [
-      inputs.noctalia.homeModules.default
-    ];
-
+  flake.homeModules.noctalia = { inputs, pkgs, config, ... }: {
     programs.noctalia = {
       enable = true;
       settings = {
@@ -22,14 +18,15 @@
             font_family = "JetBrainsMono Nerd Font Propo";
             padding = 5;
             start = [
-              "clock"
+              "launcher"
+              "workspaces"
               "weather"
               "active_window"
               "media"
             ];
 
             center = [
-              "workspaces"
+              "clock"
             ];
 
             end = [
@@ -37,16 +34,28 @@
               "notifications"
               "bluetooth"
               "network"
-              "battery"
-              "volume"
+              "group:g1"
               "brightness"
+              "volume"
+              "battery"
               "control-center"
+            ];
+
+            capsule_group = [
+              {
+                id = "g1";
+                members = [
+                  "cpu"
+                  "ram"
+                  "temp"
+                ];
+              }
             ];
           };
         };
         widget = {
           clock = {
-            format = "{:%H:%M %a, %d %b}";
+            format = "{:%A, %d %b - %H:%M:%S}";
           };
           active_window = {
             min_length = 0;
@@ -66,11 +75,20 @@
             ];
           };
           control-center = {
-            custorm_image = "../../../config/logos/NixOS.svg";
+            custorm_image = "${config.home.homeDirectory}/nixos/config/logos/NixOS.svg";
             custom_image_colorize = false;
           };
           network = {
             show_label = false;
+          };
+          cpu = {
+            show_value = false;
+          };
+          ram = {
+            show_value = false;
+          };
+          temp = {
+            show_value = false;
           };
         };
 
@@ -107,9 +125,9 @@
 
         wallpaper = {
           enabled = true;
-          directory = "/home/vini/Pictures/Wallpapers";
-          directory_dark = "/home/vini/Pictures/Wallpapers";
-          default.path = "/home/vini/Pictures/Wallpapers/makko-wallpaper.png";
+          directory = "${config.home.homeDirectory}/Pictures/Wallpapers";
+          directory_dark = "${config.home.homeDirectory}/Pictures/Wallpapers";
+          default.path = "${config.home.homeDirectory}/Pictures/Wallpapers/makko-wallpaper.png";
         };
 
         theme = {
