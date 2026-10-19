@@ -42,7 +42,7 @@
       };
       Timer = {
         OnBootSec = "2m";
-        OnUnitActiveSec = "10m";
+        OnUnitActiveSec = "2m";
         Unit = "vinis-vault-sync.service";
       };
       Install = {
