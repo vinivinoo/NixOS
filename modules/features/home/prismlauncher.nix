@@ -2,6 +2,12 @@
   flake.homeModules.prismlauncher = { pkgs, ... }: {
     programs.prismlauncher = {
       enable = true;
+      package = pkgs.prismlauncher.overrideAttrs (old: {
+        qtWrapperArgs = (old.qtWrapperArgs or []) ++ [ "--set SDL_VIDEO_DRIVER wayland" ];
+      });
+      settings = {
+        Env = ''{\"SDL_VIDEO_DRIVER\":\"wayland\"}'';
+      };
     };
 
     home.packages = with pkgs; [
