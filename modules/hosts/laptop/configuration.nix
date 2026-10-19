@@ -19,9 +19,10 @@
       power
       sddm
       steam
+      users
+      videoDrivers
       xserver
       xwayland
-      users
     ];
 
     networking.hostName = "thinkpad-t14";
