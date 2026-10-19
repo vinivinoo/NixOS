@@ -5,6 +5,9 @@
       inputs.catppuccin.homeModules.catppuccin
     ];
 
+    # NOTE: enable to silence evaluation warning, because catppuccin hasn't updated yet 
+    home.pointerCursor.enable = true;
+
     catppuccin = {
       enable = true;
       autoEnable = true;
