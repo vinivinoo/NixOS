@@ -1,0 +1,29 @@
+{ self, inputs, ... }: {
+
+  flake.homeModules.swaylock = { config, pkgs, lib, ... }: {
+    catppuccin.swaylock.enable = true;
+
+    home.packages = with pkgs; [
+      swaylock-effects
+    ];
+
+    programs.swaylock = {
+      enable = true;
+      package = pkgs.swaylock-effects;
+      settings = {
+        image = "${config.xdg.userDirs.pictures}/Wallpapers/line-crust.png";
+        clock = true;
+        daemonize = true;
+        # effect-blur = "3x5";
+        # effect-vignette = "0.5:0.5";
+        font = "FiraCode Nerd Font Mono";
+        font-size = 24;
+        ignore-empty-password = true;
+        indicator = true;
+        indicator-idle-visible = false;
+        indicator-radius = 100;
+        indicator-thickness = 7;
+      };
+    };
+  };
+}

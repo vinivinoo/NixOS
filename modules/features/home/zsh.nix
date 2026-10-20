@@ -1,0 +1,72 @@
+{
+  self,
+  inputs,
+  ...
+}: {
+  flake.homeModules.zsh = {
+    config,
+    pkgs,
+    ...
+  }: {
+    programs.zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+
+      shellAliases = let
+        flakeDir = "${config.home.homeDirectory}/nixos";
+      in {
+        rb = "sudo nixos-rebuild switch --flake ${flakeDir}#laptop";
+        rbf = "sudo nixos-rebuild switch --flake ${flakeDir}#laptop --no-reexec";
+        upd = "nix flake update --flake ${flakeDir}";
+
+        conf = "${config.home.sessionVariables.EDITOR} ${flakeDir}";
+
+        c = "clear";
+        ls = "eza";
+        la = "eza -lA";
+      };
+
+      history.size = 5000;
+      history.path = "${config.home.homeDirectory}/.zsh_history";
+
+      initContent = ''
+        if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+           exec niri
+        fi
+
+        cdf() {
+          local dir
+          dir=$(find . -type d | fzf) && cd "$dir"
+        }
+
+        export PATH="/home/vini/.local/bin:$PATH"
+
+        function y() {
+          local tmp="$(mktemp -t 'yazi-cwd.XXXXXX')"
+          yazi "$@" --cwd-file="$tmp"
+          if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            builtin cd -- "$cwd"
+          fi
+          rm -f -- "$tmp"
+        }
+
+
+        man() {
+          command man "$@" | bat -l man -p
+        }
+
+        bindkey '^f' autosuggest-accept
+        bindkey '^p' history-search-backward
+        bindkey '^n' history-search-forward
+
+        eval "$(starship init zsh)"
+        eval "$(zoxide init zsh --cmd cd)"
+        eval "$(fzf --zsh)"
+        
+        fastfetch
+      '';
+    };
+  };
+}
