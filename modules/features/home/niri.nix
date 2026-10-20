@@ -1,4 +1,5 @@
-{ self, inputs, ... }: {
+{ self, inputs, ... }:
+{
 
   flake.homeModules.niri =
     {
@@ -9,12 +10,8 @@
       ...
     }:
     {
-      imports = [
-        inputs.niri.homeModules.niri
-      ];
-
       home.packages = with pkgs; [
-        # NOTE: for Screenshots 
+        # NOTE: for Screenshots
         grim
         slurp
 
@@ -30,88 +27,33 @@
 
       ];
 
-      programs.niri = {
+      # NOTE: wayland.windowManager.niri.settings is a freeform KDL generator:
+      #   attr name            -> KDL node
+      #   scalar value         -> one argument           (gaps = 4;      => gaps 4)
+      #   { }                  -> flag node, no argument (tap = { };     => tap)
+      #   _args / _props       -> arguments / properties of that node
+      #   _children = [ {…} ]  -> ordered / repeated nodes (output, workspace, window-rule, ...)
+      #   list of attrsets     -> NOT repeated nodes, rendered as `-` children (invalid for niri)
+      #   list of scalars      -> several args on ONE node
+      wayland.windowManager.niri = {
         enable = true;
 
         settings = {
           input = {
-            keyboard = {
-              xkb = {
-                layout = "de,se";
-              };
-            };
+            keyboard.xkb.layout = "de,se";
 
             touchpad = {
-              tap = true;
-              dwt = true;
-              natural-scroll = true;
+              tap = { };
+              dwt = { };
+              natural-scroll = { };
             };
 
-            mouse = {
-              accel-speed = 0.0;
-            };
+            mouse.accel-speed = 0.0;
 
-            focus-follows-mouse.enable = true;
+            focus-follows-mouse = { };
           };
 
-          outputs = {
-            "eDP-1" = {
-              mode = {
-                width = 1920;
-                height = 1200;
-                refresh = 60.0;
-              };
-              scale = 1.0;
-              position = {
-                x = 0;
-                y = 0;
-              };
-            };
-            # "HDMI-A-1" = {
-            #   mode = {
-            #     width = 2560;
-            #     height = 1440;
-            #     refresh = 74.780;
-            #   };
-            #   scale = 1.0;
-            #   position = {
-            #     x = 0;
-            #     y = -1440;
-            #   };
-            # };
-
-            # D120 Monitore
-            "PNP(AOC) U27B3AF ZXLQ8HA004111" = {
-              mode = {
-                width = 3840;
-                height = 2160;
-                refresh = 60.0;
-              };
-              scale = 1.5;
-              position = {
-                x = 0;
-                y = -1440;
-              };
-            };
-
-            # C-Pool Monitore
-            "Lenovo Group Limited P27QD-40 VNACFDXA" = {
-              mode = {
-                width = 2560;
-                height = 1440;
-                refresh = 119.998;
-              };
-              scale = 1.0;
-              position = {
-                x = 0;
-                y = -1440;
-              };
-            };
-          };
-
-          gestures = {
-            hot-corners.enable = false;
-          };
+          gestures.hot-corners.off = { };
 
           layout = {
             gaps = 4;
@@ -120,9 +62,9 @@
 
             focus-ring = {
               width = 2;
-              active.color = "#b4befe";
-              inactive.color = "#1e1e2e";
-              urgent.color = "#9b0000";
+              active-color = "#b4befe";
+              inactive-color = "#1e1e2e";
+              urgent-color = "#9b0000";
             };
 
             default-column-width.proportion = 0.5;
@@ -130,326 +72,373 @@
             struts = { };
           };
 
-          spawn-at-startup = [
-            {
-              command = [ "noctalia" ];
-            }
-            {
-              command = [ "xwayland-satellite" ];
-            }
-          ];
-
-          prefer-no-csd = true;
+          prefer-no-csd = { };
           screenshot-path = null; # Echter null-Wert statt String
 
+          # NOTE: environment variable names are case-sensitive
           environment = {
-            electron_ozone_platform_hint = "auto";
-            qt_qpa_platform = "wayland";
-            qt_wayland_disable_windowdecoration = "1";
-            xdg_session_type = "wayland";
-            xdg_current_desktop = "niri";
-            qt_qpa_platformtheme = "gtk3";
+            ELECTRON_OZONE_PLATFORM_HINT = "auto";
+            QT_QPA_PLATFORM = "wayland";
+            QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+            XDG_SESSION_TYPE = "wayland";
+            XDG_CURRENT_DESKTOP = "niri";
+            QT_QPA_PLATFORMTHEME = "gtk3";
           };
 
-          debug = {
-            honor-xdg-activation-with-invalid-serial = { };
-          };
+          debug.honor-xdg-activation-with-invalid-serial = { };
 
-          hotkey-overlay = {
-            skip-at-startup = true;
-          };
+          hotkey-overlay.skip-at-startup = { };
 
           # Animations-Block entfernt, da er den Niri-Defaults entsprach
           # und Obsolete-Warnungen erzeugt hat.
 
-          window-rules = [
+          # Repeated nodes (spawn-at-startup, workspace, output, window-rule, layer-rule)
+          # go into the ordered `_children` list; rule order is preserved.
+          _children = [
+            { spawn-at-startup._args = [ "noctalia" ]; }
+            { spawn-at-startup._args = [ "xwayland-satellite" ]; }
+
+            # NOTE: open-on-workspace only works for *named* workspaces
+            { workspace._args = [ "1" ]; }
+            { workspace._args = [ "2" ]; }
+            { workspace._args = [ "3" ]; }
+
             {
-              # geometry-corner-radius = {
-              #   top-left = 20.0;
-              #   top-right = 20.0;
-              #   bottom-left = 20.0;
-              #   bottom-right = 20.0;
-              # };
-              clip-to-geometry = true;
+              output = {
+                _args = [ "eDP-1" ];
+                mode = "1920x1200@60.000";
+                scale = 1.0;
+                position._props = {
+                  x = 0;
+                  y = 0;
+                };
+              };
             }
-            # NOTE: needed to make ghostty have blur           
+            # {
+            #   output = {
+            #     _args = [ "HDMI-A-1" ];
+            #     mode = "2560x1440@74.780";
+            #     scale = 1.0;
+            #     position._props = {
+            #       x = 0;
+            #       y = -1440;
+            #     };
+            #   };
+            # }
+
+            # # D120 Monitore
+            # {
+            #   output = {
+            #     _args = [ "PNP(AOC) U27B3AF ZXLQ8HA004111" ];
+            #     mode = "3840x2160@60.000";
+            #     scale = 1.5;
+            #     position._props = {
+            #       x = 0;
+            #       y = -1440;
+            #     };
+            #   };
+            # }
+
+            # # C-Pool Monitore
+            # {
+            #   output = {
+            #     _args = [ "Lenovo Group Limited P27QD-40 VNACFDXA" ];
+            #     mode = "2560x1440@119.998";
+            #     scale = 1.0;
+            #     position._props = {
+            #       x = 0;
+            #       y = -1440;
+            #     };
+            #   };
+            # }
+
             {
-              matches = [
-                { app-id = "com.mitchellh.ghostty"; }
-              ];
-              background-effect = {
-                blur = true;
-                xray = false;
+              window-rule = {
+                # geometry-corner-radius = {
+                #   top-left = 20.0;
+                #   top-right = 20.0;
+                #   bottom-left = 20.0;
+                #   bottom-right = 20.0;
+                # };
+                clip-to-geometry = true;
+              };
+            }
+            # NOTE: needed to make ghostty have blur
+            {
+              window-rule = {
+                match._props.app-id = "com.mitchellh.ghostty";
+                background-effect = {
+                  blur = true;
+                  xray = false;
+                };
               };
             }
             {
-              matches = [
-                { app-id = "${config.home.sessionVariables.BROWSER}"; }
-              ];
-              open-on-workspace = "1";
-              open-maximized = true;
+              window-rule = {
+                match._props.app-id = "${config.home.sessionVariables.BROWSER}";
+                open-on-workspace = "1";
+                open-maximized = true;
+              };
             }
             {
-              matches = [
-                { app-id = "${config.home.sessionVariables.NOTES}"; }
-              ];
-              open-on-workspace = "2";
-              open-maximized = true;
+              window-rule = {
+                match._props.app-id = "${config.home.sessionVariables.NOTES}";
+                open-on-workspace = "2";
+                open-maximized = true;
+              };
             }
             {
-              matches = [
-                { app-id = "vesktop"; }
-                { app-id = "Spotify"; }
+              # several matches in one rule -> nested _children
+              window-rule._children = [
+                { match._props.app-id = "vesktop"; }
+                { match._props.app-id = "Spotify"; }
+                { open-on-workspace = "3"; }
               ];
-              open-on-workspace = "3";
             }
-          ];
 
-          workspaces."1" = { };
-          workspaces."2" = { };
-          workspaces."3" = { };
-
-          layer-rules = [
             {
-              matches = [ { namespace = "^noctalia-wallpaper*"; } ];
-              place-within-backdrop = true;
+              layer-rule = {
+                match._props.namespace = "^noctalia-wallpaper*";
+                place-within-backdrop = true;
+              };
             }
           ];
 
           binds = {
             # ────────────── keybindings ──────────────
+            # bind properties (allow-when-locked, cooldown-ms, repeat, ...) go into _props,
+            # the action is the child node itself (no `action.` level)
 
             # ─── noctalia-shell keybinds ───
-            "mod+shift+escape".action.show-hotkey-overlay = { };
+            "Mod+Shift+Escape".show-hotkey-overlay = { };
 
             # ─── applications ───
-            "mod+return" = {
-              hotkey-overlay.title = "open terminal: ${config.home.sessionVariables.TERMINAL}";
-              action.spawn = [ "${config.home.sessionVariables.TERMINAL}" ];
+            "Mod+Return" = {
+              _props.hotkey-overlay-title = "open terminal: ${config.home.sessionVariables.TERMINAL}";
+              spawn = [ "${config.home.sessionVariables.TERMINAL}" ];
             };
-            "mod+space" = {
-              hotkey-overlay.title = "run an application: rofi";
-              action.spawn-sh = [ "noctalia msg panel-toggle launcher" ];
+            "Mod+Space" = {
+              _props.hotkey-overlay-title = "run an application: rofi";
+              spawn-sh = [ "noctalia msg panel-toggle launcher" ];
             };
-            "mod+b" = {
-              hotkey-overlay.title = "open browser: ${config.home.sessionVariables.BROWSER}";
-              action.spawn = [ "${config.home.sessionVariables.BROWSER}" ];
+            "Mod+B" = {
+              _props.hotkey-overlay-title = "open browser: ${config.home.sessionVariables.BROWSER}";
+              spawn = [ "${config.home.sessionVariables.BROWSER}" ];
             };
-            "mod+alt+l" = {
-              hotkey-overlay.title = "lock screen: swaylock";
-              action.spawn = [ "swaylock" ];
+            "Mod+Alt+L" = {
+              _props.hotkey-overlay-title = "lock screen: swaylock";
+              spawn = [ "swaylock" ];
             };
-            "mod+e" = {
-              hotkey-overlay.title = "file manager: nautilus";
-              action.spawn = [ "nautilus" ];
+            "Mod+E" = {
+              _props.hotkey-overlay-title = "file manager: nautilus";
+              spawn = [ "nautilus" ];
             };
-            "mod+n" = {
-              hotkey-overlay.title = "open notes";
-              action.spawn = [ "${config.home.sessionVariables.NOTES}" ];
-            };
-            # ─── audio controls ───
-            "xf86audioraisevolume" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0" ];
-            };
-            "xf86audiolowervolume" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-" ];
-            };
-            "xf86audiomute" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" ];
-            };
-            "xf86audiomicmute" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" ];
+            "Mod+N" = {
+              _props.hotkey-overlay-title = "open notes";
+              spawn = [ "${config.home.sessionVariables.NOTES}" ];
             };
 
-            "xf86audioplay" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "${lib.getExe pkgs.playerctl} play-pause" ];
+            # ─── audio controls ───
+            "XF86AudioRaiseVolume" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0" ];
             };
-            "xf86audiostop" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "${lib.getExe pkgs.playerctl} stop" ];
+            "XF86AudioLowerVolume" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-" ];
             };
-            "xf86audioprev" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "${lib.getExe pkgs.playerctl} previous" ];
+            "XF86AudioMute" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" ];
             };
-            "xf86audionext" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "${lib.getExe pkgs.playerctl} next" ];
+            "XF86AudioMicMute" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" ];
             };
-            "mod+shift+up" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "${lib.getExe pkgs.playerctl} play-pause" ];
+
+            "XF86AudioPlay" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "${lib.getExe pkgs.playerctl} play-pause" ];
             };
-            "mod+shift+down" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "${lib.getExe pkgs.playerctl} stop" ];
+            "XF86AudioStop" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "${lib.getExe pkgs.playerctl} stop" ];
             };
-            "mod+shift+left" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "${lib.getExe pkgs.playerctl} previous" ];
+            "XF86AudioPrev" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "${lib.getExe pkgs.playerctl} previous" ];
             };
-            "mod+shift+right" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "${lib.getExe pkgs.playerctl} next" ];
+            "XF86AudioNext" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "${lib.getExe pkgs.playerctl} next" ];
             };
-            "xf86monbrightnessup" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "${lib.getExe pkgs.brightnessctl} --class=backlight set +10%" ];
+            "Mod+Shift+Up" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "${lib.getExe pkgs.playerctl} play-pause" ];
             };
-            "xf86monbrightnessdown" = {
-              allow-when-locked = true;
-              action.spawn-sh = [ "${lib.getExe pkgs.brightnessctl} --class=backlight set 10%-" ];
+            "Mod+Shift+Down" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "${lib.getExe pkgs.playerctl} stop" ];
             };
-            "alt+shift+l" = {
-              action.switch-layout = "next";
+            "Mod+Shift+Left" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "${lib.getExe pkgs.playerctl} previous" ];
             };
+            "Mod+Shift+Right" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "${lib.getExe pkgs.playerctl} next" ];
+            };
+            "XF86MonBrightnessUp" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "${lib.getExe pkgs.brightnessctl} --class=backlight set +10%" ];
+            };
+            "XF86MonBrightnessDown" = {
+              _props.allow-when-locked = true;
+              spawn-sh = [ "${lib.getExe pkgs.brightnessctl} --class=backlight set 10%-" ];
+            };
+            "Alt+Shift+L".switch-layout = "next";
 
             # ─── window movement and focus ───
-            "mod+q".action.close-window = { };
+            "Mod+Q".close-window = { };
 
-            "mod+left".action.focus-column-left = { };
-            "mod+h".action.focus-column-left = { };
-            "mod+right".action.focus-column-right = { };
-            "mod+l".action.focus-column-right = { };
-            "mod+up".action.focus-window-up = { };
-            "mod+k".action.focus-window-up = { };
-            "mod+down".action.focus-window-down = { };
-            "mod+j".action.focus-window-down = { };
+            "Mod+Left".focus-column-left = { };
+            "Mod+H".focus-column-left = { };
+            "Mod+Right".focus-column-right = { };
+            "Mod+L".focus-column-right = { };
+            "Mod+Up".focus-window-up = { };
+            "Mod+K".focus-window-up = { };
+            "Mod+Down".focus-window-down = { };
+            "Mod+J".focus-window-down = { };
 
-            "mod+shift+h".action.move-column-left = { };
-            "mod+shift+l".action.move-column-right = { };
-            "mod+shift+k".action.move-window-up = { };
-            "mod+shift+j".action.move-window-down = { };
+            "Mod+Shift+H".move-column-left = { };
+            "Mod+Shift+L".move-column-right = { };
+            "Mod+Shift+K".move-window-up = { };
+            "Mod+Shift+J".move-window-down = { };
 
-            "mod+home".action.focus-column-first = { };
-            "mod+end".action.focus-column-last = { };
-            "mod+ctrl+home".action.move-column-to-first = { };
-            "mod+ctrl+end".action.move-column-to-last = { };
+            "Mod+Home".focus-column-first = { };
+            "Mod+End".focus-column-last = { };
+            "Mod+Ctrl+Home".move-column-to-first = { };
+            "Mod+Ctrl+End".move-column-to-last = { };
 
-            "mod+ctrl+left".action.focus-monitor-left = { };
-            "mod+ctrl+h".action.focus-monitor-left = { };
-            "mod+ctrl+right".action.focus-monitor-right = { };
-            "mod+ctrl+l".action.focus-monitor-right = { };
-            "mod+ctrl+up".action.focus-monitor-up = { };
-            "mod+ctrl+k".action.focus-monitor-up = { };
-            "mod+ctrl+down".action.focus-monitor-down = { };
-            "mod+ctrl+j".action.focus-monitor-down = { };
+            "Mod+Ctrl+Left".focus-monitor-left = { };
+            "Mod+Ctrl+H".focus-monitor-left = { };
+            "Mod+Ctrl+Right".focus-monitor-right = { };
+            "Mod+Ctrl+L".focus-monitor-right = { };
+            "Mod+Ctrl+Up".focus-monitor-up = { };
+            "Mod+Ctrl+K".focus-monitor-up = { };
+            "Mod+Ctrl+Down".focus-monitor-down = { };
+            "Mod+Ctrl+J".focus-monitor-down = { };
 
-            "mod+shift+ctrl+left".action.move-column-to-monitor-left = { };
-            "mod+shift+ctrl+h".action.move-column-to-monitor-left = { };
-            "mod+shift+ctrl+right".action.move-column-to-monitor-right = { };
-            "mod+shift+ctrl+l".action.move-column-to-monitor-right = { };
-            "mod+shift+ctrl+up".action.move-column-to-monitor-up = { };
-            "mod+shift+ctrl+k".action.move-column-to-monitor-up = { };
-            "mod+shift+ctrl+down".action.move-column-to-monitor-down = { };
-            "mod+shift+ctrl+j".action.move-column-to-monitor-down = { };
+            "Mod+Shift+Ctrl+Left".move-column-to-monitor-left = { };
+            "Mod+Shift+Ctrl+H".move-column-to-monitor-left = { };
+            "Mod+Shift+Ctrl+Right".move-column-to-monitor-right = { };
+            "Mod+Shift+Ctrl+L".move-column-to-monitor-right = { };
+            "Mod+Shift+Ctrl+Up".move-column-to-monitor-up = { };
+            "Mod+Shift+Ctrl+K".move-column-to-monitor-up = { };
+            "Mod+Shift+Ctrl+Down".move-column-to-monitor-down = { };
+            "Mod+Shift+Ctrl+J".move-column-to-monitor-down = { };
 
             # ─── workspace switching ───
-            "mod+wheelscrolldown" = {
-              cooldown-ms = 150;
-              action.focus-workspace-down = { };
+            "Mod+WheelScrollDown" = {
+              _props.cooldown-ms = 150;
+              focus-workspace-down = { };
             };
-            "mod+u" = {
-              cooldown-ms = 150;
-              action.focus-workspace-down = { };
+            "Mod+U" = {
+              _props.cooldown-ms = 150;
+              focus-workspace-down = { };
             };
-            "mod+wheelscrollup" = {
-              cooldown-ms = 150;
-              action.focus-workspace-up = { };
+            "Mod+WheelScrollUp" = {
+              _props.cooldown-ms = 150;
+              focus-workspace-up = { };
             };
-            "mod+i" = {
-              cooldown-ms = 150;
-              action.focus-workspace-up = { };
+            "Mod+I" = {
+              _props.cooldown-ms = 150;
+              focus-workspace-up = { };
             };
-            "mod+shift+wheelscrolldown" = {
-              cooldown-ms = 150;
-              action.move-column-to-workspace-down = { };
+            "Mod+Shift+WheelScrollDown" = {
+              _props.cooldown-ms = 150;
+              move-column-to-workspace-down = { };
             };
-            "mod+shift+u" = {
-              cooldown-ms = 150;
-              action.move-column-to-workspace-down = { };
+            "Mod+Shift+U" = {
+              _props.cooldown-ms = 150;
+              move-column-to-workspace-down = { };
             };
-            "mod+shift+wheelscrollup" = {
-              cooldown-ms = 150;
-              action.move-column-to-workspace-up = { };
+            "Mod+Shift+WheelScrollUp" = {
+              _props.cooldown-ms = 150;
+              move-column-to-workspace-up = { };
             };
-            "mod+shift+i" = {
-              cooldown-ms = 150;
-              action.move-column-to-workspace-up = { };
+            "Mod+Shift+I" = {
+              _props.cooldown-ms = 150;
+              move-column-to-workspace-up = { };
             };
 
-            "mod+wheelscrollright".action.focus-column-right = { };
-            "mod+wheelscrollleft".action.focus-column-left = { };
-            "mod+shift+wheelscrollright".action.move-column-right = { };
-            "mod+shift+wheelscrollleft".action.move-column-left = { };
+            "Mod+WheelScrollRight".focus-column-right = { };
+            "Mod+WheelScrollLeft".focus-column-left = { };
+            "Mod+Shift+WheelScrollRight".move-column-right = { };
+            "Mod+Shift+WheelScrollLeft".move-column-left = { };
 
-            "mod+ctrl+shift+wheelscrolldown".action.move-column-right = { };
-            "mod+ctrl+shift+wheelscrollup".action.move-column-left = { };
+            "Mod+Ctrl+Shift+WheelScrollDown".move-column-right = { };
+            "Mod+Ctrl+Shift+WheelScrollUp".move-column-left = { };
 
-            "mod+1".action.focus-workspace = [ 1 ];
-            "mod+2".action.focus-workspace = [ 2 ];
-            "mod+3".action.focus-workspace = [ 3 ];
-            "mod+4".action.focus-workspace = [ 4 ];
-            "mod+5".action.focus-workspace = [ 5 ];
-            "mod+6".action.focus-workspace = [ 6 ];
-            "mod+7".action.focus-workspace = [ 7 ];
-            "mod+8".action.focus-workspace = [ 8 ];
-            "mod+9".action.focus-workspace = [ 9 ];
+            "Mod+1".focus-workspace = 1;
+            "Mod+2".focus-workspace = 2;
+            "Mod+3".focus-workspace = 3;
+            "Mod+4".focus-workspace = 4;
+            "Mod+5".focus-workspace = 5;
+            "Mod+6".focus-workspace = 6;
+            "Mod+7".focus-workspace = 7;
+            "Mod+8".focus-workspace = 8;
+            "Mod+9".focus-workspace = 9;
 
-            "mod+shift+1".action.move-column-to-workspace = [ 1 ];
-            "mod+shift+2".action.move-column-to-workspace = [ 2 ];
-            "mod+shift+3".action.move-column-to-workspace = [ 3 ];
-            "mod+shift+4".action.move-column-to-workspace = [ 4 ];
-            "mod+shift+5".action.move-column-to-workspace = [ 5 ];
-            "mod+shift+6".action.move-column-to-workspace = [ 6 ];
-            "mod+shift+7".action.move-column-to-workspace = [ 7 ];
-            "mod+shift+8".action.move-column-to-workspace = [ 8 ];
-            "mod+shift+9".action.move-column-to-workspace = [ 9 ];
+            "Mod+Shift+1".move-column-to-workspace = 1;
+            "Mod+Shift+2".move-column-to-workspace = 2;
+            "Mod+Shift+3".move-column-to-workspace = 3;
+            "Mod+Shift+4".move-column-to-workspace = 4;
+            "Mod+Shift+5".move-column-to-workspace = 5;
+            "Mod+Shift+6".move-column-to-workspace = 6;
+            "Mod+Shift+7".move-column-to-workspace = 7;
+            "Mod+Shift+8".move-column-to-workspace = 8;
+            "Mod+Shift+9".move-column-to-workspace = 9;
 
-            "mod+tab".action.focus-workspace-previous = { };
+            "Mod+Tab".focus-workspace-previous = { };
 
             # ─── layout controls ───
-            "mod+ctrl+f".action.expand-column-to-available-width = { };
-            "mod+c".action.center-column = { };
-            "mod+ctrl+c".action.center-visible-columns = { };
-            "mod+minus".action.set-column-width = [ "-10%" ];
-            "mod+equal".action.set-column-width = [ "+10%" ];
-            "mod+shift+minus".action.set-window-height = [ "-10%" ];
-            "mod+shift+equal".action.set-window-height = [ "+10%" ];
+            "Mod+Ctrl+F".expand-column-to-available-width = { };
+            "Mod+C".center-column = { };
+            "Mod+Ctrl+C".center-visible-columns = { };
+            "Mod+Minus".set-column-width = "-10%";
+            "Mod+Equal".set-column-width = "+10%";
+            "Mod+Shift+Minus".set-window-height = "-10%";
+            "Mod+Shift+Equal".set-window-height = "+10%";
 
             # ─── modes ───
-            "mod+t".action.toggle-window-floating = { };
-            "mod+f".action.maximize-column = { };
-            "mod+shift+f".action.fullscreen-window = { };
-            "mod+w".action.toggle-column-tabbed-display = { };
+            "Mod+T".toggle-window-floating = { };
+            "Mod+F".maximize-column = { };
+            "Mod+Shift+F".fullscreen-window = { };
+            "Mod+W".toggle-column-tabbed-display = { };
 
             # ─── screenshots ───
-            "mod+s" = {
-              hotkey-overlay.title = "take a screenshot";
-              action.spawn-sh = [ "${config.home.homeDirectory}/.local/bin/screenshot.sh" ];
+            "Mod+S" = {
+              _props.hotkey-overlay-title = "take a screenshot";
+              spawn-sh = [ "${config.home.homeDirectory}/.local/bin/screenshot.sh" ];
             };
-            "mod+shift+s" = {
-              hotkey-overlay.title = "take a screenshot select";
-              action.spawn-sh = [ "${config.home.homeDirectory}/.local/bin/screenshot.sh select" ];
+            "Mod+Shift+S" = {
+              _props.hotkey-overlay-title = "take a screenshot select";
+              spawn-sh = [ "${config.home.homeDirectory}/.local/bin/screenshot.sh select" ];
             };
 
             # ─── emergency escape key ───
-            "mod+escape" = {
-              allow-inhibiting = false;
-              action.toggle-keyboard-shortcuts-inhibit = { };
+            "Mod+Escape" = {
+              _props.allow-inhibiting = false;
+              toggle-keyboard-shortcuts-inhibit = { };
             };
 
             # ─── exit / power ───
-            "ctrl+alt+delete".action.quit = { };
-            "mod+shift+p".action.power-off-monitors = { };
-            "mod+o" = {
-              repeat = false;
-              action.toggle-overview = { };
+            "Ctrl+Alt+Delete".quit = { };
+            "Mod+Shift+P".power-off-monitors = { };
+            "Mod+O" = {
+              _props.repeat = false;
+              toggle-overview = { };
             };
           };
         };
